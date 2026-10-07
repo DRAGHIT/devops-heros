@@ -1,0 +1,21 @@
+{
+  "scope": "LOCAL EMULATION ONLY",
+  "bucket_exists": true,
+  "public_access_block": {
+    "BlockPublicAcls": true,
+    "IgnorePublicAcls": true,
+    "BlockPublicPolicy": true,
+    "RestrictPublicBuckets": true
+  },
+  "encryption": {
+    "Rules": [
+      {
+        "ApplyServerSideEncryptionByDefault": {
+          "SSEAlgorithm": "AES256"
+        },
+        "BucketKeyEnabled": false
+      }
+    ]
+  },
+  "object_round_trip": "Local S3 round-trip verified. Not AWS.\n"
+}
