@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: aditya-s20-app, namespace: aditya-s20}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: aditya-s20-app}
+  template:
+    metadata:
+      labels: {app: aditya-s20-app}
+    spec:
+      containers:
+      - name: app
+        image: nginx:1.27
+        ports: [{containerPort: 80}]
+        readinessProbe:
+          httpGet: {path: /, port: 80}
+        resources:
+          requests: {cpu: 50m, memory: 32Mi}
+          limits: {cpu: 200m, memory: 64Mi}

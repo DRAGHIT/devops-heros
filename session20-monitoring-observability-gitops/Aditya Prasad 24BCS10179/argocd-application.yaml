@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: {name: aditya-session20, namespace: aditya-s20-argocd}
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/DRAGHIT/devops-heros.git
+    targetRevision: session-20
+    path: session20-monitoring-observability-gitops/Aditya Prasad 24BCS10179/app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: aditya-s20
+  syncPolicy:
+    automated: {prune: true, selfHeal: true}
+    syncOptions: [CreateNamespace=true]
