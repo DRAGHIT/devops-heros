@@ -46,9 +46,15 @@ The second response must contain the changed text without restarting the contain
 
 Docker's overlay driver connects containers across hosts using a distributed network. Swarm initializes/manages the hosts participating in the network. It is useful for multi-host services; an attachable overlay permits standalone containers to join as well. Docker documents required host-to-host ports and optional encrypted data-plane traffic. An ordinary bridge network is local to one host, not a substitute for multi-host overlay verification.
 
-## Actual status and remaining evidence
+## Actual Codespaces verification
 
-Implementation prepared only. Docker CLI/daemon are unavailable; none of the above Docker commands, connectivity probes, live host-network page, mount update or multi-host overlay was executed. No screenshots are fabricated. Capture screenshots/results for Tasks 1-3 on a Docker-enabled Linux machine, check every actual result and add them before calling this session complete. Do not run broad cleanup against other containers; remove only this exercise's resources.
+All three exercise containers ran. Backend-to-frontend and backend-to-database pings each returned two replies, zero packet loss. Frontend could not resolve the database on the separate network, confirming isolation. The initial probes failed despite correct DNS and attachments: the host had legacy FORWARD DROP rules alongside Docker's nft rules. Scoped temporary ACCEPT rules on the two lab bridges fixed same-network traffic. Those rules were removed with the exercise afterward, rather than disabling the host firewall globally.
+
+Apache with host networking returned its page on localhost:80. Nginx bind mount returned Hello students, then Hello students - updated after editing the host file without restarting. Actual responses and docker ps output are in [evidence/](evidence/). All exercise containers/networks were removed; site/index.html was restored.
+
+![Actual networking terminal output](evidence/s8-terminal.png)
+
+Overlay is a research task, not an asserted multi-host deployment. The actual commands/output above cover Tasks 1-3; no fictional overlay cluster is claimed.
 
 ## Sources
 

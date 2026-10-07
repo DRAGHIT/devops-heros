@@ -1,0 +1,6 @@
+NAMES                  STATUS              PORTS
+aditya-s8-bind         Up 1 second         0.0.0.0:18080->80/tcp, [::]:18080->80/tcp
+aditya-s8-host         Up 2 seconds        
+aditya-s8-frontend-1   Up About a minute   80/tcp
+aditya-s8-backend-1    Up About a minute   
+aditya-s8-database-1   Up About a minute   3306/tcp, 33060/tcp
