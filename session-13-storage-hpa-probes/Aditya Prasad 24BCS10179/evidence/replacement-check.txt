@@ -1,0 +1,3 @@
+Command: kubectl -n aditya-s13-mini exec web-app-d45775485-g76dm -- cat /data/student.txt
+Actual response: Aditya Prasad 24BCS10179
+Source: separate live replacement-Pod check captured in the task execution output.

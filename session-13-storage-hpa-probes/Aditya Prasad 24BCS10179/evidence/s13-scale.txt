@@ -1,0 +1,230 @@
+namespace/aditya-s13-scale created
+namespace/aditya-s13-mini-scale created
+deployment.apps/hpa-demo created
+horizontalpodautoscaler.autoscaling/hpa-demo created
+service/hpa-demo-service created
+deployment.apps/web-app created
+horizontalpodautoscaler.autoscaling/web-app-hpa created
+persistentvolumeclaim/web-data created
+service/web-service created
+deployment "hpa-demo" successfully rolled out
+Waiting for deployment "web-app" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "web-app" rollout to finish: 1 of 2 updated replicas are available...
+deployment "web-app" successfully rolled out
+CPU PRESSURE SAMPLE 1
+NAME                                           REFERENCE             TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: <unknown>/50%   1         5         1          12s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          12s
+NAME                                              REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          11s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-9thkg   1/1     Running   0          11s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          11s
+error: metrics not available yet
+error: metrics not available yet
+CPU PRESSURE SAMPLE 2
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: 66%/50%   1         5         1          33s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-4qgkt   1/1     Running   0          2s
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          33s
+NAME                                              REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          32s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-9thkg   1/1     Running   0          32s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          32s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-qsh9n   66m          3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+web-app-d45775485-9thkg   127m         3Mi             
+web-app-d45775485-mrj2j   3m           3Mi             
+CPU PRESSURE SAMPLE 3
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: 66%/50%   1         5         2          54s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-4qgkt   1/1     Running   0          23s
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          54s
+NAME                                              REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          53s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-9thkg   1/1     Running   0          53s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          53s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-qsh9n   66m          3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+web-app-d45775485-9thkg   127m         3Mi             
+web-app-d45775485-mrj2j   3m           3Mi             
+CPU PRESSURE SAMPLE 4
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: 66%/50%   1         5         2          74s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-4qgkt   1/1     Running   0          43s
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          74s
+NAME                                              REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          73s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-9thkg   1/1     Running   0          73s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          73s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-qsh9n   66m          3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+web-app-d45775485-9thkg   127m         3Mi             
+web-app-d45775485-mrj2j   3m           3Mi             
+CPU PRESSURE SAMPLE 5
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: 100%/50%   1         5         2          95s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-2b2zm   1/1     Running   0          4s
+pod/hpa-demo-5d6676989b-4qgkt   1/1     Running   0          64s
+pod/hpa-demo-5d6676989b-k982q   1/1     Running   0          4s
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          95s
+NAME                                              REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 100%/50%   2         5         2          94s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-2wtzd   0/1     Running   0          4s
+pod/web-app-d45775485-589gj   0/1     Running   0          4s
+pod/web-app-d45775485-9thkg   1/1     Running   0          94s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          94s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-4qgkt   2m           2Mi             
+hpa-demo-5d6676989b-qsh9n   199m         3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+web-app-d45775485-9thkg   199m         3Mi             
+web-app-d45775485-mrj2j   1m           3Mi             
+CPU PRESSURE SAMPLE 6
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: 100%/50%   1         5         4          115s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-2b2zm   1/1     Running   0          24s
+pod/hpa-demo-5d6676989b-4qgkt   1/1     Running   0          84s
+pod/hpa-demo-5d6676989b-k982q   1/1     Running   0          24s
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          115s
+NAME                                              REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 100%/50%   2         5         4          114s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-2wtzd   1/1     Running   0          24s
+pod/web-app-d45775485-589gj   1/1     Running   0          24s
+pod/web-app-d45775485-9thkg   1/1     Running   0          114s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          114s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-4qgkt   2m           2Mi             
+hpa-demo-5d6676989b-qsh9n   199m         3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+web-app-d45775485-9thkg   199m         3Mi             
+web-app-d45775485-mrj2j   1m           3Mi             
+CPU PRESSURE SAMPLE 7
+NAME                                           REFERENCE             TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: 100%/50%   1         5         4          2m15s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-2b2zm   1/1     Running   0          44s
+pod/hpa-demo-5d6676989b-4qgkt   1/1     Running   0          104s
+pod/hpa-demo-5d6676989b-k982q   1/1     Running   0          44s
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          2m15s
+NAME                                              REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 100%/50%   2         5         4          2m14s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-2wtzd   1/1     Running   0          44s
+pod/web-app-d45775485-589gj   1/1     Running   0          44s
+pod/web-app-d45775485-9thkg   1/1     Running   0          2m14s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          2m14s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-4qgkt   2m           2Mi             
+hpa-demo-5d6676989b-qsh9n   199m         3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+web-app-d45775485-9thkg   199m         3Mi             
+web-app-d45775485-mrj2j   1m           3Mi             
+CPU PRESSURE SAMPLE 8
+NAME                                           REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/hpa-demo   Deployment/hpa-demo   cpu: 67%/50%   1         5         4          2m36s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/hpa-demo-5d6676989b-2b2zm   1/1     Running   0          65s
+pod/hpa-demo-5d6676989b-4qgkt   1/1     Running   0          2m5s
+pod/hpa-demo-5d6676989b-k982q   1/1     Running   0          65s
+pod/hpa-demo-5d6676989b-qsh9n   1/1     Running   0          2m36s
+NAME                                              REFERENCE            TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/web-app-hpa   Deployment/web-app   cpu: 100%/50%   2         5         4          2m35s
+
+NAME                          READY   STATUS    RESTARTS   AGE
+pod/web-app-d45775485-2wtzd   1/1     Running   0          65s
+pod/web-app-d45775485-589gj   1/1     Running   0          65s
+pod/web-app-d45775485-9thkg   1/1     Running   0          2m35s
+pod/web-app-d45775485-mrj2j   1/1     Running   0          2m35s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-2b2zm   2m           2Mi             
+hpa-demo-5d6676989b-4qgkt   0m           2Mi             
+hpa-demo-5d6676989b-k982q   2m           2Mi             
+hpa-demo-5d6676989b-qsh9n   200m         3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+web-app-d45775485-2wtzd   2m           3Mi             
+web-app-d45775485-589gj   2m           3Mi             
+web-app-d45775485-9thkg   200m         3Mi             
+web-app-d45775485-mrj2j   1m           3Mi             
+Name:                                                  hpa-demo
+Namespace:                                             aditya-s13-scale
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 12:22:42 +0000
+Reference:                                             Deployment/hpa-demo
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  67% (67m) / 50%
+Min replicas:                                          1
+Max replicas:                                          5
+Deployment pods:                                       4 current / 4 desired
+Conditions:
+  Type            Status  Reason              Message
+  ----            ------  ------              -------
+  AbleToScale     True    ReadyForNewScale    recommended size matches current size
+  ScalingActive   True    ValidMetricFound    the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  False   DesiredWithinRange  the desired count is within the acceptable range
+  ScaledToZero    False   NotScaledToZero     the HPA controller did not scale the workload to zero
+Events:
+  Type     Reason                        Age                    From                       Message
+  ----     ------                        ----                   ----                       -------
+  Warning  FailedGetResourceMetric       2m41s (x2 over 2m56s)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  2m41s (x2 over 2m56s)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Normal   SuccessfulRescale             2m26s                  horizontal-pod-autoscaler  New size: 2; reason: cpu resource utilization (percentage of request) above target
+  Normal   SuccessfulRescale             85s                    horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
+Name:                                                  web-app-hpa
+Namespace:                                             aditya-s13-mini-scale
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 12:22:43 +0000
+Reference:                                             Deployment/web-app
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  100% (100m) / 50%
+Min replicas:                                          2
+Max replicas:                                          5
+Deployment pods:                                       4 current / 4 desired
+Conditions:
+  Type            Status  Reason              Message
+  ----            ------  ------              -------
+  AbleToScale     True    ReadyForNewScale    recommended size matches current size
+  ScalingActive   True    ValidMetricFound    the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  False   DesiredWithinRange  the desired count is within the acceptable range
+  ScaledToZero    False   NotScaledToZero     the HPA controller did not scale the workload to zero
+Events:
+  Type     Reason                        Age                    From                       Message
+  ----     ------                        ----                   ----                       -------
+  Warning  FailedGetResourceMetric       2m40s (x2 over 2m55s)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  2m40s (x2 over 2m55s)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       100s (x4 over 2m25s)   horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedComputeMetricsReplicas  100s (x4 over 2m25s)   horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Normal   SuccessfulRescale             85s                    horizontal-pod-autoscaler  New size: 4; reason: cpu resource utilization (percentage of request) above target
+namespace "aditya-s13-scale" deleted
+namespace "aditya-s13-mini-scale" deleted

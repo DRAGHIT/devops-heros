@@ -1,0 +1,283 @@
+namespace/aditya-s13 created
+namespace/aditya-s13-mini created
+deployment.apps/hpa-demo created
+horizontalpodautoscaler.autoscaling/hpa-demo created
+service/hpa-demo-service created
+deployment.apps/web-app created
+horizontalpodautoscaler.autoscaling/web-app-hpa created
+persistentvolumeclaim/web-data created
+service/web-service created
+Waiting for deployment "hpa-demo" rollout to finish: 0 of 1 updated replicas are available...
+deployment "hpa-demo" successfully rolled out
+Waiting for deployment "web-app" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "web-app" rollout to finish: 1 of 2 updated replicas are available...
+deployment "web-app" successfully rolled out
+NAME       STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+web-data   Bound    pvc-591ebafc-6c7c-4e47-b441-d550933d541f   500Mi      RWO            standard       <unset>                 10s
+NAME                 PROVISIONER                RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+standard (default)   k8s.io/minikube-hostpath   Delete          Immediate           false                  17m
+Aditya Prasad 24BCS10179
+pod "web-app-d45775485-9dw89" deleted from aditya-s13-mini namespace
+Waiting for deployment "web-app" rollout to finish: 1 of 2 updated replicas are available...
+deployment "web-app" successfully rolled out
+
+AFTER POD REPLACEMENT
+Aditya Prasad 24BCS10179
+Name:               web-app
+Namespace:          aditya-s13-mini
+CreationTimestamp:  Wed, 07 Oct 2026 12:19:16 +0000
+Labels:             app=web-app
+Annotations:        deployment.kubernetes.io/revision: 1
+Selector:           app=web-app
+Replicas:           2 desired | 2 updated | 2 total | 2 available | 0 unavailable
+StrategyType:       Recreate
+MinReadySeconds:    0
+Pod Template:
+  Labels:  app=web-app
+  Containers:
+   nginx:
+    Image:      nginx:1.27
+    Port:       80/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     200m
+      memory:  128Mi
+    Requests:
+      cpu:        100m
+      memory:     64Mi
+    Liveness:     http-get http://:80/ delay=5s timeout=2s period=5s successThreshold=1 failureThreshold=3
+    Readiness:    http-get http://:80/ delay=5s timeout=2s period=5s successThreshold=1 failureThreshold=2
+    Startup:      http-get http://:80/ delay=0s timeout=1s period=2s successThreshold=1 failureThreshold=30
+    Environment:  <none>
+    Mounts:
+      /data from persistent-storage (rw)
+  Volumes:
+   persistent-storage:
+    Type:          PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:     web-data
+    ReadOnly:      false
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   web-app-d45775485 (2/2 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  19s   deployment-controller  Scaled up replica set web-app-d45775485 from 0 to 2
+pod/load-generator created
+pod/load-generator created
+
+HPA SAMPLE 1
+NAME       REFERENCE             TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: <unknown>/50%   1         5         1          19s
+NAME          REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          19s
+error: metrics not available yet
+error: metrics not available yet
+NAME                        READY   STATUS              RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running             0          20s
+load-generator              0/1     ContainerCreating   0          1s
+NAME                      READY   STATUS              RESTARTS   AGE
+load-generator            0/1     ContainerCreating   0          1s
+web-app-d45775485-bp4k6   1/1     Running             0          20s
+web-app-d45775485-g76dm   1/1     Running             0          10s
+
+HPA SAMPLE 2
+NAME       REFERENCE             TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: <unknown>/50%   1         5         1          40s
+NAME          REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          40s
+error: metrics not available yet
+error: metrics not available yet
+NAME                        READY   STATUS    RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running   0          40s
+load-generator              1/1     Running   0          21s
+NAME                      READY   STATUS    RESTARTS   AGE
+load-generator            1/1     Running   0          21s
+web-app-d45775485-bp4k6   1/1     Running   0          40s
+web-app-d45775485-g76dm   1/1     Running   0          30s
+
+HPA SAMPLE 3
+NAME       REFERENCE             TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: <unknown>/50%   1         5         1          61s
+NAME          REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          61s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-9hgjz   33m          4Mi             
+load-generator              494m         0Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+load-generator            489m         0Mi             
+web-app-d45775485-bp4k6   15m          3Mi             
+web-app-d45775485-g76dm   21m          3Mi             
+NAME                        READY   STATUS    RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running   0          61s
+load-generator              1/1     Running   0          42s
+NAME                      READY   STATUS    RESTARTS   AGE
+load-generator            1/1     Running   0          43s
+web-app-d45775485-bp4k6   1/1     Running   0          62s
+web-app-d45775485-g76dm   1/1     Running   0          52s
+
+HPA SAMPLE 4
+NAME       REFERENCE             TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: <unknown>/50%   1         5         1          82s
+NAME          REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          82s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-9hgjz   33m          4Mi             
+load-generator              494m         0Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+load-generator            489m         0Mi             
+web-app-d45775485-bp4k6   15m          3Mi             
+web-app-d45775485-g76dm   21m          3Mi             
+NAME                        READY   STATUS    RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running   0          82s
+load-generator              1/1     Running   0          63s
+NAME                      READY   STATUS    RESTARTS   AGE
+load-generator            1/1     Running   0          63s
+web-app-d45775485-bp4k6   1/1     Running   0          82s
+web-app-d45775485-g76dm   1/1     Running   0          72s
+
+HPA SAMPLE 5
+NAME       REFERENCE             TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: <unknown>/50%   1         5         1          102s
+NAME          REFERENCE            TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: <unknown>/50%   2         5         2          103s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-9hgjz   33m          4Mi             
+load-generator              494m         0Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+load-generator            489m         0Mi             
+web-app-d45775485-bp4k6   15m          3Mi             
+web-app-d45775485-g76dm   21m          3Mi             
+NAME                        READY   STATUS    RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running   0          103s
+load-generator              1/1     Running   0          84s
+NAME                      READY   STATUS    RESTARTS   AGE
+load-generator            1/1     Running   0          84s
+web-app-d45775485-bp4k6   1/1     Running   0          103s
+web-app-d45775485-g76dm   1/1     Running   0          93s
+
+HPA SAMPLE 6
+NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: 51%/50%   1         5         1          2m3s
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 22%/50%   2         5         2          2m4s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-9hgjz   51m          4Mi             
+load-generator              566m         3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+load-generator            432m         0Mi             
+web-app-d45775485-bp4k6   23m          3Mi             
+web-app-d45775485-g76dm   22m          3Mi             
+NAME                        READY   STATUS    RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running   0          2m4s
+load-generator              1/1     Running   0          105s
+NAME                      READY   STATUS    RESTARTS   AGE
+load-generator            1/1     Running   0          105s
+web-app-d45775485-bp4k6   1/1     Running   0          2m4s
+web-app-d45775485-g76dm   1/1     Running   0          114s
+
+HPA SAMPLE 7
+NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: 51%/50%   1         5         1          2m24s
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 22%/50%   2         5         2          2m25s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-9hgjz   51m          4Mi             
+load-generator              566m         3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+load-generator            432m         0Mi             
+web-app-d45775485-bp4k6   23m          3Mi             
+web-app-d45775485-g76dm   22m          3Mi             
+NAME                        READY   STATUS    RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running   0          2m25s
+load-generator              1/1     Running   0          2m6s
+NAME                      READY   STATUS    RESTARTS   AGE
+load-generator            1/1     Running   0          2m7s
+web-app-d45775485-bp4k6   1/1     Running   0          2m26s
+web-app-d45775485-g76dm   1/1     Running   0          2m16s
+
+HPA SAMPLE 8
+NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: 51%/50%   1         5         1          2m46s
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 22%/50%   2         5         2          2m46s
+NAME                        CPU(cores)   MEMORY(bytes)   
+hpa-demo-5d6676989b-9hgjz   51m          4Mi             
+load-generator              566m         3Mi             
+NAME                      CPU(cores)   MEMORY(bytes)   
+load-generator            432m         0Mi             
+web-app-d45775485-bp4k6   23m          3Mi             
+web-app-d45775485-g76dm   22m          3Mi             
+NAME                        READY   STATUS    RESTARTS   AGE
+hpa-demo-5d6676989b-9hgjz   1/1     Running   0          2m47s
+load-generator              1/1     Running   0          2m28s
+NAME                      READY   STATUS    RESTARTS   AGE
+load-generator            1/1     Running   0          2m28s
+web-app-d45775485-bp4k6   1/1     Running   0          2m47s
+web-app-d45775485-g76dm   1/1     Running   0          2m37s
+Name:                                                  hpa-demo
+Namespace:                                             aditya-s13
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 12:19:16 +0000
+Reference:                                             Deployment/hpa-demo
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  68% (68m) / 50%
+Min replicas:                                          1
+Max replicas:                                          5
+Deployment pods:                                       1 current / 2 desired
+Conditions:
+  Type            Status  Reason              Message
+  ----            ------  ------              -------
+  AbleToScale     True    SucceededRescale    the HPA controller was able to update the target scale to 2
+  ScalingActive   True    ValidMetricFound    the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  False   DesiredWithinRange  the desired count is within the acceptable range
+  ScaledToZero    False   NotScaledToZero     the HPA controller did not scale the workload to zero
+Events:
+  Type     Reason                        Age                   From                       Message
+  ----     ------                        ----                  ----                       -------
+  Warning  FailedGetResourceMetric       2m22s (x4 over 3m7s)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  2m22s (x4 over 3m7s)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       82s (x4 over 2m7s)    horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedComputeMetricsReplicas  82s (x4 over 2m7s)    horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Normal   SuccessfulRescale             7s                    horizontal-pod-autoscaler  New size: 2; reason: cpu resource utilization (percentage of request) above target
+Name:                                                  web-app-hpa
+Namespace:                                             aditya-s13-mini
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Wed, 07 Oct 2026 12:19:16 +0000
+Reference:                                             Deployment/web-app
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  15% (15m) / 50%
+Min replicas:                                          2
+Max replicas:                                          5
+Deployment pods:                                       2 current / 2 desired
+Conditions:
+  Type            Status  Reason               Message
+  ----            ------  ------               -------
+  AbleToScale     True    ScaleDownStabilized  recent recommendations were higher than current one, applying the highest recent recommendation
+  ScalingActive   True    ValidMetricFound     the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  False   DesiredWithinRange   the desired count is within the acceptable range
+Events:
+  Type     Reason                        Age                   From                       Message
+  ----     ------                        ----                  ----                       -------
+  Warning  FailedGetResourceMetric       2m23s (x4 over 3m8s)  horizontal-pod-autoscaler  failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedComputeMetricsReplicas  2m23s (x4 over 3m8s)  horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+  Warning  FailedGetResourceMetric       83s (x4 over 2m8s)    horizontal-pod-autoscaler  failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+  Warning  FailedComputeMetricsReplicas  83s (x4 over 2m8s)    horizontal-pod-autoscaler  invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: did not receive metrics for targeted pods (pods might be unready)
+pod "load-generator" deleted from aditya-s13 namespace
+pod "load-generator" deleted from aditya-s13-mini namespace
+
+LOAD STOPPED
+NAME       REFERENCE             TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+hpa-demo   Deployment/hpa-demo   cpu: 29%/50%   1         5         2          4m10s
+NAME          REFERENCE            TARGETS        MINPODS   MAXPODS   REPLICAS   AGE
+web-app-hpa   Deployment/web-app   cpu: 19%/50%   2         5         2          4m10s
+namespace "aditya-s13" deleted
+namespace "aditya-s13-mini" deleted
