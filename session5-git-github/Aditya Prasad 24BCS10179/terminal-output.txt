@@ -1,0 +1,26 @@
+== git commit -m vs -a -m ==
+PASS: git commit -m did not stage tracked modification
+PASS: -a committed tracked changes, not new.txt
+
+Main commits before feature branch:
+bc2bc33 Add new file explicitly
+0743713 Update tracked file automatically
+e180794 Initial tracked file
+
+== cherry-pick ==
+e876710 Separate feature change not selected
+95e3a19 Feature change selected for cherry-pick
+bc2bc33 Add new file explicitly
+0743713 Update tracked file automatically
+e180794 Initial tracked file
+[main 95e3a19] Feature change selected for cherry-pick
+ Date: Wed Oct 7 17:13:46 2026 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 selected.txt
+
+Main after cherry-pick:
+95e3a19 Feature change selected for cherry-pick
+bc2bc33 Add new file explicitly
+0743713 Update tracked file automatically
+e180794 Initial tracked file
+PASS: only selected feature change reached main
