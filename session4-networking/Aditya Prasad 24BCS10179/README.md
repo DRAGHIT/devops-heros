@@ -15,7 +15,7 @@ Troubleshooting should separate layers: inspect local interface/route configurat
 
 ## Verification and limits
 
-The output file contains the executed result for each command, including exit status. Missing traceroute/telnet/tcpdump or failed probes are not replaced with invented expected output. No privileged packet capture, interface changes or network-service restart was performed. Remaining hands-on packet capture should be done on a disposable lab machine with permission, using the teacher's `sudo tcpdump -i eth0 host google.com` example adapted to its actual interface. This session is partially verified rather than complete.
+The output file contains the executed result for each command, including exit status. Missing traceroute/telnet/tcpdump or failed probes are not replaced with invented expected output. No privileged packet capture, interface changes or network-service restart was performed. Remaining hands-on packet capture should be done on a disposable lab machine with permission, using the teacher's `sudo tcpdump -i eth0 host google.com` example adapted to its actual interface. The later Codespace recheck below resolves the missing tools and packet-capture exercise. NetworkManager service control remains unavailable in this container.
 
 ## Sources
 
@@ -23,3 +23,9 @@ The output file contains the executed result for each command, including exit st
 - [Network troubleshooting commands](https://github.com/Nency-Ravaliya/Network-Troubleshooting/blob/main/README.md)
 - [Networking and DHCP explanation](https://github.com/Nency-Ravaliya/Networking/blob/main/README.md)
 - [PR 312 placement reference](https://github.com/Nency-Ravaliya/devops-heros/pull/312), not copied.
+
+## Codespace recheck
+
+Installed traceroute, telnet and tcpdump in the disposable Codespace. [Actual extra output](codespace-network-extra.txt): a four-hop traceroute to example.com returned timeouts, so no route-discovery success claim; telnet established a TCP connection to example.com:80. The first local HTTP probe was too early and failed before the server was ready.
+
+Fixed the local readiness wait and repeated packet capture using a dedicated loopback port. [Actual successful output](codespace-packet-capture.txt) records HTTP 200 and four TCP packets: SYN, SYN-ACK, ACK and client payload, with zero dropped packets. Captured only the student lab's loopback HTTP traffic, not unrelated host/user traffic. The server and capture process were stopped afterward. These are real observed network results, including limitations, not substituted expected outputs.

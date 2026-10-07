@@ -1,0 +1,13 @@
+traceroute to example.com (172.66.147.243), 4 hops max, 60 byte packets
+ 1  * * *
+ 2  * * *
+ 3  * * *
+ 4  * * *
+Trying 104.20.23.154...
+Connected to example.com.
+Escape character is '^]'.
+Connection closed by foreign host.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (7) Failed to connect to 127.0.0.1 port 18765 after 3 ms: Couldn't connect to server
