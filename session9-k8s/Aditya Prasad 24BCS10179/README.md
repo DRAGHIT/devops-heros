@@ -19,7 +19,9 @@ The control plane includes API server (API entry point), etcd (cluster state), s
 
 ## Status
 
-Cluster setup and deploy/explore/expose/scale/update lab verified with real output. Screenshot evidence is being recorded separately; no fabricated screenshots or cluster output.
+Cluster setup and deploy/explore/expose/scale/update lab verified with real output. The screenshot below renders the actual captured output and was visually inspected. No fabricated cluster output.
+
+![Actual Kubernetes output](terminal-output.png)
 
 ## Sources
 
