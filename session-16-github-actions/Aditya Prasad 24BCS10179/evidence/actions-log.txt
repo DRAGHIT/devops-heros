@@ -1,0 +1,361 @@
+ci	Set up job	﻿2026-10-07T12:38:53.8573269Z Current runner version: '2.337.0'
+ci	Set up job	2026-10-07T12:38:53.8607203Z ##[group]Runner Image Provisioner
+ci	Set up job	2026-10-07T12:38:53.8608560Z Hosted Compute Agent
+ci	Set up job	2026-10-07T12:38:53.8609882Z Version: 20260901.588
+ci	Set up job	2026-10-07T12:38:53.8611224Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+ci	Set up job	2026-10-07T12:38:53.8612649Z Build Date: 2026-09-01T19:56:44Z
+ci	Set up job	2026-10-07T12:38:53.8613997Z Worker ID: {9e7cf25c-3dff-45b1-93f2-6b567fc4a693}
+ci	Set up job	2026-10-07T12:38:53.8615280Z Azure Region: centralus
+ci	Set up job	2026-10-07T12:38:53.8616478Z ##[endgroup]
+ci	Set up job	2026-10-07T12:38:53.8618779Z ##[group]Operating System
+ci	Set up job	2026-10-07T12:38:53.8619948Z Ubuntu
+ci	Set up job	2026-10-07T12:38:53.8621252Z 24.04.5
+ci	Set up job	2026-10-07T12:38:53.8622186Z LTS
+ci	Set up job	2026-10-07T12:38:53.8623256Z ##[endgroup]
+ci	Set up job	2026-10-07T12:38:53.8624177Z ##[group]Runner Image
+ci	Set up job	2026-10-07T12:38:53.8625292Z Image: ubuntu-24.04
+ci	Set up job	2026-10-07T12:38:53.8626283Z Version: 20260927.320.1
+ci	Set up job	2026-10-07T12:38:53.8628232Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+ci	Set up job	2026-10-07T12:38:53.8631628Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+ci	Set up job	2026-10-07T12:38:53.8633369Z ##[endgroup]
+ci	Set up job	2026-10-07T12:38:53.8635189Z ##[group]GITHUB_TOKEN Permissions
+ci	Set up job	2026-10-07T12:38:53.8638420Z Contents: read
+ci	Set up job	2026-10-07T12:38:53.8639478Z Metadata: read
+ci	Set up job	2026-10-07T12:38:53.8640634Z ##[endgroup]
+ci	Set up job	2026-10-07T12:38:53.8644173Z Secret source: Actions
+ci	Set up job	2026-10-07T12:38:53.8645792Z Cache mode: write
+ci	Set up job	2026-10-07T12:38:53.8647654Z Prepare workflow directory
+ci	Set up job	2026-10-07T12:38:53.9101731Z Prepare all required actions
+ci	Set up job	2026-10-07T12:38:53.9170508Z Getting action download info
+ci	Set up job	2026-10-07T12:38:54.1931304Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+ci	Set up job	2026-10-07T12:38:54.2907762Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+ci	Set up job	2026-10-07T12:38:54.4103640Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+ci	Set up job	2026-10-07T12:38:54.6177025Z Complete job name: ci
+ci	Run actions/checkout@v4	﻿2026-10-07T12:38:54.6939705Z ##[group]Run actions/checkout@v4
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6940594Z with:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6941280Z   repository: DRAGHIT/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6944976Z   token: ***
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6945410Z   ssh-strict: true
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6945855Z   ssh-user: git
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6946305Z   persist-credentials: true
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6946794Z   clean: true
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6947234Z   sparse-checkout-cone-mode: true
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6947754Z   fetch-depth: 1
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6948183Z   fetch-tags: false
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6948633Z   show-progress: true
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6949081Z   lfs: false
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6949495Z   submodules: false
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6949946Z   set-safe-directory: true
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6950453Z   allow-unsafe-pr-checkout: false
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.6951477Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.7944248Z Syncing repository: DRAGHIT/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.7946762Z ##[group]Getting Git version info
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.7948061Z Working directory is '/home/runner/work/devops-heros/devops-heros'
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.7949822Z [command]/usr/bin/git version
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8008957Z git version 2.55.0
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8064252Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8082806Z Temporarily overriding HOME='/home/runner/work/_temp/bb2ce3ba-15ee-4f9d-b033-8c4708b51fca' before making global git config changes
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8085491Z Adding repository directory to the temporary git global config as a safe directory
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8088613Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8141679Z Deleting the contents of '/home/runner/work/devops-heros/devops-heros'
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8145815Z ##[group]Initializing the repository
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8149637Z [command]/usr/bin/git init /home/runner/work/devops-heros/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8253421Z hint: Using 'master' as the name for the initial branch. This default branch name
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8255661Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8262010Z hint: to use in all of your new repositories, which will suppress this warning,
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8281786Z hint: call:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8282743Z hint:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8283899Z hint: 	git config --global init.defaultBranch <name>
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8284887Z hint:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8285819Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8287348Z hint: 'development'. The just-created branch can be renamed via this command:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8288622Z hint:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8289306Z hint: 	git branch -m <name>
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8290055Z hint:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8291285Z hint: Disable this message with "git config set advice.defaultBranchName false"
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8293041Z Initialized empty Git repository in /home/runner/work/devops-heros/devops-heros/.git/
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8295751Z [command]/usr/bin/git remote add origin https://github.com/DRAGHIT/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8342349Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8343827Z ##[group]Disabling automatic garbage collection
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8348042Z [command]/usr/bin/git config --local gc.auto 0
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8388850Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8390183Z ##[group]Setting up auth
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8396732Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8429293Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8802885Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.8858683Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.9102911Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.9139883Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.9396627Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.9443810Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.9445596Z ##[group]Fetching the repository
+ci	Run actions/checkout@v4	2026-10-07T12:38:54.9455098Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ca53f15d328bec18aaf91f5d5a28e702eb9f5ad6:refs/remotes/origin/session-16
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9144809Z From https://github.com/DRAGHIT/devops-heros
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9148042Z  * [new ref]         ca53f15d328bec18aaf91f5d5a28e702eb9f5ad6 -> origin/session-16
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9155955Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9158580Z ##[group]Determining the checkout info
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9162178Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9164102Z [command]/usr/bin/git sparse-checkout disable
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9212809Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9246400Z ##[group]Checking out the ref
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9249504Z [command]/usr/bin/git checkout --progress --force -B session-16 refs/remotes/origin/session-16
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9886924Z Switched to a new branch 'session-16'
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9892769Z branch 'session-16' set up to track 'origin/session-16'.
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9906882Z ##[endgroup]
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9951716Z [command]/usr/bin/git log -1 --format=%H
+ci	Run actions/checkout@v4	2026-10-07T12:38:55.9978598Z ca53f15d328bec18aaf91f5d5a28e702eb9f5ad6
+ci	Run actions/setup-python@v5	﻿2026-10-07T12:38:56.0361824Z ##[group]Run actions/setup-python@v5
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0363149Z with:
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0364059Z   python-version: 3.12
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0365118Z   check-latest: false
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0374932Z   token: ***
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0376154Z   update-environment: true
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0377307Z   allow-prereleases: false
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0378416Z   freethreaded: false
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.0379415Z ##[endgroup]
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.1693961Z ##[group]Installed versions
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.2095751Z (node:2347) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.2099058Z (Use `node --trace-deprecation ...` to show where the warning was created)
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.2101420Z Successfully set up CPython (3.12.14)
+ci	Run actions/setup-python@v5	2026-10-07T12:38:56.2103675Z ##[endgroup]
+ci	Install and test	﻿2026-10-07T12:38:56.2347627Z ##[group]Run pip install -r requirements.txt
+ci	Install and test	2026-10-07T12:38:56.2349259Z ^[[36;1mpip install -r requirements.txt^[[0m
+ci	Install and test	2026-10-07T12:38:56.2351100Z ^[[36;1mpython -m pytest -v --junitxml=test-results.xml^[[0m
+ci	Install and test	2026-10-07T12:38:56.2741107Z shell: /usr/bin/bash -e {0}
+ci	Install and test	2026-10-07T12:38:56.2742542Z env:
+ci	Install and test	2026-10-07T12:38:56.2743812Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Install and test	2026-10-07T12:38:56.2745957Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+ci	Install and test	2026-10-07T12:38:56.2748121Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Install and test	2026-10-07T12:38:56.2750030Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Install and test	2026-10-07T12:38:56.2752073Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Install and test	2026-10-07T12:38:56.2753840Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+ci	Install and test	2026-10-07T12:38:56.2755327Z ##[endgroup]
+ci	Install and test	2026-10-07T12:38:58.8604661Z Collecting pytest==8.3.5 (from -r requirements.txt (line 1))
+ci	Install and test	2026-10-07T12:38:58.9271857Z   Downloading pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+ci	Install and test	2026-10-07T12:38:58.9471821Z Collecting iniconfig (from pytest==8.3.5->-r requirements.txt (line 1))
+ci	Install and test	2026-10-07T12:38:58.9573813Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+ci	Install and test	2026-10-07T12:38:58.9816131Z Collecting packaging (from pytest==8.3.5->-r requirements.txt (line 1))
+ci	Install and test	2026-10-07T12:38:58.9919142Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+ci	Install and test	2026-10-07T12:38:59.0127490Z Collecting pluggy<2,>=1.5 (from pytest==8.3.5->-r requirements.txt (line 1))
+ci	Install and test	2026-10-07T12:38:59.0230150Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+ci	Install and test	2026-10-07T12:38:59.0378405Z Downloading pytest-8.3.5-py3-none-any.whl (343 kB)
+ci	Install and test	2026-10-07T12:38:59.0831069Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+ci	Install and test	2026-10-07T12:38:59.0953809Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+ci	Install and test	2026-10-07T12:38:59.1074215Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+ci	Install and test	2026-10-07T12:38:59.2350372Z Installing collected packages: pluggy, packaging, iniconfig, pytest
+ci	Install and test	2026-10-07T12:38:59.6008592Z 
+ci	Install and test	2026-10-07T12:38:59.6022000Z Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.6.0 pytest-8.3.5
+ci	Install and test	2026-10-07T12:39:00.0428627Z ============================= test session starts ==============================
+ci	Install and test	2026-10-07T12:39:00.0429999Z platform linux -- Python 3.12.14, pytest-8.3.5, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.12.14/x64/bin/python
+ci	Install and test	2026-10-07T12:39:00.0431740Z cachedir: .pytest_cache
+ci	Install and test	2026-10-07T12:39:00.0432668Z rootdir: /home/runner/work/devops-heros/devops-heros/session-16-github-actions/Aditya Prasad 24BCS10179
+ci	Install and test	2026-10-07T12:39:00.0524756Z collecting ... collected 5 items
+ci	Install and test	2026-10-07T12:39:00.0525422Z 
+ci	Install and test	2026-10-07T12:39:00.0585444Z tests/test_calculator.py::test_add PASSED                                [ 20%]
+ci	Install and test	2026-10-07T12:39:00.0611669Z tests/test_calculator.py::test_subtract PASSED                           [ 40%]
+ci	Install and test	2026-10-07T12:39:00.0612651Z tests/test_calculator.py::test_multiply PASSED                           [ 60%]
+ci	Install and test	2026-10-07T12:39:00.0613690Z tests/test_calculator.py::test_divide PASSED                             [ 80%]
+ci	Install and test	2026-10-07T12:39:00.0630708Z tests/test_calculator.py::test_divide_by_zero PASSED                     [100%]
+ci	Install and test	2026-10-07T12:39:00.0631672Z 
+ci	Install and test	2026-10-07T12:39:00.0632729Z - generated xml file: /home/runner/work/devops-heros/devops-heros/session-16-github-actions/Aditya Prasad 24BCS10179/test-results.xml -
+ci	Install and test	2026-10-07T12:39:00.0634365Z ============================== 5 passed in 0.02s ===============================
+ci	Build	﻿2026-10-07T12:39:00.0894971Z ##[group]Run bash build.sh
+ci	Build	2026-10-07T12:39:00.0895312Z ^[[36;1mbash build.sh^[[0m
+ci	Build	2026-10-07T12:39:00.0895592Z ^[[36;1mdocker build -t aditya-session16:demo .^[[0m
+ci	Build	2026-10-07T12:39:00.0895982Z ^[[36;1mdocker save aditya-session16:demo > build/image.tar^[[0m
+ci	Build	2026-10-07T12:39:00.0964581Z shell: /usr/bin/bash -e {0}
+ci	Build	2026-10-07T12:39:00.0964878Z env:
+ci	Build	2026-10-07T12:39:00.0965185Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Build	2026-10-07T12:39:00.0965695Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+ci	Build	2026-10-07T12:39:00.0966185Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Build	2026-10-07T12:39:00.0966620Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Build	2026-10-07T12:39:00.0967056Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Build	2026-10-07T12:39:00.0967495Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+ci	Build	2026-10-07T12:39:00.0967879Z ##[endgroup]
+ci	Build	2026-10-07T12:39:00.1068577Z =================================
+ci	Build	2026-10-07T12:39:00.1069178Z Starting Application Build
+ci	Build	2026-10-07T12:39:00.1069620Z =================================
+ci	Build	2026-10-07T12:39:00.1129396Z 
+ci	Build	2026-10-07T12:39:00.1129654Z Build files:
+ci	Build	2026-10-07T12:39:00.1142717Z total 16
+ci	Build	2026-10-07T12:39:00.1143169Z drwxr-xr-x 2 runner runner 4096 Oct  7 12:39 .
+ci	Build	2026-10-07T12:39:00.1143713Z drwxr-xr-x 6 runner runner 4096 Oct  7 12:39 ..
+ci	Build	2026-10-07T12:39:00.1144167Z -rw-r--r-- 1 runner runner   98 Oct  7 12:39 build-info.txt
+ci	Build	2026-10-07T12:39:00.1144752Z -rw-r--r-- 1 runner runner 1488 Oct  7 12:39 calculator.py
+ci	Build	2026-10-07T12:39:00.1145231Z 
+ci	Build	2026-10-07T12:39:00.1145431Z Build completed successfully.
+ci	Build	2026-10-07T12:39:03.4761262Z #0 building with "default" instance using docker driver
+ci	Build	2026-10-07T12:39:03.4761705Z 
+ci	Build	2026-10-07T12:39:03.4761912Z #1 [internal] load build definition from Dockerfile
+ci	Build	2026-10-07T12:39:03.4762584Z #1 transferring dockerfile: 158B 0.0s done
+ci	Build	2026-10-07T12:39:03.4763343Z #1 DONE 0.0s
+ci	Build	2026-10-07T12:39:03.4763729Z 
+ci	Build	2026-10-07T12:39:03.4764344Z #2 [internal] load metadata for docker.io/library/python:3.12-slim
+ci	Build	2026-10-07T12:39:03.6363111Z #2 ...
+ci	Build	2026-10-07T12:39:03.6363509Z 
+ci	Build	2026-10-07T12:39:03.6364085Z #3 [auth] library/python:pull token for registry-1.docker.io
+ci	Build	2026-10-07T12:39:03.6364970Z #3 DONE 0.0s
+ci	Build	2026-10-07T12:39:03.7854737Z 
+ci	Build	2026-10-07T12:39:03.7855372Z #2 [internal] load metadata for docker.io/library/python:3.12-slim
+ci	Build	2026-10-07T12:39:04.0460498Z #2 DONE 0.7s
+ci	Build	2026-10-07T12:39:04.1678066Z 
+ci	Build	2026-10-07T12:39:04.1678434Z #4 [internal] load .dockerignore
+ci	Build	2026-10-07T12:39:04.1679010Z #4 transferring context: 2B done
+ci	Build	2026-10-07T12:39:04.1679449Z #4 DONE 0.0s
+ci	Build	2026-10-07T12:39:04.1679714Z 
+ci	Build	2026-10-07T12:39:04.1679883Z #5 [internal] load build context
+ci	Build	2026-10-07T12:39:04.1680502Z #5 transferring context: 4.31kB done
+ci	Build	2026-10-07T12:39:04.1681680Z #5 DONE 0.0s
+ci	Build	2026-10-07T12:39:04.1681915Z 
+ci	Build	2026-10-07T12:39:04.1682637Z #6 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+ci	Build	2026-10-07T12:39:04.1684259Z #6 resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f done
+ci	Build	2026-10-07T12:39:04.1685456Z #6 sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f 10.37kB / 10.37kB done
+ci	Build	2026-10-07T12:39:04.1686368Z #6 sha256:2b4f19dae3a777dfc3b76730bda1e82e1f66ab2a2686fa93ca78edbfb4f04ffe 1.75kB / 1.75kB done
+ci	Build	2026-10-07T12:39:04.1687235Z #6 sha256:df18428df8a0f9189c84e7424d214b4c50092af1f9dca5842a00c41c39bda316 5.66kB / 5.66kB done
+ci	Build	2026-10-07T12:39:04.1688077Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0B / 29.84MB 0.1s
+ci	Build	2026-10-07T12:39:04.1688901Z #6 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 0B / 1.29MB 0.1s
+ci	Build	2026-10-07T12:39:04.1689725Z #6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 0B / 12.12MB 0.1s
+ci	Build	2026-10-07T12:39:04.2689254Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 24.12MB / 29.84MB 0.2s
+ci	Build	2026-10-07T12:39:04.4500312Z #6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 29.84MB / 29.84MB 0.2s done
+ci	Build	2026-10-07T12:39:04.4502212Z #6 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 1.29MB / 1.29MB 0.3s done
+ci	Build	2026-10-07T12:39:04.4503740Z #6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 1.05MB / 12.12MB 0.3s
+ci	Build	2026-10-07T12:39:04.4505434Z #6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0.1s
+ci	Build	2026-10-07T12:39:04.4506805Z #6 sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 249B / 249B 0.3s done
+ci	Build	2026-10-07T12:39:04.5629259Z #6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 12.12MB / 12.12MB 0.4s done
+ci	Build	2026-10-07T12:39:05.3245145Z #6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0.9s done
+ci	Build	2026-10-07T12:39:05.3247097Z #6 extracting sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8
+ci	Build	2026-10-07T12:39:05.5276628Z #6 extracting sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 0.1s done
+ci	Build	2026-10-07T12:39:05.5280955Z #6 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4
+ci	Build	2026-10-07T12:39:06.1122676Z #6 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 0.5s done
+ci	Build	2026-10-07T12:39:06.1124437Z #6 extracting sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813
+ci	Build	2026-10-07T12:39:06.3042859Z #6 extracting sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 done
+ci	Build	2026-10-07T12:39:06.3043785Z #6 DONE 2.1s
+ci	Build	2026-10-07T12:39:06.3044000Z 
+ci	Build	2026-10-07T12:39:06.3044164Z #7 [2/3] WORKDIR /app
+ci	Build	2026-10-07T12:39:06.3044549Z #7 DONE 0.0s
+ci	Build	2026-10-07T12:39:06.3044740Z 
+ci	Build	2026-10-07T12:39:06.3044894Z #8 [3/3] COPY app app
+ci	Build	2026-10-07T12:39:06.3045248Z #8 DONE 0.0s
+ci	Build	2026-10-07T12:39:06.3045438Z 
+ci	Build	2026-10-07T12:39:06.3045644Z #9 exporting to image
+ci	Build	2026-10-07T12:39:06.3046021Z #9 exporting layers
+ci	Build	2026-10-07T12:39:07.0072481Z #9 exporting layers 0.9s done
+ci	Build	2026-10-07T12:39:07.0232084Z #9 writing image sha256:2ec9ad57fc1a6599a7e20731c3c588ea8e41137e9909c6e02d6c734efe108866 done
+ci	Build	2026-10-07T12:39:07.0233307Z #9 naming to docker.io/library/aditya-session16:demo done
+ci	Build	2026-10-07T12:39:07.0233920Z #9 DONE 0.9s
+ci	Upload build and test evidence	﻿2026-10-07T12:39:07.8399735Z ##[group]Run actions/upload-artifact@v4
+ci	Upload build and test evidence	2026-10-07T12:39:07.8400066Z with:
+ci	Upload build and test evidence	2026-10-07T12:39:07.8400278Z   name: session16-build
+ci	Upload build and test evidence	2026-10-07T12:39:07.8401123Z   path: session-16-github-actions/Aditya Prasad 24BCS10179/build/
+ci	Upload build and test evidence	session-16-github-actions/Aditya Prasad 24BCS10179/test-results.xml
+ci	Upload build and test evidence	
+ci	Upload build and test evidence	2026-10-07T12:39:07.8401745Z   retention-days: 1
+ci	Upload build and test evidence	2026-10-07T12:39:07.8401969Z   if-no-files-found: warn
+ci	Upload build and test evidence	2026-10-07T12:39:07.8402203Z   compression-level: 6
+ci	Upload build and test evidence	2026-10-07T12:39:07.8402419Z   overwrite: false
+ci	Upload build and test evidence	2026-10-07T12:39:07.8402635Z   include-hidden-files: false
+ci	Upload build and test evidence	2026-10-07T12:39:07.8402870Z env:
+ci	Upload build and test evidence	2026-10-07T12:39:07.8403143Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Upload build and test evidence	2026-10-07T12:39:07.8403585Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+ci	Upload build and test evidence	2026-10-07T12:39:07.8404017Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Upload build and test evidence	2026-10-07T12:39:07.8404399Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Upload build and test evidence	2026-10-07T12:39:07.8404795Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+ci	Upload build and test evidence	2026-10-07T12:39:07.8405228Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+ci	Upload build and test evidence	2026-10-07T12:39:07.8405554Z ##[endgroup]
+ci	Upload build and test evidence	2026-10-07T12:39:08.0037978Z (node:2535) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+ci	Upload build and test evidence	2026-10-07T12:39:08.0039046Z (Use `node --trace-deprecation ...` to show where the warning was created)
+ci	Upload build and test evidence	2026-10-07T12:39:08.0127795Z Multiple search paths detected. Calculating the least common ancestor of all paths
+ci	Upload build and test evidence	2026-10-07T12:39:08.0131139Z The least common ancestor is /home/runner/work/devops-heros/devops-heros/session-16-github-actions/Aditya Prasad 24BCS10179. This will be the root directory of the artifact
+ci	Upload build and test evidence	2026-10-07T12:39:08.0132966Z With the provided path, there will be 4 files uploaded
+ci	Upload build and test evidence	2026-10-07T12:39:08.0136357Z Artifact name is valid!
+ci	Upload build and test evidence	2026-10-07T12:39:08.0137354Z Root directory input is valid!
+ci	Upload build and test evidence	2026-10-07T12:39:08.3054622Z Beginning upload of artifact content to blob storage
+ci	Upload build and test evidence	2026-10-07T12:39:08.9879092Z (node:2535) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+ci	Upload build and test evidence	2026-10-07T12:39:09.4787503Z Uploaded bytes 8388608
+ci	Upload build and test evidence	2026-10-07T12:39:09.8452688Z Uploaded bytes 16777216
+ci	Upload build and test evidence	2026-10-07T12:39:10.4909510Z Uploaded bytes 25165824
+ci	Upload build and test evidence	2026-10-07T12:39:11.2533363Z Uploaded bytes 33554432
+ci	Upload build and test evidence	2026-10-07T12:39:11.9801304Z Uploaded bytes 41943040
+ci	Upload build and test evidence	2026-10-07T12:39:12.0459413Z Uploaded bytes 44108870
+ci	Upload build and test evidence	2026-10-07T12:39:12.0881201Z Finished uploading artifact content to blob storage!
+ci	Upload build and test evidence	2026-10-07T12:39:12.0911747Z SHA256 digest of uploaded artifact zip is b33ebcea86f517615b57e7b8053b80e70b3725ea12f7491eed6c06fe5882ea81
+ci	Upload build and test evidence	2026-10-07T12:39:12.0913059Z Finalizing artifact upload
+ci	Upload build and test evidence	2026-10-07T12:39:12.3452788Z Artifact session16-build.zip successfully finalized. Artifact ID 11482368646
+ci	Upload build and test evidence	2026-10-07T12:39:12.3453615Z Artifact session16-build has been successfully uploaded! Final size is 44108870 bytes. Artifact ID is 11482368646
+ci	Upload build and test evidence	2026-10-07T12:39:12.3472112Z Artifact download URL: https://github.com/DRAGHIT/devops-heros/actions/runs/37622498065/artifacts/11482368646
+ci	Post Run actions/setup-python@v5	﻿2026-10-07T12:39:12.3687018Z Post job cleanup.
+ci	Post Run actions/setup-python@v5	2026-10-07T12:39:12.4922736Z (node:2547) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+ci	Post Run actions/setup-python@v5	2026-10-07T12:39:12.4924079Z (Use `node --trace-deprecation ...` to show where the warning was created)
+ci	Post Run actions/checkout@v4	﻿2026-10-07T12:39:12.5112716Z Post job cleanup.
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6137965Z [command]/usr/bin/git version
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6184102Z git version 2.55.0
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6240119Z Temporarily overriding HOME='/home/runner/work/_temp/9836f322-51dd-4c03-a939-55f930e480dd' before making global git config changes
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6262391Z Adding repository directory to the temporary git global config as a safe directory
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6263765Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6297328Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6354793Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6667497Z fatal: No url found for submodule path 'session-16-github-actions/mini-project 10-33-34-265' in .gitmodules
+ci	Post Run actions/checkout@v4	2026-10-07T12:39:12.6722232Z ##[warning]The process '/usr/bin/git' failed with exit code 128
+ci	Complete job	﻿2026-10-07T12:39:12.6867952Z Cleaning up orphan processes
+ci	Complete job	2026-10-07T12:39:12.7228637Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+cd	Set up job	﻿2026-10-07T12:39:18.1197822Z Current runner version: '2.337.0'
+cd	Set up job	2026-10-07T12:39:18.1223404Z ##[group]Runner Image Provisioner
+cd	Set up job	2026-10-07T12:39:18.1224424Z Hosted Compute Agent
+cd	Set up job	2026-10-07T12:39:18.1225058Z Version: 20260901.588
+cd	Set up job	2026-10-07T12:39:18.1225736Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+cd	Set up job	2026-10-07T12:39:18.1226498Z Build Date: 2026-09-01T19:56:44Z
+cd	Set up job	2026-10-07T12:39:18.1227711Z Worker ID: {3eb9ede1-4e68-4f59-889e-faad6622a796}
+cd	Set up job	2026-10-07T12:39:18.1228534Z Azure Region: westus2
+cd	Set up job	2026-10-07T12:39:18.1229147Z ##[endgroup]
+cd	Set up job	2026-10-07T12:39:18.1230790Z ##[group]Operating System
+cd	Set up job	2026-10-07T12:39:18.1231575Z Ubuntu
+cd	Set up job	2026-10-07T12:39:18.1232096Z 24.04.5
+cd	Set up job	2026-10-07T12:39:18.1232661Z LTS
+cd	Set up job	2026-10-07T12:39:18.1233204Z ##[endgroup]
+cd	Set up job	2026-10-07T12:39:18.1233766Z ##[group]Runner Image
+cd	Set up job	2026-10-07T12:39:18.1234434Z Image: ubuntu-24.04
+cd	Set up job	2026-10-07T12:39:18.1234999Z Version: 20260927.320.1
+cd	Set up job	2026-10-07T12:39:18.1236116Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+cd	Set up job	2026-10-07T12:39:18.1238243Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+cd	Set up job	2026-10-07T12:39:18.1239314Z ##[endgroup]
+cd	Set up job	2026-10-07T12:39:18.1240420Z ##[group]GITHUB_TOKEN Permissions
+cd	Set up job	2026-10-07T12:39:18.1242595Z Contents: read
+cd	Set up job	2026-10-07T12:39:18.1243220Z Metadata: read
+cd	Set up job	2026-10-07T12:39:18.1244158Z ##[endgroup]
+cd	Set up job	2026-10-07T12:39:18.1246243Z Secret source: Actions
+cd	Set up job	2026-10-07T12:39:18.1247524Z Cache mode: write
+cd	Set up job	2026-10-07T12:39:18.1248281Z Prepare workflow directory
+cd	Set up job	2026-10-07T12:39:18.1575459Z Prepare all required actions
+cd	Set up job	2026-10-07T12:39:18.1648013Z Getting action download info
+cd	Set up job	2026-10-07T12:39:18.5308654Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+cd	Set up job	2026-10-07T12:39:18.9291119Z Complete job name: cd
+cd	Run actions/download-artifact@v4	﻿2026-10-07T12:39:19.0097068Z ##[group]Run actions/download-artifact@v4
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.0098064Z with:
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.0098510Z   name: session16-build
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.0098999Z   path: artifact
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.0099466Z   merge-multiple: false
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.0100012Z   repository: DRAGHIT/devops-heros
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.0100543Z   run-id: 37622498065
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.0101184Z ##[endgroup]
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.1671055Z Downloading single artifact
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.1789422Z (node:2182) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.1791682Z (Use `node --trace-deprecation ...` to show where the warning was created)
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.4537356Z Preparing to download the following artifacts:
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.4539806Z - session16-build (ID: 11482368646, Size: 44108870, Expected Digest: sha256:b33ebcea86f517615b57e7b8053b80e70b3725ea12f7491eed6c06fe5882ea81)
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.7192765Z Redirecting to blob download url: https://productionresultssa0.blob.core.windows.net/actions-results/0b743fe5-df5b-81f2-9265-46ae2b1e0f02/workflow-job-run-17cb09d5-ec72-5b1e-93c4-2f2a51cd9b3b/artifacts/515dac659644ac67cb549fd5f6be691b0de4b9fa0b6e083c4ef67e124dd2b8a4.zip
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:19.7196720Z Starting download of artifact to: /home/runner/work/devops-heros/devops-heros/artifact
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:20.0597244Z (node:2182) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:22.6001248Z SHA256 digest of downloaded artifact is b33ebcea86f517615b57e7b8053b80e70b3725ea12f7491eed6c06fe5882ea81
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:22.6002503Z Artifact download completed successfully.
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:22.6003151Z Total of 1 artifact(s) downloaded
+cd	Run actions/download-artifact@v4	2026-10-07T12:39:22.6008187Z Download artifact has finished successfully
+cd	Deploy container artifact and smoke test	﻿2026-10-07T12:39:22.6243529Z ##[group]Run docker load -i artifact/build/image.tar
+cd	Deploy container artifact and smoke test	2026-10-07T12:39:22.6244087Z ^[[36;1mdocker load -i artifact/build/image.tar^[[0m
+cd	Deploy container artifact and smoke test	2026-10-07T12:39:22.6244556Z ^[[36;1mtest "$(docker run --rm aditya-session16:demo)" = 15^[[0m
+cd	Deploy container artifact and smoke test	2026-10-07T12:39:22.6245028Z ^[[36;1mecho 'Deployed artifact passed calculator smoke test'^[[0m
+cd	Deploy container artifact and smoke test	2026-10-07T12:39:22.6499077Z shell: /usr/bin/bash -e {0}
+cd	Deploy container artifact and smoke test	2026-10-07T12:39:22.6499473Z ##[endgroup]
+cd	Deploy container artifact and smoke test	2026-10-07T12:39:27.7961356Z Loaded image: aditya-session16:demo
+cd	Deploy container artifact and smoke test	2026-10-07T12:39:28.1453513Z Deployed artifact passed calculator smoke test
+cd	Complete job	﻿2026-10-07T12:39:28.1547965Z Cleaning up orphan processes
+cd	Complete job	2026-10-07T12:39:28.1996442Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

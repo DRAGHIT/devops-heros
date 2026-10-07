@@ -1,0 +1,149 @@
++ python3 -m venv .venv
++ . .venv/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ case "$(uname)" in
++++ uname
+++ export VIRTUAL_ENV=/tmp/s16-lab/.venv
+++ VIRTUAL_ENV=/tmp/s16-lab/.venv
+++ _OLD_VIRTUAL_PATH=/home/codespace/.dotnet:/home/codespace/nvm/current/bin:/home/codespace/.php/current/bin:/home/codespace/.python/current/bin:/home/codespace/java/current/bin:/home/codespace/.ruby/current/bin:/home/codespace/.local/bin:/usr/local/python/current/bin:/usr/local/py-utils/bin:/usr/local/jupyter:/usr/local/oryx:/usr/local/go/bin:/go/bin:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/java/current/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/maven/current/bin:/usr/local/sdkman/candidates/ant/current/bin:/usr/local/share/rbenv/shims:/usr/local/share/rbenv/bin:/usr/local/rubies/current/bin:/usr/local/php/current/bin:/opt/conda/bin:/usr/local/share/nvm/current/bin:/usr/local/hugo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/dotnet
+++ PATH=/tmp/s16-lab/.venv/bin:/home/codespace/.dotnet:/home/codespace/nvm/current/bin:/home/codespace/.php/current/bin:/home/codespace/.python/current/bin:/home/codespace/java/current/bin:/home/codespace/.ruby/current/bin:/home/codespace/.local/bin:/usr/local/python/current/bin:/usr/local/py-utils/bin:/usr/local/jupyter:/usr/local/oryx:/usr/local/go/bin:/go/bin:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/java/current/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/maven/current/bin:/usr/local/sdkman/candidates/ant/current/bin:/usr/local/share/rbenv/shims:/usr/local/share/rbenv/bin:/usr/local/rubies/current/bin:/usr/local/php/current/bin:/opt/conda/bin:/usr/local/share/nvm/current/bin:/usr/local/hugo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/dotnet
+++ export PATH
+++ VIRTUAL_ENV_PROMPT=.venv
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(.venv) '
+++ export PS1
+++ hash -r
++ pip install -r requirements.txt
+Collecting pytest==8.3.5 (from -r requirements.txt (line 1))
+  Downloading pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+Collecting iniconfig (from pytest==8.3.5->-r requirements.txt (line 1))
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging (from pytest==8.3.5->-r requirements.txt (line 1))
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.5 (from pytest==8.3.5->-r requirements.txt (line 1))
+  Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+Downloading pytest-8.3.5-py3-none-any.whl (343 kB)
+Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Installing collected packages: pluggy, packaging, iniconfig, pytest
+
+Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.6.0 pytest-8.3.5
+
+[notice] A new release of pip is available: 25.3 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
++ python -m pytest -v
+============================= test session starts ==============================
+platform linux -- Python 3.14.2, pytest-8.3.5, pluggy-1.6.0 -- /tmp/s16-lab/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /tmp/s16-lab
+collecting ... collected 5 items
+
+tests/test_calculator.py::test_add PASSED                                [ 20%]
+tests/test_calculator.py::test_subtract PASSED                           [ 40%]
+tests/test_calculator.py::test_multiply PASSED                           [ 60%]
+tests/test_calculator.py::test_divide PASSED                             [ 80%]
+tests/test_calculator.py::test_divide_by_zero PASSED                     [100%]
+
+============================== 5 passed in 0.02s ===============================
++ bash build.sh
+=================================
+Starting Application Build
+=================================
+
+Build files:
+total 16
+drwxr-xrw-+ 2 codespace codespace 4096 Oct  7 12:38 .
+drwxr-xr-x+ 7 codespace codespace 4096 Oct  7 12:38 ..
+-rw-r--rw-  1 codespace codespace   98 Oct  7 12:38 build-info.txt
+-rw-r--r--  1 codespace codespace 1488 Oct  7 12:38 calculator.py
+
+Build completed successfully.
++ docker build -t aditya-session16:demo .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 158B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 1.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context:
+#4 transferring context: 2B done
+#4 DONE 0.2s
+
+#5 [internal] load build context
+#5 transferring context: 4.38kB done
+#5 DONE 0.2s
+
+#6 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#6 resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#6 resolve docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f 0.1s done
+#6 DONE 0.7s
+
+#6 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#6 sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 249B / 249B 0.1s done
+#6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 0B / 12.12MB 0.2s
+#6 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 0B / 1.29MB 0.2s
+#6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 4.19MB / 12.12MB 0.3s
+#6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 0B / 29.84MB 0.2s
+#6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 12.12MB / 12.12MB 0.5s
+#6 sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 1.29MB / 1.29MB 0.4s done
+#6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 8.39MB / 29.84MB 0.5s
+#6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 18.87MB / 29.84MB 0.6s
+#6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 29.84MB / 29.84MB 0.8s
+#6 sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 12.12MB / 12.12MB 1.3s done
+#6 sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 29.84MB / 29.84MB 1.3s done
+#6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e
+#6 extracting sha256:ecc510c1e359bdc007b39802570bb7e4dec7d6ebccf357c3201a74299113e05e 1.0s done
+#6 DONE 3.2s
+
+#6 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#6 extracting sha256:75b6a36c64a1cf3520fc4b4aae4739d5caa8a6a05c27835a920a61784c9c32f8 0.1s done
+#6 DONE 3.3s
+
+#6 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#6 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4
+#6 extracting sha256:6912e23eb44595b44dc6d9882b34f305ad6f6e9667cec70b13e5dbc4f8cd97f4 0.5s done
+#6 DONE 3.8s
+
+#6 [1/3] FROM docker.io/library/python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+#6 extracting sha256:bbc5a12237474ec0b23b5051260d56d6436a24d70d9cad961adebe7a037ed813 0.0s done
+#6 DONE 3.8s
+
+#7 [2/3] WORKDIR /app
+#7 DONE 2.8s
+
+#8 [3/3] COPY app app
+#8 DONE 0.0s
+
+#9 exporting to image
+#9 exporting layers 0.1s done
+#9 exporting manifest sha256:022c8c8391e3bce74aabeb5767f2511281a644daea82f14bb494d032f157c68d
+#9 exporting manifest sha256:022c8c8391e3bce74aabeb5767f2511281a644daea82f14bb494d032f157c68d 0.0s done
+#9 exporting config sha256:3e0535f6baefe4d6bc01c292f9a88ce083d1c19073aea41c4a01f84294fe5c6d 0.0s done
+#9 exporting attestation manifest sha256:c904b773b3da42344bcb62f573586a231acb93811cb6e17178deb8c4b9838da6 0.0s done
+#9 exporting manifest list sha256:34558254022aa421cc4af7bf7ebf36d03f1d66dac0a026d21bd4badbdfed3f9f 0.0s done
+#9 naming to docker.io/library/aditya-session16:demo done
+#9 unpacking to docker.io/library/aditya-session16:demo 0.0s done
+#9 DONE 0.3s
+++ docker run --rm aditya-session16:demo
++ test 15 = 15
