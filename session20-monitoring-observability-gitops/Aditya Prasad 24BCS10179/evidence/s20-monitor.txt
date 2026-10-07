@@ -1,0 +1,93 @@
++ mkdir -p /tmp/s20-monitor
++ cat
++ cat
++ docker network create aditya-s20-monitor
+0132b28943b6068d1c7dc3fd0b3a5cdc349245c871fd2cf3be3d2c6ece7066eb
++ docker run -d --name exporter --network aditya-s20-monitor prom/node-exporter:latest
+Unable to find image 'prom/node-exporter:latest' locally
+latest: Pulling from prom/node-exporter
+f5ee56b8245c: Pulling fs layer
+c93f261857c3: Pulling fs layer
+bef5f3176279: Pulling fs layer
+f5ee56b8245c: Download complete
+c93f261857c3: Download complete
+bef5f3176279: Download complete
+c93f261857c3: Pull complete
+bef5f3176279: Pull complete
+f5ee56b8245c: Pull complete
+Digest: sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0
+Status: Downloaded newer image for prom/node-exporter:latest
+341c3fbb52f45a8ff8814fd7723629ac924c3f03a4cea7733762889e7c2e70d7
++ docker run -d --name aditya-s20-prom --network aditya-s20-monitor -p 127.0.0.1:9090:9090 -v /tmp/s20-monitor/prometheus.yml:/etc/prometheus/prometheus.yml:ro -v /tmp/s20-monitor/alerts.yml:/etc/prometheus/alerts.yml:ro prom/prometheus:v3.15.0
+Unable to find image 'prom/prometheus:v3.15.0' locally
+v3.15.0: Pulling from prom/prometheus
+f9de78a4ea69: Pulling fs layer
+1e155d6744e4: Pulling fs layer
+487858d29734: Pulling fs layer
+6bddf0169a34: Pulling fs layer
+3859a559c288: Pulling fs layer
+fde357b1187c: Pulling fs layer
+e1db8b9e6f1c: Pulling fs layer
+71af9fb8ff89: Pulling fs layer
+4ce6fa7d0795: Pulling fs layer
+f9de78a4ea69: Download complete
+4ce6fa7d0795: Download complete
+487858d29734: Download complete
+fde357b1187c: Download complete
+6bddf0169a34: Download complete
+e1db8b9e6f1c: Download complete
+487858d29734: Pull complete
+71af9fb8ff89: Download complete
+1e155d6744e4: Download complete
+3859a559c288: Download complete
+6bddf0169a34: Pull complete
+3859a559c288: Pull complete
+1e155d6744e4: Pull complete
+e1db8b9e6f1c: Pull complete
+fde357b1187c: Pull complete
+71af9fb8ff89: Pull complete
+f9de78a4ea69: Pull complete
+4ce6fa7d0795: Pull complete
+Digest: sha256:efd719c99d83b060d9daefdcf00360461adf279f45ef5391f8d111892118753e
+Status: Downloaded newer image for prom/prometheus:v3.15.0
+1ce167fae305169d5d9c34406737a82822342fcacb8c16ff4da0b152cb0aebcb
+++ seq 1 30
++ for i in $(seq 1 30)
++ curl -fsS http://127.0.0.1:9090/-/ready
+curl: (52) Empty reply from server
++ sleep 2
++ for i in $(seq 1 30)
++ curl -fsS http://127.0.0.1:9090/-/ready
+Prometheus Server is Ready.
++ break
++ sleep 12
++ curl -fsSG http://127.0.0.1:9090/api/v1/query --data-urlencode query=up
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"up","instance":"localhost:9090","job":"prometheus"},"value":[1791377398.453,"1"]},{"metric":{"__name__":"up","instance":"exporter:9100","job":"node"},"value":[1791377398.453,"0"]}]}}+ curl -fsSG http://127.0.0.1:9090/api/v1/query --data-urlencode 'query=100 * (1 - avg(rate(node_cpu_seconds_total{mode="idle"}[1m])))'
+{"status":"success","data":{"resultType":"vector","result":[]}}+ curl -fsSG http://127.0.0.1:9090/api/v1/query --data-urlencode 'query=100 * (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)'
+{"status":"success","data":{"resultType":"vector","result":[]}}+ docker logs exporter --tail 8
+time=2026-10-07T12:49:21.729Z level=INFO source=node_exporter.go:142 msg=udp_queues
+time=2026-10-07T12:49:21.729Z level=INFO source=node_exporter.go:142 msg=uname
+time=2026-10-07T12:49:21.729Z level=INFO source=node_exporter.go:142 msg=vmstat
+time=2026-10-07T12:49:21.729Z level=INFO source=node_exporter.go:142 msg=watchdog
+time=2026-10-07T12:49:21.729Z level=INFO source=node_exporter.go:142 msg=xfs
+time=2026-10-07T12:49:21.729Z level=INFO source=node_exporter.go:142 msg=zfs
+time=2026-10-07T12:49:21.733Z level=INFO source=tls_config.go:372 msg="Listening on" address=[::]:9100
+time=2026-10-07T12:49:21.733Z level=INFO source=tls_config.go:375 msg="TLS is disabled." http2=false address=[::]:9100
++ printf '\nSECTION ALERT FAILURE\n'
+
+SECTION ALERT FAILURE
++ docker stop exporter
+exporter
++ sleep 18
++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:50:00.792310735Z","value":"0e+00"}]}}+ printf '\nSECTION ALERT RECOVERY\n'
+
+SECTION ALERT RECOVERY
++ docker start exporter
+exporter
++ sleep 12
++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:50:00.792310735Z","value":"0e+00"}]}}+ curl -fsSG http://127.0.0.1:9090/api/v1/query --data-urlencode 'query=up{job="node"}'
+{"status":"success","data":{"resultType":"vector","result":[{"metric":{"__name__":"up","instance":"exporter:9100","job":"node"},"value":[1791377428.932,"0"]}]}}+ kubectl top nodes
+NAME       CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+minikube   520m         26%      1856Mi          23%         

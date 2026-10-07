@@ -1,0 +1,95 @@
+++ seq 1 36
++ for i in $(seq 1 36)
++ kubectl -n aditya-s20-argocd get app aditya-session20
+NAME               SYNC STATUS   HEALTH STATUS
+aditya-session20   Unknown       Healthy
+++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.sync.status}'
++ status=Unknown
++ '[' Unknown = Synced ']'
++ sleep 5
++ for i in $(seq 1 36)
++ kubectl -n aditya-s20-argocd get app aditya-session20
+NAME               SYNC STATUS   HEALTH STATUS
+aditya-session20   Unknown       Healthy
+++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.sync.status}'
++ status=Unknown
++ '[' Unknown = Synced ']'
++ sleep 5
++ for i in $(seq 1 36)
++ kubectl -n aditya-s20-argocd get app aditya-session20
+NAME               SYNC STATUS   HEALTH STATUS
+aditya-session20   Unknown       Healthy
+++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.sync.status}'
++ status=Unknown
++ '[' Unknown = Synced ']'
++ sleep 5
++ for i in $(seq 1 36)
++ kubectl -n aditya-s20-argocd get app aditya-session20
+NAME               SYNC STATUS   HEALTH STATUS
+aditya-session20   Unknown       Healthy
+++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.sync.status}'
++ status=Unknown
++ '[' Unknown = Synced ']'
++ sleep 5
++ for i in $(seq 1 36)
++ kubectl -n aditya-s20-argocd get app aditya-session20
+NAME               SYNC STATUS   HEALTH STATUS
+aditya-session20   Unknown       Healthy
+++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.sync.status}'
++ status=Unknown
++ '[' Unknown = Synced ']'
++ sleep 5
++ for i in $(seq 1 36)
++ kubectl -n aditya-s20-argocd get app aditya-session20
+NAME               SYNC STATUS   HEALTH STATUS
+aditya-session20   Synced        Healthy
+++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.sync.status}'
++ status=Synced
++ '[' Synced = Synced ']'
++ break
++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.conditions}'
++ kubectl -n aditya-s20 rollout status deploy/aditya-s20-app --timeout=120s
+deployment "aditya-s20-app" successfully rolled out
++ kubectl -n aditya-s20 get deploy,pods,svc
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/aditya-s20-app   2/2     2            2           4s
+
+NAME                                  READY   STATUS    RESTARTS   AGE
+pod/aditya-s20-app-567d7bbf8b-lbqlq   1/1     Running   0          4s
+pod/aditya-s20-app-567d7bbf8b-qxcw4   1/1     Running   0          4s
+
+NAME                     TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/aditya-s20-app   ClusterIP   10.101.16.76   <none>        80/TCP    4s
++ kubectl -n aditya-s20 run client --image=busybox:1.36 --restart=Never --command -- sleep 3600
+pod/client created
++ kubectl -n aditya-s20 wait pod/client --for=condition=Ready --timeout=90s
+pod/client condition met
++ kubectl -n aditya-s20 exec client -- wget -qO- http://aditya-s20-app
++ head -15
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
++ kubectl -n aditya-s20 logs deploy/aditya-s20-app --tail=8
+Found 2 pods, using pod/aditya-s20-app-567d7bbf8b-lbqlq
+2026/10/07 12:51:07 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2026/10/07 12:51:07 [notice] 1#1: OS: Linux 6.8.0-1064-azure
+2026/10/07 12:51:07 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2026/10/07 12:51:07 [notice] 1#1: start worker processes
+2026/10/07 12:51:07 [notice] 1#1: start worker process 29
+2026/10/07 12:51:07 [notice] 1#1: start worker process 30
+10.244.0.1 - - [07/Oct/2026:12:51:07 +0000] "GET / HTTP/1.1" 200 615 "-" "kube-probe/1.37" "-"
+10.244.0.46 - - [07/Oct/2026:12:51:11 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
++ kubectl -n aditya-s20 top pods
+error: metrics not available yet

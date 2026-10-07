@@ -1,0 +1,126 @@
++ docker stop exporter
+exporter
+++ seq 1 20
++ for i in $(seq 1 20)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[]}}'
++ echo '{"status":"success","data":{"alerts":[]}}'
+{"status":"success","data":{"alerts":[]}}
++ echo '{"status":"success","data":{"alerts":[]}}'
++ python3 -c 'import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])
+                                                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 20)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[]}}'
++ echo '{"status":"success","data":{"alerts":[]}}'
+{"status":"success","data":{"alerts":[]}}
++ echo '{"status":"success","data":{"alerts":[]}}'
++ python3 -c 'import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])
+                                                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 20)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[]}}'
++ echo '{"status":"success","data":{"alerts":[]}}'
+{"status":"success","data":{"alerts":[]}}
++ echo '{"status":"success","data":{"alerts":[]}}'
++ python3 -c 'import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])
+                                                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 20)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[]}}'
++ echo '{"status":"success","data":{"alerts":[]}}'
+{"status":"success","data":{"alerts":[]}}
++ python3 -c 'import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])'
++ echo '{"status":"success","data":{"alerts":[]}}'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])
+                                                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 20)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ python3 -c 'import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])
+                                                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 20)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"pending","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ python3 -c 'import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])
+                                                  ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 20)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ python3 -c 'import json,sys;d=json.load(sys.stdin);assert any(a["state"]=="firing" for a in d["data"]["alerts"])'
++ break
++ docker start exporter
+exporter
+++ seq 1 16
++ for i in $(seq 1 16)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ python3 -c 'import json,sys;assert not json.load(sys.stdin)["data"]["alerts"]'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;assert not json.load(sys.stdin)["data"]["alerts"]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 16)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}
++ echo '{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}'
++ python3 -c 'import json,sys;assert not json.load(sys.stdin)["data"]["alerts"]'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys;assert not json.load(sys.stdin)["data"]["alerts"]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
++ sleep 3
++ for i in $(seq 1 16)
+++ curl -fsS http://127.0.0.1:9090/api/v1/alerts
++ body='{"status":"success","data":{"alerts":[]}}'
++ echo '{"status":"success","data":{"alerts":[]}}'
+{"status":"success","data":{"alerts":[]}}
++ echo '{"status":"success","data":{"alerts":[]}}'
++ python3 -c 'import json,sys;assert not json.load(sys.stdin)["data"]["alerts"]'
++ break

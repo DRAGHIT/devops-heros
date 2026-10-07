@@ -1,0 +1,75 @@
+++ seq 1 24
++ for i in $(seq 1 24)
+++ kubectl -n aditya-s20 get deploy/aditya-s20-app -o 'jsonpath={.spec.replicas}'
++ r=3
++ '[' 3 = 3 ']'
++ break
++ kubectl -n aditya-s20 rollout status deploy/aditya-s20-app --timeout=120s
+deployment "aditya-s20-app" successfully rolled out
++ kubectl -n aditya-s20 get deploy,pods
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/aditya-s20-app   3/3     3            3           49s
+
+NAME                                  READY   STATUS    RESTARTS   AGE
+pod/aditya-s20-app-567d7bbf8b-lbqlq   1/1     Running   0          49s
+pod/aditya-s20-app-567d7bbf8b-nmt9v   1/1     Running   0          15s
+pod/aditya-s20-app-567d7bbf8b-qxcw4   1/1     Running   0          49s
+pod/client                            1/1     Running   0          45s
++ kubectl -n aditya-s20-argocd get app aditya-session20 -o 'jsonpath={.status.sync.status} {.status.health.status} {.status.sync.revision}'
+Synced Healthy c4f28379fc709f50b120182052448b61a1f5f2d2+ printf '\nSECTION SELF HEAL\n'
+
+SECTION SELF HEAL
++ kubectl -n aditya-s20 scale deploy/aditya-s20-app --replicas=1
+deployment.apps/aditya-s20-app scaled
++ kubectl -n aditya-s20 get deploy/aditya-s20-app
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+aditya-s20-app   1/1     1            1           49s
+++ seq 1 24
++ for i in $(seq 1 24)
+++ kubectl -n aditya-s20 get deploy/aditya-s20-app -o 'jsonpath={.spec.replicas}'
++ r=1
++ '[' 1 = 3 ']'
++ sleep 3
++ for i in $(seq 1 24)
+++ kubectl -n aditya-s20 get deploy/aditya-s20-app -o 'jsonpath={.spec.replicas}'
++ r=3
++ '[' 3 = 3 ']'
++ break
++ kubectl -n aditya-s20 rollout status deploy/aditya-s20-app --timeout=120s
+deployment "aditya-s20-app" successfully rolled out
++ kubectl -n aditya-s20 get deploy,pods
+NAME                             READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/aditya-s20-app   3/3     3            3           52s
+
+NAME                                  READY   STATUS    RESTARTS   AGE
+pod/aditya-s20-app-567d7bbf8b-bg7xx   1/1     Running   0          2s
+pod/aditya-s20-app-567d7bbf8b-ln6vq   1/1     Running   0          2s
+pod/aditya-s20-app-567d7bbf8b-qxcw4   1/1     Running   0          52s
+pod/client                            1/1     Running   0          48s
++ kubectl -n aditya-s20-argocd get app aditya-session20
+NAME               SYNC STATUS   HEALTH STATUS
+aditya-session20   Synced        Healthy
++ kubectl -n aditya-s20 exec client -- wget -qO- http://aditya-s20-app
++ head -15
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
++ kubectl -n aditya-s20 top pods
+NAME                              CPU(cores)   MEMORY(bytes)   
+aditya-s20-app-567d7bbf8b-qxcw4   3m           10Mi            
+client                            2m           3Mi             
++ kubectl top nodes
+NAME       CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+minikube   234m         11%      2192Mi          27%         

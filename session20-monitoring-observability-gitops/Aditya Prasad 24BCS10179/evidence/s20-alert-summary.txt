@@ -1,0 +1,6 @@
+Actual Prometheus API responses from s20-alert-final.txt
+After stopping exporter:
+{"status":"success","data":{"alerts":[{"labels":{"alertname":"ExporterDown","instance":"exporter:9100","job":"node","severity":"warning"},"annotations":{"summary":"Classroom exporter unavailable"},"state":"firing","activeAt":"2026-10-07T12:51:45.792310735Z","value":"0e+00"}]}}
+After restarting exporter:
+{"status":"success","data":{"alerts":[]}}
+Polling traces are retained in the full log.
