@@ -1,0 +1,50 @@
+name: Aditya Session 16 CI-CD
+on:
+  push:
+    branches: [session-16]
+    paths:
+      - 'session-16-github-actions/Aditya Prasad 24BCS10179/**'
+      - '.github/workflows/aditya-session16.yml'
+permissions:
+  contents: read
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'session-16-github-actions/Aditya Prasad 24BCS10179'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install and test
+        run: |
+          pip install -r requirements.txt
+          python -m pytest -v --junitxml=test-results.xml
+      - name: Build
+        run: |
+          bash build.sh
+          docker build -t aditya-session16:demo .
+          docker save aditya-session16:demo > build/image.tar
+      - name: Upload build and test evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: session16-build
+          path: |
+            session-16-github-actions/Aditya Prasad 24BCS10179/build/
+            session-16-github-actions/Aditya Prasad 24BCS10179/test-results.xml
+          retention-days: 1
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: session16-build
+          path: artifact
+      - name: Deploy container artifact and smoke test
+        run: |
+          docker load -i artifact/build/image.tar
+          test "$(docker run --rm aditya-session16:demo)" = 15
+          echo 'Deployed artifact passed calculator smoke test'
