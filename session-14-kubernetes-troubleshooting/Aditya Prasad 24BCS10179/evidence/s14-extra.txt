@@ -1,0 +1,165 @@
++ kubectl create ns aditya-s14-extra
+namespace/aditya-s14-extra created
++ kubectl -n aditya-s14-extra apply -f /tmp/s14-lab/06-crashloopbackoff/broken-pod.yaml
+pod/crash-demo created
+++ seq 1 24
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS              RESTARTS   AGE
+crash-demo   0/1     ContainerCreating   0          0s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=ContainerCreating
++ '[' ContainerCreating = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS     AGE
+crash-demo   0/1     Error    1 (3s ago)   4s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS     AGE
+crash-demo   0/1     Error    1 (6s ago)   7s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS     AGE
+crash-demo   0/1     Error    1 (9s ago)   10s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    1 (12s ago)   13s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (14s ago)   16s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (17s ago)   19s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (20s ago)   22s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (24s ago)   26s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (27s ago)   29s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (30s ago)   32s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (33s ago)   35s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (36s ago)   38s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    2 (39s ago)   41s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    3 (30s ago)   45s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    3 (33s ago)   48s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    3 (36s ago)   51s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    3 (39s ago)   54s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    3 (42s ago)   57s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
++ for i in $(seq 1 24)
++ kubectl -n aditya-s14-extra get pod crash-demo
+NAME         READY   STATUS   RESTARTS      AGE
+crash-demo   0/1     Error    3 (45s ago)   60s
+++ kubectl -n aditya-s14-extra get pod crash-demo -o 'jsonpath={.status.containerStatuses[0].state.waiting.reason}'
++ reason=
++ '[' '' = CrashLoopBackOff ']'
++ sleep 3
