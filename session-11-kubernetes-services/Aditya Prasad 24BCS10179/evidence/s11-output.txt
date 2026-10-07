@@ -1,0 +1,204 @@
+deployment.apps/web-app-clusterip created
+pod/curl-client created
+service/web-service-clusterip created
+deployment.apps/web-app-nodeport created
+service/web-service-nodeport created
+deployment.apps/web-app-loadbalancer created
+service/web-service-loadbalancer created
+pod/dns-test-client created
+service/external-database-service created
+statefulset.apps/web-stateful created
+pod/headless-dns-client created
+service/web-service-headless created
+Waiting for deployment "web-app-clusterip" rollout to finish: 0 of 3 updated replicas are available...
+Waiting for deployment "web-app-clusterip" rollout to finish: 1 of 3 updated replicas are available...
+Waiting for deployment "web-app-clusterip" rollout to finish: 2 of 3 updated replicas are available...
+deployment "web-app-clusterip" successfully rolled out
+Waiting for deployment "web-app-nodeport" rollout to finish: 1 of 2 updated replicas are available...
+deployment "web-app-nodeport" successfully rolled out
+Waiting for deployment "web-app-loadbalancer" rollout to finish: 2 of 3 updated replicas are available...
+deployment "web-app-loadbalancer" successfully rolled out
+Waiting for 2 pods to be ready...
+Waiting for 2 pods to be ready...
+Waiting for 1 pods to be ready...
+Waiting for 1 pods to be ready...
+partitioned roll out complete: 3 new pods have been updated...
+pod/curl-client condition met
+pod/dns-test-client condition met
+pod/headless-dns-client condition met
+NAME                                   READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+curl-client                            1/1     Running   0          7s    10.244.0.49   minikube   <none>           <none>
+dns-test-client                        1/1     Running   0          6s    10.244.0.58   minikube   <none>           <none>
+headless-dns-client                    1/1     Running   0          6s    10.244.0.59   minikube   <none>           <none>
+web-app-clusterip-66865d4855-ft2f4     1/1     Running   0          7s    10.244.0.52   minikube   <none>           <none>
+web-app-clusterip-66865d4855-kzjzt     1/1     Running   0          7s    10.244.0.50   minikube   <none>           <none>
+web-app-clusterip-66865d4855-pxf8g     1/1     Running   0          7s    10.244.0.51   minikube   <none>           <none>
+web-app-loadbalancer-5db87c7b9-gbrbt   1/1     Running   0          6s    10.244.0.56   minikube   <none>           <none>
+web-app-loadbalancer-5db87c7b9-s7s6n   1/1     Running   0          7s    10.244.0.55   minikube   <none>           <none>
+web-app-loadbalancer-5db87c7b9-vwm92   1/1     Running   0          6s    10.244.0.57   minikube   <none>           <none>
+web-app-nodeport-6c8f48bd-kbhr9        1/1     Running   0          7s    10.244.0.53   minikube   <none>           <none>
+web-app-nodeport-6c8f48bd-wsfkk        1/1     Running   0          7s    10.244.0.54   minikube   <none>           <none>
+web-stateful-0                         1/1     Running   0          6s    10.244.0.60   minikube   <none>           <none>
+web-stateful-1                         1/1     Running   0          2s    10.244.0.61   minikube   <none>           <none>
+web-stateful-2                         1/1     Running   0          1s    10.244.0.62   minikube   <none>           <none>
+NAME                        TYPE           CLUSTER-IP       EXTERNAL-IP        PORT(S)        AGE
+external-database-service   ExternalName   <none>           nencyravaliya.me   <none>         6s
+web-service-clusterip       ClusterIP      10.110.70.206    <none>             8080/TCP       7s
+web-service-headless        ClusterIP      None             <none>             80/TCP         6s
+web-service-loadbalancer    LoadBalancer   10.102.96.156    <pending>          80:31245/TCP   7s
+web-service-nodeport        NodePort       10.111.173.124   <none>             80:30080/TCP   7s
+NAME                             ADDRESSTYPE   PORTS   ENDPOINTS                             AGE
+web-service-clusterip-4sclv      IPv4          80      10.244.0.50,10.244.0.51,10.244.0.52   8s
+web-service-headless-hkhwk       IPv4          80      10.244.0.60,10.244.0.61,10.244.0.62   7s
+web-service-loadbalancer-zzlpf   IPv4          80      10.244.0.57,10.244.0.55,10.244.0.56   7s
+web-service-nodeport-ktpvn       IPv4          80      10.244.0.54,10.244.0.53               8s
+
+CLUSTERIP HTTP
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+
+NODEPORT HTTP
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+
+LOADBALANCER BEFORE LOCAL TUNNEL
+NAME                       TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+web-service-loadbalancer   LoadBalancer   10.102.96.156   <pending>     80:31245/TCP   8s
+NAME                       TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)        AGE
+web-service-loadbalancer   LoadBalancer   10.102.96.156   10.102.96.156   80:31245/TCP   14s
+
+LOADBALANCER HTTP VIA LOCAL TUNNEL
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+
+EXTERNALNAME DNS AND HTTP
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+external-database-service.aditya-s11.svc.cluster.local	canonical name = nencyravaliya.me
+
+external-database-service.aditya-s11.svc.cluster.local	canonical name = nencyravaliya.me
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (6) Could not resolve host: external-database-service
+command terminated with exit code 6
+
+HEADLESS DNS
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+Name:	web-service-headless.aditya-s11.svc.cluster.local
+Address: 10.244.0.62
+Name:	web-service-headless.aditya-s11.svc.cluster.local
+Address: 10.244.0.61
+Name:	web-service-headless.aditya-s11.svc.cluster.local
+Address: 10.244.0.60
+
+
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+
+Name:	web-stateful-0.web-service-headless.aditya-s11.svc.cluster.local
+Address: 10.244.0.60
+
+
+HEADLESS HTTP
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+
+COREDNS CONFIG AND STATUS
+NAME                       READY   STATUS    RESTARTS   AGE
+coredns-559f6c778d-dms8x   1/1     Running   0          11m
+apiVersion: v1
+data:
+  Corefile: |
+    .:53 {
+        log
+        errors
+        health {
+           lameduck 5s
+        }
+        ready
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+           pods insecure
+           fallthrough in-addr.arpa ip6.arpa
+           ttl 30
+        }
+        prometheus :9153
+        hosts {
+           192.168.49.1 host.minikube.internal
+           fallthrough
+        }
+        forward . /etc/resolv.conf {
+           max_concurrent 1000
+        }
+        cache 30 {
+           disable success cluster.local
+           disable denial cluster.local
+        }
+        loop
+        reload
+        loadbalance
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-10-07T12:01:26Z"
+  name: coredns
+  namespace: kube-system
+  resourceVersion: "361"
+  uid: b656f1f5-92c6-4757-b19a-db9e2f2a6b98
+namespace "aditya-s11" deleted

@@ -1,0 +1,65 @@
+namespace/aditya-s11 created
+pod/dns-test-client created
+service/external-database-service created
+pod/dns-test-client condition met
+
+ORIGINAL TARGET DIRECT DNS CHECK
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+** server can't find nencyravaliya.me: NXDOMAIN
+
+** server can't find nencyravaliya.me: NXDOMAIN
+
+command terminated with exit code 1
+
+CONTROL EXTERNAL TARGET
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+Non-authoritative answer:
+Name:	example.com
+Address: 172.66.147.243
+Name:	example.com
+Address: 104.20.23.154
+
+Non-authoritative answer:
+Name:	example.com
+Address: 2606:4700:10::ac42:93f3
+Name:	example.com
+Address: 2606:4700:10::6814:179a
+
+service/external-database-service patched
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+external-database-service.aditya-s11.svc.cluster.local	canonical name = example.com
+Name:	example.com
+Address: 104.20.23.154
+Name:	example.com
+Address: 172.66.147.243
+
+external-database-service.aditya-s11.svc.cluster.local	canonical name = example.com
+Name:	example.com
+Address: 2606:4700:10::ac42:93f3
+Name:	example.com
+Address: 2606:4700:10::6814:179a
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0HTTP/1.1 403 Forbidden
+
+  0    17    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+Date: Wed, 07 Oct 2026 12:14:02 GMT
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 17
+Connection: keep-alive
+Cache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Expires: Thu, 01 Jan 1970 00:00:01 GMT
+Referrer-Policy: same-origin
+X-Frame-Options: SAMEORIGIN
+Server: cloudflare
+CF-RAY: a46cd2c0cfc77672-SEA
+
+namespace "aditya-s11" deleted
