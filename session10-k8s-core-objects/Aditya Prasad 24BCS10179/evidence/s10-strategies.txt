@@ -1,0 +1,192 @@
+deployment.apps/app-rolling created
+service/app-rolling-service created
+Waiting for deployment "app-rolling" rollout to finish: 0 of 4 updated replicas are available...
+Waiting for deployment "app-rolling" rollout to finish: 1 of 4 updated replicas are available...
+Waiting for deployment "app-rolling" rollout to finish: 2 of 4 updated replicas are available...
+Waiting for deployment "app-rolling" rollout to finish: 3 of 4 updated replicas are available...
+deployment "app-rolling" successfully rolled out
+NAME                           READY   STATUS    RESTARTS   AGE   VERSION
+app-rolling-86d7d44d5b-9dhlk   1/1     Running   0          12s   v1
+app-rolling-86d7d44d5b-cfx76   1/1     Running   0          12s   v1
+app-rolling-86d7d44d5b-pdc9t   1/1     Running   0          12s   v1
+app-rolling-86d7d44d5b-x87k4   1/1     Running   0          12s   v1
+deployment.apps/app-rolling configured
+Waiting for deployment "app-rolling" rollout to finish: 1 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 1 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 1 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 2 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 3 out of 4 new replicas have been updated...
+Waiting for deployment "app-rolling" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "app-rolling" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "app-rolling" rollout to finish: 1 old replicas are pending termination...
+deployment "app-rolling" successfully rolled out
+NAME                     DESIRED   CURRENT   READY   AGE
+app-rolling-56bff6d88c   4         4         4       32s
+app-rolling-86d7d44d5b   0         0         0       44s
+NAME                           READY   STATUS      RESTARTS   AGE   VERSION
+app-rolling-56bff6d88c-5z6ps   1/1     Running     0          32s   v2
+app-rolling-56bff6d88c-9h29d   1/1     Running     0          22s   v2
+app-rolling-56bff6d88c-mc4x9   1/1     Running     0          14s   v2
+app-rolling-56bff6d88c-tr9xs   1/1     Running     0          7s    v2
+app-rolling-86d7d44d5b-9dhlk   0/1     Completed   0          44s   v1
+deployment.apps/app-blue created
+deployment.apps/app-green created
+service/myapp-service created
+Waiting for deployment "app-blue" rollout to finish: 0 of 3 updated replicas are available...
+Waiting for deployment "app-blue" rollout to finish: 1 of 3 updated replicas are available...
+Waiting for deployment "app-blue" rollout to finish: 2 of 3 updated replicas are available...
+deployment "app-blue" successfully rolled out
+deployment "app-green" successfully rolled out
+<html><body style="background:#003566;color:#ffd60a;font-family:monospace;font-size:3em;text-align:center;padding-top:20vh">
+<p>BLUE ENVIRONMENT</p>
+<p style="font-size:0.5em">Version: v1 | Slot: BLUE (LIVE)</p>
+</body></html>
+service/myapp-service configured
+<html><body style="background:#003566;color:#ffd60a;font-family:monospace;font-size:3em;text-align:center;padding-top:20vh">
+<p>BLUE ENVIRONMENT</p>
+<p style="font-size:0.5em">Version: v1 | Slot: BLUE (LIVE)</p>
+</body></html>
+deployment.apps/app-canary created
+deployment.apps/app-stable created
+service/myapp-canary-service created
+Waiting for deployment "app-stable" rollout to finish: 0 out of 9 new replicas have been updated...
+Waiting for deployment "app-stable" rollout to finish: 0 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 1 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 2 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 3 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 4 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 5 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 6 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 7 of 9 updated replicas are available...
+Waiting for deployment "app-stable" rollout to finish: 8 of 9 updated replicas are available...
+deployment "app-stable" successfully rolled out
+deployment "app-canary" successfully rolled out
+NAME                          READY   STATUS    RESTARTS   AGE   TRACK
+app-canary-5849994497-zgg7c   1/1     Running   0          10s   canary
+app-stable-6ffb777f9d-5r9pr   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-bdwh2   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-kjhzn   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-lfd5v   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-mk4dv   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-ptht5   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-q8m8z   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-sjpbk   1/1     Running   0          10s   stable
+app-stable-6ffb777f9d-zgpj2   1/1     Running   0          10s   stable
+NAME                         ADDRESSTYPE   PORTS   ENDPOINTS                                         AGE
+myapp-canary-service-rvfqh   IPv4          80      10.244.0.22,10.244.0.23,10.244.0.24 + 7 more...   10s
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>CANARY v2</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+<p>STABLE v1</p>
+deployment.apps/app-recreate created
+service/app-recreate-service created
+Waiting for deployment "app-recreate" rollout to finish: 0 of 3 updated replicas are available...
+Waiting for deployment "app-recreate" rollout to finish: 1 of 3 updated replicas are available...
+Waiting for deployment "app-recreate" rollout to finish: 2 of 3 updated replicas are available...
+deployment "app-recreate" successfully rolled out
+deployment.apps/app-recreate configured
+Waiting for deployment "app-recreate" rollout to finish: 0 out of 3 new replicas have been updated...
+Waiting for deployment "app-recreate" rollout to finish: 0 out of 3 new replicas have been updated...
+Waiting for deployment "app-recreate" rollout to finish: 0 out of 3 new replicas have been updated...
+Waiting for deployment "app-recreate" rollout to finish: 0 out of 3 new replicas have been updated...
+Waiting for deployment "app-recreate" rollout to finish: 0 out of 3 new replicas have been updated...
+Waiting for deployment "app-recreate" rollout to finish: 0 of 3 updated replicas are available...
+Waiting for deployment "app-recreate" rollout to finish: 1 of 3 updated replicas are available...
+Waiting for deployment "app-recreate" rollout to finish: 2 of 3 updated replicas are available...
+deployment "app-recreate" successfully rolled out
+Name:               app-recreate
+Namespace:          aditya-s10
+CreationTimestamp:  Wed, 07 Oct 2026 12:08:15 +0000
+Labels:             app=app-recreate
+Annotations:        deployment.kubernetes.io/revision: 2
+Selector:           app=app-recreate
+Replicas:           3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:       Recreate
+MinReadySeconds:    0
+Pod Template:
+  Labels:  app=app-recreate
+           version=v2
+  Containers:
+   web:
+    Image:      nginx:1.25-alpine
+    Port:       80/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:     100m
+      memory:  64Mi
+    Requests:
+      cpu:         30m
+      memory:      32Mi
+    Environment:   <none>
+    Mounts:        <none>
+  Volumes:         <none>
+  Node-Selectors:  <none>
+  Tolerations:     <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      True    MinimumReplicasAvailable
+  Progressing    True    NewReplicaSetAvailable
+OldReplicaSets:  app-recreate-6c78cb55bb (0/0 replicas created)
+NewReplicaSet:   app-recreate-7bd8d89b8b (3/3 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  4s    deployment-controller  Scaled up replica set app-recreate-6c78cb55bb from 0 to 3
+  Normal  ScalingReplicaSet  2s    deployment-controller  Scaled down replica set app-recreate-6c78cb55bb from 3 to 0
+  Normal  ScalingReplicaSet  1s    deployment-controller  Scaled up replica set app-recreate-7bd8d89b8b from 0 to 3
+NAME                            READY   STATUS    RESTARTS   AGE   VERSION
+app-blue-5c69d7785c-kh2bt       1/1     Running   0          26s   v1
+app-blue-5c69d7785c-q9sxh       1/1     Running   0          26s   v1
+app-blue-5c69d7785c-x6779       1/1     Running   0          26s   v1
+app-canary-5849994497-zgg7c     1/1     Running   0          16s   v2
+app-green-84df7f978-gm87k       1/1     Running   0          26s   v2
+app-green-84df7f978-hjvjl       1/1     Running   0          26s   v2
+app-green-84df7f978-rjd65       1/1     Running   0          26s   v2
+app-recreate-7bd8d89b8b-cbdhs   1/1     Running   0          1s    v2
+app-recreate-7bd8d89b8b-g8xs5   1/1     Running   0          1s    v2
+app-recreate-7bd8d89b8b-xfkvx   1/1     Running   0          1s    v2
+app-rolling-56bff6d88c-5z6ps    1/1     Running   0          58s   v2
+app-rolling-56bff6d88c-9h29d    1/1     Running   0          48s   v2
+app-rolling-56bff6d88c-mc4x9    1/1     Running   0          40s   v2
+app-rolling-56bff6d88c-tr9xs    1/1     Running   0          33s   v2
+app-stable-6ffb777f9d-5r9pr     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-bdwh2     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-kjhzn     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-lfd5v     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-mk4dv     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-ptht5     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-q8m8z     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-sjpbk     1/1     Running   0          16s   v1
+app-stable-6ffb777f9d-zgpj2     1/1     Running   0          16s   v1

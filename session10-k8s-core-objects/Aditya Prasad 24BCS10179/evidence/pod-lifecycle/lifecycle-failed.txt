@@ -1,0 +1,62 @@
+FILE: pod-lifecycle/04-failed.yaml
+NAME               READY   STATUS   RESTARTS   AGE
+lifecycle-failed   0/1     Error    0          61s
+Name:             lifecycle-failed
+Namespace:        aditya-s10
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 12:08:42 +0000
+Labels:           <none>
+Annotations:      <none>
+Status:           Failed
+IP:               10.244.0.44
+IPs:
+  IP:  10.244.0.44
+Containers:
+  task:
+    Container ID:  containerd://40038c71e0f1128a751cd0da107c456c7e77741ddf7eb45ccf6167d4544001a9
+    Image:         busybox:1.36
+    Image ID:      docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      echo 'Task started'; sleep 5; echo 'Task failed'; exit 1
+    State:          Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Wed, 07 Oct 2026 12:08:59 +0000
+      Finished:     Wed, 07 Oct 2026 12:09:04 +0000
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-4pjwt (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-4pjwt:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  61s   default-scheduler  Successfully assigned aditya-s10/lifecycle-failed to minikube
+  Normal  Pulling    59s   kubelet            spec.containers{task}: Pulling image "busybox:1.36"
+  Normal  Pulled     44s   kubelet            spec.containers{task}: Successfully pulled image "busybox:1.36" in 547ms (15.311s including waiting). Image size: 2217006 bytes.
+  Normal  Created    44s   kubelet            spec.containers{task}: Container created
+  Normal  Started    44s   kubelet            spec.containers{task}: Container started

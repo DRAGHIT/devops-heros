@@ -1,0 +1,4 @@
+<html><body style="background:#1b4332;color:#95d5b2;font-family:monospace;font-size:3em;text-align:center;padding-top:20vh">
+<p>GREEN ENVIRONMENT</p>
+<p style="font-size:0.5em">Version: v2 | Slot: GREEN (STANDBY -> PROMOTED)</p>
+</body></html>

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd /tmp/session10-k8s-core-objects
+kubectl -n aditya-s10 apply -f pod-lifecycle/
+for i in $(seq 1 12); do
+ kubectl -n aditya-s10 get pods -l app=none >/dev/null
+ if kubectl -n aditya-s10 get pod lifecycle-multi-container -o jsonpath='{.status.containerStatuses[*].ready}' | grep -q 'true true'; then break;fi
+ sleep 5
+done
+mkdir -p /tmp/devops-evidence/s10-lifecycle
+for f in pod-lifecycle/*.yaml;do
+ name=$(awk '/name: lifecycle-/{print $2;exit}' "$f")
+ { echo "FILE: $f";kubectl -n aditya-s10 get pod "$name";kubectl -n aditya-s10 describe pod "$name";} > "/tmp/devops-evidence/s10-lifecycle/$name.txt"
+done
+kubectl -n aditya-s10 get pod lifecycle-succeeded -o jsonpath='{.status.phase}' | grep -q Succeeded
+kubectl -n aditya-s10 get pod lifecycle-failed -o jsonpath='{.status.phase}' | grep -q Failed
+kubectl -n aditya-s10 get pod lifecycle-pending -o jsonpath='{.status.phase}' | grep -q Pending
+kubectl -n aditya-s10 get pods | tee /tmp/devops-evidence/s10-lifecycle-summary.txt
+kubectl -n aditya-s10 exec deploy/app-green -- wget -qO- http://myapp-service | tee /tmp/devops-evidence/s10-green-confirmed.txt
+kubectl -n aditya-s10 delete pod lifecycle-termination --wait=false
+kubectl -n aditya-s10 get pod lifecycle-termination >> /tmp/devops-evidence/s10-lifecycle/lifecycle-termination.txt
+kubectl -n aditya-s10 wait --for=delete pod/lifecycle-termination --timeout=35s >> /tmp/devops-evidence/s10-lifecycle/lifecycle-termination.txt

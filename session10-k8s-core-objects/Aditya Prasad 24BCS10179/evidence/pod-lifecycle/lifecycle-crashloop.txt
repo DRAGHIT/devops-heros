@@ -1,0 +1,69 @@
+FILE: pod-lifecycle/05-crashloopbackoff.yaml
+NAME                  READY   STATUS   RESTARTS      AGE
+lifecycle-crashloop   0/1     Error    3 (36s ago)   61s
+Name:             lifecycle-crashloop
+Namespace:        aditya-s10
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Wed, 07 Oct 2026 12:08:42 +0000
+Labels:           <none>
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.39
+IPs:
+  IP:  10.244.0.39
+Containers:
+  crashing-app:
+    Container ID:  containerd://95417c41d33fb1015e20d2507ef4dc95fc2992a55b83e4cc482749edbdf2dee0
+    Image:         busybox:1.36
+    Image ID:      docker.io/library/busybox@sha256:73aaf090f3d85aa34ee199857f03fa3a95c8ede2ffd4cc2cdb5b94e566b11662
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+      echo 'Application started'; sleep 3; echo 'Application crashed'; exit 1
+    State:          Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Wed, 07 Oct 2026 12:09:35 +0000
+      Finished:     Wed, 07 Oct 2026 12:09:38 +0000
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Wed, 07 Oct 2026 12:09:04 +0000
+      Finished:     Wed, 07 Oct 2026 12:09:07 +0000
+    Ready:          False
+    Restart Count:  3
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-gb7rc (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-gb7rc:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age               From               Message
+  ----     ------     ----              ----               -------
+  Normal   Scheduled  61s               default-scheduler  Successfully assigned aditya-s10/lifecycle-crashloop to minikube
+  Normal   Pulling    60s               kubelet            spec.containers{crashing-app}: Pulling image "busybox:1.36"
+  Normal   Pulled     58s               kubelet            spec.containers{crashing-app}: Successfully pulled image "busybox:1.36" in 1.865s (1.865s including waiting). Image size: 2217006 bytes.
+  Normal   Created    8s (x4 over 58s)  kubelet            spec.containers{crashing-app}: Container created
+  Normal   Started    8s (x4 over 58s)  kubelet            spec.containers{crashing-app}: Container started
+  Normal   Pulled     8s (x3 over 54s)  kubelet            spec.containers{crashing-app}: Container image "busybox:1.36" already present on machine and can be accessed by the pod
+  Warning  BackOff    5s (x3 over 45s)  kubelet            spec.containers{crashing-app}: Back-off restarting failed container crashing-app in pod lifecycle-crashloop_aditya-s10(eedda769-e4a5-4805-8a92-46717eb855bb)
