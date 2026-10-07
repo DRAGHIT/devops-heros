@@ -1,0 +1,15 @@
+{
+  "name": "session6-react",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src.jsx --bundle --outfile=dist/app.js && cp index.html dist/index.html"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}
