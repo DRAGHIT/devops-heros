@@ -1,0 +1,2 @@
+# B311: dashboard uses randomness for UI demo greetings/run IDs, not cryptography.
+skips: [B311]

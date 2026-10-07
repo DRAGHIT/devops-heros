@@ -1,0 +1,69 @@
+name: Aditya Session 17 DevSecOps
+on:
+  push:
+    branches: [session-17]
+    paths:
+      - 'session-17-devsecops/Aditya Prasad 24BCS10179/**'
+      - '.github/workflows/aditya-session17.yml'
+permissions:
+  contents: read
+jobs:
+  devsecops:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'session-17-devsecops/Aditya Prasad 24BCS10179'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Build environment and unit tests
+        run: |
+          pip install -r requirements-dev.txt
+          python -m pytest --cov=app --cov-report=term-missing
+      - name: SAST with scan-error gate
+        run: |
+          bandit -r app -c bandit.yaml -f json -o bandit-report.json
+          python -c 'import json; d=json.load(open("bandit-report.json")); assert not d["errors"] and not d["results"]'
+      - name: SCA
+        run: pip-audit -r requirements.txt
+      - name: Secret scan
+        run: |
+          mkdir -p /tmp/scanners
+          curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz | tar -xz -C /tmp/scanners gitleaks
+          /tmp/scanners/gitleaks dir app --no-banner
+          /tmp/scanners/gitleaks dir tests --no-banner
+      - name: Docker build
+        run: docker build -t aditya-session17:verified .
+      - name: Image scan and security gate
+        run: |
+          curl -fsSL https://github.com/aquasecurity/trivy/releases/download/v0.75.0/trivy_0.75.0_Linux-64bit.tar.gz | tar -xz -C /tmp/scanners trivy
+          /tmp/scanners/trivy image --exit-code 1 --severity HIGH,CRITICAL --format json --output trivy-report.json aditya-session17:verified
+      - name: Push to ephemeral registry
+        run: |
+          docker run -d --name registry -p 127.0.0.1:5002:5000 registry:2
+          docker tag aditya-session17:verified localhost:5002/aditya-session17:verified
+          docker push localhost:5002/aditya-session17:verified
+          docker pull localhost:5002/aditya-session17:verified
+      - uses: helm/kind-action@v1
+        with:
+          cluster_name: session17
+      - name: Deploy and verify Kubernetes
+        run: |
+          kind load docker-image localhost:5002/aditya-session17:verified --name session17
+          kubectl create ns aditya-s17
+          sed 's#image: aditya-session17:verified#image: localhost:5002/aditya-session17:verified#' k8s/deployment.yaml | kubectl -n aditya-s17 apply -f -
+          kubectl -n aditya-s17 apply -f k8s/service.yaml
+          kubectl -n aditya-s17 rollout status deploy/session17-app --timeout=180s
+          kubectl -n aditya-s17 get pods -o wide
+          kubectl -n aditya-s17 exec deploy/session17-app -- python -c 'import urllib.request; print(urllib.request.urlopen("http://session17-app/health").read().decode())'
+      - name: Upload security reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: session17-security
+          path: |
+            session-17-devsecops/Aditya Prasad 24BCS10179/bandit-report.json
+            session-17-devsecops/Aditya Prasad 24BCS10179/trivy-report.json
+          retention-days: 1
