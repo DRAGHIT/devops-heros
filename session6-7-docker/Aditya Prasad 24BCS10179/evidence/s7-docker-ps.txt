@@ -1,0 +1,2 @@
+NAMES       IMAGE       STATUS        PORTS
+aditya-s7   aditya-s7   Up 1 second   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
