@@ -27,7 +27,7 @@ For an interview: a hard link names the same inode and cannot normally cross fil
 
 On this Ubuntu system, `adduser --help` confirms the high-level user-creation interface, including home-directory and disabled-login options. `useradd` is the lower-level utility; `adduser` is convenient for interactive Ubuntu account creation because it applies distribution defaults and prompts for account details.
 
-**Not completed:** a real test user could not be created. `sudo -n true` returned `sudo: a password is required`. No account was created and no privilege escalation was attempted.
+**Initial run limitation, resolved below:** a real test user could not be created. `sudo -n true` returned `sudo: a password is required`. No account was created and no privilege escalation was attempted.
 
 Remaining commands on a disposable Ubuntu VM with admin access:
 
@@ -64,7 +64,7 @@ The repository's `Linux Networking Cheat Sheet.pdf` covers the `ip` utility. Exe
 
 ## Status
 
-Partially verified. Link exercises and safe command practice pass. Real test-user creation, unrestricted service-log inspection, and network-changing exercises still need a disposable admin-enabled Linux machine. This session is not claimed fully complete.
+Partially verified. Link exercises, safe command practice and real test-user creation pass, including the later Codespace recheck. Unrestricted systemd service-log inspection still needs a systemd-enabled Linux VM. This session is not claimed fully complete.
 
 ## Sources and format
 
@@ -72,3 +72,9 @@ Partially verified. Link exercises and safe command practice pass. Real test-use
 - Teacher Session 2 resources in this repository.
 - [Student folder placement reference, PR 310](https://github.com/Nency-Ravaliya/devops-heros/pull/310). Used only for placement; its combined Session 1/2 submission was not copied.
 - [PR 127 formatting reference](https://github.com/Nency-Ravaliya/devops-heros/pull/127): task-numbered headings and terminal-evidence attachment. Its command outputs are not used as our evidence.
+
+## Codespace recheck
+
+The original sandbox limitation was retested in the requested Codespace. sudo succeeded; adduser created aditya-devops-test with home directory and bash shell, id/getent confirmed it, and deluser --remove-home cleaned it up. [Actual admin output](codespace-admin-output.txt). Task 2 is now verified.
+
+PID 1 is docker-init, not systemd. Even sudo journalctl found no journal files; a logger test also produced no journal entries. Thus unrestricted systemd service-log inspection remains unverified in this container and needs a systemd-enabled VM. Earlier network-changing examples were not required to be destructive host changes.
