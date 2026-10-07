@@ -1,0 +1,153 @@
+* ingress is an addon maintained by Kubernetes. For any concerns contact minikube on GitHub.
+You can view the list of minikube maintainers at: https://github.com/kubernetes/minikube/blob/master/OWNERS
+  - Using image registry.k8s.io/ingress-nginx/controller:v1.15.1
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.9
+  - Using image registry.k8s.io/ingress-nginx/kube-webhook-certgen:v1.6.9
+* Verifying ingress addon...
+* The 'ingress' addon is enabled
+pod/ingress-nginx-controller-d7cd8c989-pg5dw condition met
+namespace/aditya-s12 created
+configmap/yatri-app-config created
+secret/yatri-db-secret created
+Name:         yatri-app-config
+Namespace:    aditya-s12
+Labels:       app=yatri-app
+Annotations:  <none>
+
+Data
+====
+APP_PORT:
+----
+5000
+
+DEFAULT_CURRENCY:
+----
+INR
+
+ENVIRONMENT:
+----
+production
+
+LOG_LEVEL:
+----
+INFO
+
+MAX_BOOKING_DAYS:
+----
+30
+
+
+BinaryData
+====
+
+Events:  <none>
+Name:         yatri-db-secret
+Namespace:    aditya-s12
+Labels:       <none>
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+POSTGRES_DB:        12 bytes
+POSTGRES_PASSWORD:  25 bytes
+POSTGRES_USER:      14 bytes
+deployment.apps/yatri-backend created
+service/yatri-backend-service created
+deployment.apps/yatri-frontend created
+service/yatri-frontend-service created
+Waiting for deployment "yatri-backend" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "yatri-backend" rollout to finish: 1 of 2 updated replicas are available...
+deployment "yatri-backend" successfully rolled out
+deployment "yatri-frontend" successfully rolled out
+CONFIG: production INFO INR
+SECRET value matches runtime test value (not printed)
+ingress.networking.k8s.io/yatri-ingress created
+Name:             yatri-ingress
+Labels:           app=yatri-app
+Namespace:        aditya-s12
+Address:          192.168.49.2
+Ingress Class:    nginx
+Default backend:  <default>
+Rules:
+  Host         Path  Backends
+  ----         ----  --------
+  yatri.local  
+               /api(/|$)(.*)   yatri-backend-service:80 (10.244.0.67:5000,10.244.0.68:5000)
+               /               yatri-frontend-service:80 (10.244.0.69:80,10.244.0.70:80)
+Annotations:   nginx.ingress.kubernetes.io/rewrite-target: /$2
+               nginx.ingress.kubernetes.io/ssl-redirect: false
+               nginx.ingress.kubernetes.io/use-regex: true
+Events:
+  Type    Reason  Age               From                      Message
+  ----    ------  ----              ----                      -------
+  Normal  Sync    2s (x2 over 47s)  nginx-ingress-controller  Scheduled for sync
+
+FRONTEND ROUTE
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+
+BACKEND ROUTE
+Yatri Backend API
+=================
+ENVIRONMENT     : production
+LOG_LEVEL       : INFO
+DEFAULT_CURRENCY: INR
+POSTGRES_USER   : classroom_user
+POSTGRES_DB     : classroom_db
+
+WRONG HOST
+404
+<html>
+<head><title>404 Not Found</title></head>
+<body>
+<center><h1>404 Not Found</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+TRAILING NEWLINE BEFORE AND AFTER
+Y2xhc3Nyb29tLWRlbW8K
+Y2xhc3Nyb29tLWRlbW8=
+secret/newline-demo created
+ 63 6c 61 73 73 72 6f 6f 6d 2d 64 65 6d 6f 0a
+secret "newline-demo" deleted from aditya-s12 namespace
+secret/newline-demo created
+ 63 6c 61 73 73 72 6f 6f 6d 2d 64 65 6d 6f
+
+FINAL OBJECTS
+NAME                                 READY   STATUS    RESTARTS   AGE
+pod/yatri-backend-6c58cb99c7-4wtrz   1/1     Running   0          53s
+pod/yatri-backend-6c58cb99c7-pcz7n   1/1     Running   0          53s
+pod/yatri-frontend-ddcfc4b5f-8q6zt   1/1     Running   0          53s
+pod/yatri-frontend-ddcfc4b5f-j4d25   1/1     Running   0          53s
+
+NAME                             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+service/yatri-backend-service    ClusterIP   10.106.191.146   <none>        80/TCP    53s
+service/yatri-frontend-service   ClusterIP   10.102.8.194     <none>        80/TCP    53s
+
+NAME                         DATA   AGE
+configmap/kube-root-ca.crt   1      54s
+configmap/yatri-app-config   5      54s
+
+NAME                     TYPE     DATA   AGE
+secret/newline-demo      Opaque   1      0s
+secret/yatri-db-secret   Opaque   3      54s
+
+NAME                                      CLASS   HOSTS         ADDRESS        PORTS   AGE
+ingress.networking.k8s.io/yatri-ingress   nginx   yatri.local   192.168.49.2   80      48s
+namespace "aditya-s12" deleted
