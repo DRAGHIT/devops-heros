@@ -1,0 +1,8 @@
+bash -n system_info.sh: PASS
+Normal execution: PASS
+Required system-information sections: PASS
+Name and roll number preserved: PASS
+Output directory containing spaces: PASS
+Nonempty process.log with PID/COMMAND columns: PASS
+Empty output directory rejected: PASS
+Temporary test files cleaned up on exit.
