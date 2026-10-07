@@ -1,0 +1,123 @@
++ cd /tmp/s15-lab
++ kubectl create ns aditya-s15-bad
+namespace/aditya-s15-bad created
++ helm install notes-recovery notes-chart -n aditya-s15-bad --wait --timeout=180s
+NAME: notes-recovery
+LAST DEPLOYED: Wed Oct  7 12:36:11 2026
+NAMESPACE: aditya-s15-bad
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
++ helm upgrade notes-recovery notes-chart -n aditya-s15-bad -f notes-chart/values-prod.yaml --wait --timeout=180s
+Release "notes-recovery" has been upgraded. Happy Helming!
+NAME: notes-recovery
+LAST DEPLOYED: Wed Oct  7 12:36:12 2026
+NAMESPACE: aditya-s15-bad
+STATUS: deployed
+REVISION: 2
+DESCRIPTION: Upgrade complete
+TEST SUITE: None
++ helm upgrade notes-recovery notes-chart -n aditya-s15-bad -f notes-chart/values-prod.yaml --set image.tag=broken-tag-does-not-exist
+Release "notes-recovery" has been upgraded. Happy Helming!
+NAME: notes-recovery
+LAST DEPLOYED: Wed Oct  7 12:36:15 2026
+NAMESPACE: aditya-s15-bad
+STATUS: deployed
+REVISION: 3
+DESCRIPTION: Upgrade complete
+TEST SUITE: None
+++ seq 1 18
++ for i in $(seq 1 18)
++ kubectl -n aditya-s15-bad get pods
+NAME                                     READY   STATUS              RESTARTS   AGE
+notes-recovery-deploy-6d67d49bff-99vvm   0/1     Completed           0          5s
+notes-recovery-deploy-6d67d49bff-bd9m8   0/1     Completed           0          4s
+notes-recovery-deploy-74d44f9498-2btfn   1/1     Running             0          3s
+notes-recovery-deploy-74d44f9498-b22ph   1/1     Running             0          2s
+notes-recovery-deploy-74d44f9498-n7wxx   1/1     Running             0          4s
+notes-recovery-deploy-7dc575587b-mjzcg   0/1     ContainerCreating   0          0s
++ kubectl -n aditya-s15-bad get pods -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ grep ImagePullBackOff
++ sleep 5
++ for i in $(seq 1 18)
++ kubectl -n aditya-s15-bad get pods
+NAME                                     READY   STATUS         RESTARTS   AGE
+notes-recovery-deploy-74d44f9498-2btfn   1/1     Running        0          8s
+notes-recovery-deploy-74d44f9498-b22ph   1/1     Running        0          7s
+notes-recovery-deploy-74d44f9498-n7wxx   1/1     Running        0          9s
+notes-recovery-deploy-7dc575587b-mjzcg   0/1     ErrImagePull   0          5s
++ kubectl -n aditya-s15-bad get pods -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ grep ImagePullBackOff
++ sleep 5
++ for i in $(seq 1 18)
++ kubectl -n aditya-s15-bad get pods
+NAME                                     READY   STATUS         RESTARTS   AGE
+notes-recovery-deploy-74d44f9498-2btfn   1/1     Running        0          13s
+notes-recovery-deploy-74d44f9498-b22ph   1/1     Running        0          12s
+notes-recovery-deploy-74d44f9498-n7wxx   1/1     Running        0          14s
+notes-recovery-deploy-7dc575587b-mjzcg   0/1     ErrImagePull   0          10s
++ grep ImagePullBackOff
++ kubectl -n aditya-s15-bad get pods -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ sleep 5
++ for i in $(seq 1 18)
++ kubectl -n aditya-s15-bad get pods
+NAME                                     READY   STATUS             RESTARTS   AGE
+notes-recovery-deploy-74d44f9498-2btfn   1/1     Running            0          18s
+notes-recovery-deploy-74d44f9498-b22ph   1/1     Running            0          17s
+notes-recovery-deploy-74d44f9498-n7wxx   1/1     Running            0          19s
+notes-recovery-deploy-7dc575587b-mjzcg   0/1     ImagePullBackOff   0          15s
++ kubectl -n aditya-s15-bad get pods -o 'jsonpath={.items[*].status.containerStatuses[*].state.waiting.reason}'
++ grep ImagePullBackOff
+ImagePullBackOff
++ break
++ kubectl -n aditya-s15-bad get events --sort-by=.lastTimestamp
++ tail -25
+18s         Normal    Pulled              pod/notes-recovery-deploy-74d44f9498-n7wxx    Container image "nginx:1.25" already present on machine and can be accessed by the pod
+18s         Normal    Started             pod/notes-recovery-deploy-6d67d49bff-bd9m8    Container started
+17s         Normal    Pulled              pod/notes-recovery-deploy-74d44f9498-2btfn    Container image "nginx:1.25" already present on machine and can be accessed by the pod
+17s         Normal    ScalingReplicaSet   deployment/notes-recovery-deploy              Scaled down replica set notes-recovery-deploy-6d67d49bff from 2 to 1
+17s         Normal    Scheduled           pod/notes-recovery-deploy-74d44f9498-b22ph    Successfully assigned aditya-s15-bad/notes-recovery-deploy-74d44f9498-b22ph to minikube
+17s         Normal    Started             pod/notes-recovery-deploy-74d44f9498-2btfn    Container started
+17s         Normal    Created             pod/notes-recovery-deploy-74d44f9498-2btfn    Container created
+17s         Normal    SuccessfulDelete    replicaset/notes-recovery-deploy-6d67d49bff   Deleted pod: notes-recovery-deploy-6d67d49bff-bd9m8
+17s         Normal    SuccessfulCreate    replicaset/notes-recovery-deploy-74d44f9498   Created pod: notes-recovery-deploy-74d44f9498-b22ph
+17s         Normal    ScalingReplicaSet   deployment/notes-recovery-deploy              Scaled up replica set notes-recovery-deploy-74d44f9498 from 2 to 3
+16s         Normal    Pulled              pod/notes-recovery-deploy-74d44f9498-b22ph    Container image "nginx:1.25" already present on machine and can be accessed by the pod
+16s         Normal    Started             pod/notes-recovery-deploy-74d44f9498-b22ph    Container started
+16s         Normal    ScalingReplicaSet   deployment/notes-recovery-deploy              Scaled down replica set notes-recovery-deploy-6d67d49bff from 1 to 0
+16s         Normal    Killing             pod/notes-recovery-deploy-6d67d49bff-99vvm    Stopping container notes
+16s         Normal    Killing             pod/notes-recovery-deploy-6d67d49bff-bd9m8    Stopping container notes
+16s         Normal    SuccessfulDelete    replicaset/notes-recovery-deploy-6d67d49bff   Deleted pod: notes-recovery-deploy-6d67d49bff-99vvm
+16s         Normal    Created             pod/notes-recovery-deploy-74d44f9498-b22ph    Container created
+15s         Normal    Scheduled           pod/notes-recovery-deploy-7dc575587b-mjzcg    Successfully assigned aditya-s15-bad/notes-recovery-deploy-7dc575587b-mjzcg to minikube
+15s         Normal    SuccessfulCreate    replicaset/notes-recovery-deploy-7dc575587b   Created pod: notes-recovery-deploy-7dc575587b-mjzcg
+15s         Normal    ScalingReplicaSet   deployment/notes-recovery-deploy              Scaled up replica set notes-recovery-deploy-7dc575587b from 0 to 1
+14s         Warning   Failed              pod/notes-recovery-deploy-7dc575587b-mjzcg    Error: ImagePullBackOff
+14s         Normal    BackOff             pod/notes-recovery-deploy-7dc575587b-mjzcg    Back-off pulling image "nginx:broken-tag-does-not-exist"
+2s          Normal    Pulling             pod/notes-recovery-deploy-7dc575587b-mjzcg    Pulling image "nginx:broken-tag-does-not-exist"
+1s          Warning   Failed              pod/notes-recovery-deploy-7dc575587b-mjzcg    Failed to pull image "nginx:broken-tag-does-not-exist": rpc error: code = NotFound desc = failed to pull and unpack image "docker.io/library/nginx:broken-tag-does-not-exist": failed to resolve reference "docker.io/library/nginx:broken-tag-does-not-exist": docker.io/library/nginx:broken-tag-does-not-exist: not found
+1s          Warning   Failed              pod/notes-recovery-deploy-7dc575587b-mjzcg    Error: ErrImagePull
++ helm rollback notes-recovery 2 -n aditya-s15-bad --wait --timeout=180s
+Rollback was a success! Happy Helming!
++ helm history notes-recovery -n aditya-s15-bad
+REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION     
+1       	Wed Oct  7 12:36:11 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
+2       	Wed Oct  7 12:36:12 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+3       	Wed Oct  7 12:36:15 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+4       	Wed Oct  7 12:36:32 2026	deployed  	notes-chart-0.1.0	1.0        	Rollback to 2   
++ kubectl -n aditya-s15-bad get deploy,pods
+NAME                                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/notes-recovery-deploy   3/3     3            3           21s
+
+NAME                                         READY   STATUS        RESTARTS   AGE
+pod/notes-recovery-deploy-74d44f9498-2btfn   1/1     Running       0          19s
+pod/notes-recovery-deploy-74d44f9498-b22ph   1/1     Running       0          18s
+pod/notes-recovery-deploy-74d44f9498-n7wxx   1/1     Running       0          20s
+pod/notes-recovery-deploy-7dc575587b-mjzcg   0/1     Terminating   0          16s
++ kubectl -n aditya-s15-bad exec deploy/notes-recovery-deploy -- printenv ENVIRONMENT
+production
++ helm uninstall notes-recovery -n aditya-s15-bad
+release "notes-recovery" uninstalled
++ kubectl delete ns aditya-s15-bad --wait=true --timeout=180s
+namespace "aditya-s15-bad" deleted

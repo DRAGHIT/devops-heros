@@ -1,0 +1,328 @@
++ cd /tmp/s15-lab
++ kubectl create ns aditya-s15
+namespace/aditya-s15 created
++ helm version
+version.BuildInfo{Version:"v4.3.0", GitCommit:"bec5b06ed841fe5269972d864d5177944fd5970f", GitTreeState:"clean", GoVersion:"go1.27.1", KubeClientVersion:"v1.37"}
++ helm create practice-chart
+Creating practice-chart
++ helm lint practice-chart
+==> Linting practice-chart
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
++ helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
++ helm repo list
+NAME   	URL                               
+bitnami	https://charts.bitnami.com/bitnami
++ helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "bitnami" chart repository
+Update Complete. ⎈Happy Helming!⎈
++ helm search repo bitnami/nginx --versions
++ head -8
+NAME                            	CHART VERSION	APP VERSION	DESCRIPTION                                       
+bitnami/nginx                   	25.2.1       	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.2.0       	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.15      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.14      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.13      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.12      	1.31.6     	NGINX Open Source is a web server that can be a...
+bitnami/nginx                   	25.1.11      	1.31.5     	NGINX Open Source is a web server that can be a...
++ helm repo remove bitnami
+"bitnami" has been removed from your repositories
++ helm lint notes-chart
+==> Linting notes-chart
+[INFO] Chart.yaml: icon is recommended
+
+1 chart(s) linted, 0 chart(s) failed
++ helm template notes-dev notes-chart
++ cat /tmp/devops-evidence/s15-rendered.yaml
+---
+# Source: notes-chart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notes-dev-config
+data:
+  APP_NAME: "notes-app"
+  ENVIRONMENT: "development"
+
+---
+# Source: notes-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: notes-dev-svc
+spec:
+  type: NodePort
+  selector:
+    app: notes-dev
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30090
+
+---
+# Source: notes-chart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-dev-deploy
+  labels:
+    app: notes-dev
+    environment: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notes-dev
+  template:
+    metadata:
+      labels:
+        app: notes-dev
+    spec:
+      containers:
+        - name: notes
+          image: "nginx:1.24"
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: notes-dev-config
++ helm install notes-dev notes-chart -n aditya-s15 --wait --timeout=180s
+NAME: notes-dev
+LAST DEPLOYED: Wed Oct  7 12:34:47 2026
+NAMESPACE: aditya-s15
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+TEST SUITE: None
++ helm list -n aditya-s15
+NAME     	NAMESPACE 	REVISION	UPDATED                                	STATUS  	CHART            	APP VERSION
+notes-dev	aditya-s15	1       	2026-10-07 12:34:47.654271838 +0000 UTC	deployed	notes-chart-0.1.0	1.0        
++ helm status notes-dev -n aditya-s15
+NAME: notes-dev
+LAST DEPLOYED: Wed Oct  7 12:34:47 2026
+NAMESPACE: aditya-s15
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+RESOURCES:
+==> v1/Deployment
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+notes-dev-deploy   1/1     1            1           6s
+
+==> v1/Pod(related)
+NAME                                READY   STATUS    RESTARTS   AGE
+notes-dev-deploy-74956bd987-4q747   1/1     Running   0          6s
+
+==> v1/ConfigMap
+NAME               DATA   AGE
+notes-dev-config   2      6s
+
+==> v1/Service
+NAME            TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+notes-dev-svc   NodePort   10.96.65.173   <none>        80:30090/TCP   6s
+
+
+TEST SUITE: None
++ helm get values notes-dev -n aditya-s15
+USER-SUPPLIED VALUES:
+null
++ helm get manifest notes-dev -n aditya-s15
+---
+# Source: notes-chart/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notes-dev-config
+data:
+  APP_NAME: "notes-app"
+  ENVIRONMENT: "development"
+
+---
+# Source: notes-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: notes-dev-svc
+spec:
+  type: NodePort
+  selector:
+    app: notes-dev
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30090
+
+---
+# Source: notes-chart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notes-dev-deploy
+  labels:
+    app: notes-dev
+    environment: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notes-dev
+  template:
+    metadata:
+      labels:
+        app: notes-dev
+    spec:
+      containers:
+        - name: notes
+          image: "nginx:1.24"
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: notes-dev-config
+
+
++ kubectl -n aditya-s15 get deploy,pods,svc,cm
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/notes-dev-deploy   1/1     1            1           7s
+
+NAME                                    READY   STATUS    RESTARTS   AGE
+pod/notes-dev-deploy-74956bd987-4q747   1/1     Running   0          7s
+
+NAME                    TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+service/notes-dev-svc   NodePort   10.96.65.173   <none>        80:30090/TCP   7s
+
+NAME                         DATA   AGE
+configmap/kube-root-ca.crt   1      23s
+configmap/notes-dev-config   2      7s
++ kubectl -n aditya-s15 exec deploy/notes-dev-deploy -- printenv APP_NAME ENVIRONMENT
+notes-app
+development
++ kubectl -n aditya-s15 exec deploy/notes-dev-deploy -- curl -s localhost
++ head -15
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
++ printf '\nSECTION UPGRADE 1\n'
+
+SECTION UPGRADE 1
++ helm upgrade notes-dev notes-chart -n aditya-s15 -f notes-chart/values-prod.yaml --wait --timeout=180s
+Release "notes-dev" has been upgraded. Happy Helming!
+NAME: notes-dev
+LAST DEPLOYED: Wed Oct  7 12:34:54 2026
+NAMESPACE: aditya-s15
+STATUS: deployed
+REVISION: 2
+DESCRIPTION: Upgrade complete
+TEST SUITE: None
++ kubectl -n aditya-s15 get deploy,pods
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/notes-dev-deploy   3/3     3            3           28s
+
+NAME                                    READY   STATUS      RESTARTS   AGE
+pod/notes-dev-deploy-74956bd987-4q747   0/1     Completed   0          28s
+pod/notes-dev-deploy-bbcc464b4-j4fht    1/1     Running     0          20s
+pod/notes-dev-deploy-bbcc464b4-ljnnl    1/1     Running     0          3s
+pod/notes-dev-deploy-bbcc464b4-mkpdp    1/1     Running     0          1s
++ kubectl -n aditya-s15 exec deploy/notes-dev-deploy -- printenv APP_NAME ENVIRONMENT
+notes-app
+production
++ printf '\nSECTION UPGRADE 2\n'
+
+SECTION UPGRADE 2
++ helm upgrade notes-dev notes-chart -n aditya-s15 --set replicaCount=2 --set image.tag=1.26 --set app.environment=staging --wait --timeout=180s
+Release "notes-dev" has been upgraded. Happy Helming!
+NAME: notes-dev
+LAST DEPLOYED: Wed Oct  7 12:35:15 2026
+NAMESPACE: aditya-s15
+STATUS: deployed
+REVISION: 3
+DESCRIPTION: Upgrade complete
+TEST SUITE: None
++ kubectl -n aditya-s15 get deploy,pods
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/notes-dev-deploy   2/2     2            2           43s
+
+NAME                                    READY   STATUS        RESTARTS   AGE
+pod/notes-dev-deploy-67977f6bd9-5cckl   1/1     Running       0          5s
+pod/notes-dev-deploy-67977f6bd9-6bz44   1/1     Running       0          15s
+pod/notes-dev-deploy-bbcc464b4-j4fht    1/1     Terminating   0          35s
++ kubectl -n aditya-s15 exec deploy/notes-dev-deploy -- printenv APP_NAME ENVIRONMENT
+notes-app
+staging
++ helm history notes-dev -n aditya-s15
+REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION     
+1       	Wed Oct  7 12:34:47 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
+2       	Wed Oct  7 12:34:54 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+3       	Wed Oct  7 12:35:15 2026	deployed  	notes-chart-0.1.0	1.0        	Upgrade complete
++ printf '\nSECTION ROLLBACK\n'
+
+SECTION ROLLBACK
++ helm rollback notes-dev 1 -n aditya-s15 --wait --timeout=180s
+Rollback was a success! Happy Helming!
++ helm history notes-dev -n aditya-s15
+REVISION	UPDATED                 	STATUS    	CHART            	APP VERSION	DESCRIPTION     
+1       	Wed Oct  7 12:34:47 2026	superseded	notes-chart-0.1.0	1.0        	Install complete
+2       	Wed Oct  7 12:34:54 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+3       	Wed Oct  7 12:35:15 2026	superseded	notes-chart-0.1.0	1.0        	Upgrade complete
+4       	Wed Oct  7 12:35:31 2026	deployed  	notes-chart-0.1.0	1.0        	Rollback to 1   
++ helm get values notes-dev -n aditya-s15 --all
+COMPUTED VALUES:
+app:
+  environment: development
+  name: notes-app
+image:
+  repository: nginx
+  tag: "1.24"
+replicaCount: 1
+service:
+  nodePort: 30090
+  port: 80
++ kubectl -n aditya-s15 get deploy,pods
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/notes-dev-deploy   1/1     1            1           46s
+
+NAME                                    READY   STATUS      RESTARTS   AGE
+pod/notes-dev-deploy-67977f6bd9-6bz44   0/1     Completed   0          18s
+pod/notes-dev-deploy-74956bd987-vnwjz   1/1     Running     0          2s
++ kubectl -n aditya-s15 exec deploy/notes-dev-deploy -- printenv APP_NAME ENVIRONMENT
+notes-app
+development
++ kubectl -n aditya-s15 exec deploy/notes-dev-deploy -- curl -s localhost
++ head -15
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
++ helm uninstall notes-dev -n aditya-s15
+release "notes-dev" uninstalled
++ helm list -n aditya-s15
+NAME	NAMESPACE	REVISION	UPDATED	STATUS	CHART	APP VERSION
++ kubectl delete ns aditya-s15 --wait=true --timeout=180s
+namespace "aditya-s15" deleted
