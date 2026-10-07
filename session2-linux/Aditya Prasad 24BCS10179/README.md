@@ -50,7 +50,7 @@ journalctl -u cron.service -n 5 --no-pager
 
 The actual result was a warning that this user cannot see messages from other users/system, followed by `-- No entries --`. This verifies command execution, not successful inspection of service logs. `journalctl` queries the systemd journal; `-u` filters by unit, `-b` selects a boot, `-f` follows new messages, and `--since` filters by time.
 
-**Remaining verification:** on an admin-enabled machine, choose an installed service and run `sudo journalctl -u <service>.service -n 20 --no-pager`. Record actual service entries and explain them. Do not assume cron is installed merely from an empty query.
+**Resolved in the later node-runtime check below.** Do not assume cron is installed merely from an empty query.
 
 ### Task 4: Cheat-sheet practice
 
@@ -64,7 +64,7 @@ The repository's `Linux Networking Cheat Sheet.pdf` covers the `ip` utility. Exe
 
 ## Status
 
-Partially verified. Link exercises, safe command practice and real test-user creation pass, including the later Codespace recheck. Unrestricted systemd service-log inspection still needs a systemd-enabled Linux VM. This session is not claimed fully complete.
+Verified within the documented classroom runtime. Link exercises, safe command practice, real test-user creation and cleanup pass. System and service journal entries were read from the systemd-enabled Minikube node inside the requested Codespace. The Codespace outer container itself still has no systemd journal.
 
 ## Sources and format
 
@@ -77,4 +77,11 @@ Partially verified. Link exercises, safe command practice and real test-user cre
 
 The original sandbox limitation was retested in the requested Codespace. sudo succeeded; adduser created aditya-devops-test with home directory and bash shell, id/getent confirmed it, and deluser --remove-home cleaned it up. [Actual admin output](codespace-admin-output.txt). Task 2 is now verified.
 
-PID 1 is docker-init, not systemd. Even sudo journalctl found no journal files; a logger test also produced no journal entries. Thus unrestricted systemd service-log inspection remains unverified in this container and needs a systemd-enabled VM. Earlier network-changing examples were not required to be destructive host changes.
+PID 1 is docker-init, not systemd. Even sudo journalctl found no journal files; a logger test also produced no journal entries. This remains true for the outer Codespace container; the separate node-runtime check below resolves the task without pretending that the container itself runs systemd. Earlier network-changing examples were not required to be destructive host changes.
+
+## Systemd node-runtime journal check
+The Minikube node container has systemd as PID1, unlike the outer Codespace docker-init process. Executed `minikube ssh -- "ps -p 1 -o comm=; sudo journalctl -u kubelet -n 12 --no-pager"` and an unrestricted last-eight-entry system query. Actual timestamped kubelet entries show Pod update broadcasts, container startup latency and volume cleanup. One error records a closed network connection; this is an observed log entry, not proof the service failed. `-u kubelet` selects that installed service; `-n` limits the number; `--no-pager` makes evidence capture noninteractive.
+
+[Service journal and PID1 output](s2-systemd.txt), [system journal output](s2-system-journal.txt). No cron entry is claimed. Screenshot renders this actual saved terminal log.
+
+![Actual systemd service journal](s2-systemd-0.png)

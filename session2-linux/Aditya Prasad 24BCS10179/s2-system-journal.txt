@@ -1,0 +1,8 @@
+Oct 07 12:53:08 minikube sshd[13172]: Accepted publickey for docker from 192.168.49.1 port 49100 ssh2: RSA SHA256:QTe8VOwosO7VD2gDd1QT/JJ2W7q1MxzYyuZ9AQy1Wgs
+Oct 07 12:53:08 minikube sshd[13172]: pam_unix(sshd:session): session opened for user docker(uid=1000) by (uid=0)
+Oct 07 12:53:08 minikube sshd[13172]: [0;38;5;245m[0;1;31m[0;38;5;245mpam_env(sshd:session): deprecated reading of user environment enabled[0m
+Oct 07 12:53:08 minikube sshd[13172]: [0;1;31m[0;1;39m[0;1;31mpam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory[0m
+Oct 07 12:53:08 minikube sshd[13172]: lastlog_openseek: Couldn't stat /var/log/lastlog: No such file or directory
+Oct 07 12:53:08 minikube sshd[13172]: lastlog_openseek: Couldn't stat /var/log/lastlog: No such file or directory
+Oct 07 12:53:08 minikube sudo[13179]: [0;1;39m[0;1;31m[0;1;39m  docker : TTY=pts/1 ; PWD=/home/docker ; USER=root ; COMMAND=/usr/bin/journalctl -n 8 --no-pager[0m
+Oct 07 12:53:08 minikube sudo[13179]: pam_unix(sudo:session): session opened for user root(uid=0) by (uid=1000)
