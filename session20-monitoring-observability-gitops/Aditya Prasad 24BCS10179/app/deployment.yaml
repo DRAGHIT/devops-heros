@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: {name: aditya-s20-app, namespace: aditya-s20}
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels: {app: aditya-s20-app}
   template:
