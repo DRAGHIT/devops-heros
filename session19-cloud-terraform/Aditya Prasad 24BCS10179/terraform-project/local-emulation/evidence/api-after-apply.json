@@ -1,0 +1,33 @@
+{
+  "scope": "LOCAL EMULATION ONLY",
+  "bucket_exists": true,
+  "public_access_block": {
+    "BlockPublicAcls": true,
+    "IgnorePublicAcls": true,
+    "BlockPublicPolicy": true,
+    "RestrictPublicBuckets": true
+  },
+  "encryption": "No explicit S19 encryption resource; no encryption enforcement claimed",
+  "object_round_trip": "Local S3 round-trip verified. Not AWS.\n",
+  "mock_instances": [
+    {
+      "id": "i-3dbf62e9189455aa8",
+      "state": {
+        "Code": 16,
+        "Name": "running"
+      },
+      "subnet": "subnet-5c92552e8df2b4d2a",
+      "public_ip_present": false
+    }
+  ],
+  "custom_vpcs": [
+    "vpc-a85435a09100d420f"
+  ],
+  "mock_security_groups": [
+    {
+      "id": "sg-41c32338dabb031bc",
+      "ingress": [],
+      "egress": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "bucket_absent": true,
+  "custom_vpc_absent": true,
+  "mock_instance_states": [
+    "terminated"
+  ]
+}

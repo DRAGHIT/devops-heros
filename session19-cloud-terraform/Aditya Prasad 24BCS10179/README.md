@@ -1,8 +1,38 @@
+# Session 19 - Terraform local AWS API emulation
+
+Student: Aditya Prasad | Roll: 24BCS10179
+
+## Current status
+
+Real Terraform commands executed against **Moto Server 5.2.2 on localhost**, not Terraform's mock provider: init, fmt, validate, plan, apply, show, output, destroy. **Local AWS API emulation only. No AWS account used and no AWS resources created.** The assignment's literal live-AWS requirement remains unfulfilled.
+
+EC2, VPC, subnet and security-group lifecycle are mocked API records. No VM was launched, no actual network/firewall behavior or EBS encryption was tested. A `running` API status is an emulator response, not proof of a real server.
+
+## Executed evidence
+
+- [Actual Terraform command transcript](terraform-project/local-emulation/evidence/terraform-output.txt)
+- [API readback after apply](terraform-project/local-emulation/evidence/api-after-apply.json)
+- [API readback after destroy](terraform-project/local-emulation/evidence/api-after-destroy.json)
+
+![Local execution evidence](terraform-project/local-emulation/evidence/execution-evidence.png)
+
+Terraform applied and destroyed six resources. The S3-compatible endpoint stored and returned a small object; bytes matched, then the object was deleted before destroy. API readback confirmed bucket deletion. It also confirmed custom VPC deletion and mocked instance termination. Initial apply failed because the example AMI was not registered; the corrected run registers a clearly mocked image first. No real AWS AMI is claimed.
+
+## Safe local configuration
+
+The original AWS configuration and research folders are preserved. Separate `local-emulation/` uses fixed localhost endpoints for EC2/S3/STS/IAM/KMS and dummy `testing` credentials. Never point it at AWS. Local state and saved plans are ignored, not committed.
+
+## What remains
+
+Live AWS provisioning, AWS-console screenshots and AWS-specific security/network/runtime checks are not performed. A teacher must decide whether a local substitute is acceptable.
+
+## Earlier preparation
+
 # Session 19 - Cloud and Terraform in Action
 Student: Aditya Prasad  
 Roll Number: 24BCS10179
 
-## Status: partial, live AWS blocked
+## Original validation status: partial, live AWS blocked
 Terraform project implements AWS provider, variables, VPC/subnet/security-group/EC2/S3 resources, implicit dependencies and outputs. The instance is intentionally isolated: no public IP, internet gateway, NAT or ingress/egress rules. No web accessibility is claimed. IMDSv2 and encrypted root volume configured. Example region/type/name/AMI are not approved deployment parameters.
 
 ## Architecture
