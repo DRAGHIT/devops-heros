@@ -282,3 +282,11 @@ Waiting for deployment "metrics-server" rollout to finish: 1 old replicas are pe
 Waiting for deployment "metrics-server" rollout to finish: 1 old replicas are pending termination...
 deployment "metrics-server" successfully rolled out
 + sleep 65
++ kubectl -n aditya-s14-extra top pods
+NAME         CPU(cores)   MEMORY(bytes)   
+crash-demo   0m           0Mi             
++ kubectl top nodes
+NAME       CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+minikube   129m         6%       1065Mi          13%         
++ kubectl delete ns aditya-s14-extra --wait=true --timeout=180s
+namespace "aditya-s14-extra" deleted
