@@ -1,0 +1,27 @@
+== Soft link and hard link ==
+2091480 -rw-r--r-- 2 sandbox sandbox 20 Oct  7 17:04 hard.txt
+2091480 -rw-r--r-- 2 sandbox sandbox 20 Oct  7 17:04 original.txt
+2091481 lrwxrwxrwx 1 sandbox sandbox 12 Oct  7 17:04 soft.txt -> original.txt
+Linux link exercise
+PASS: shared hard-link inode; symlink becomes dangling after target deletion; cleanup verified
+
+== Safe command practice ==
+pwd: /tmp/tmp.rtKc5FYN7k
+example
+1 practice/renamed.txt
+mode: 600
+practice/file.txt
+practice/renamed.txt
+PASS: directory, file, copy, move, search, permissions and deletion exercises
+
+[Read-only ip command inventory omitted from public evidence to avoid disclosing machine addresses.]
+
+== Permissions and logs ==
+uid=1001(sandbox) gid=1001(sandbox) groups=1001(sandbox)
+$ sudo -n true
+sudo: a password is required
+$ journalctl -u cron.service -n 5 --no-pager
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+-- No entries --
