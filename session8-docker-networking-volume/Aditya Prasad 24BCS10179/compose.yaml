@@ -1,0 +1,17 @@
+services:
+  frontend:
+    image: nginx:stable-alpine
+    networks: [frontend]
+  backend:
+    image: alpine:3.22
+    command: [sleep, infinity]
+    networks: [frontend, database]
+  database:
+    image: mysql:8.4
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    networks: [database]
+networks:
+  frontend: {}
+  database: {}
+  isolated: {}
