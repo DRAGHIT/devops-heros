@@ -1,0 +1,7 @@
+NAMES                  IMAGE                  STATUS         PORTS
+aditya-s6-nginx-app    aditya-s6-nginx-app    Up 1 second    0.0.0.0:18083->80/tcp, [::]:18083->80/tcp
+aditya-s6-react-app    aditya-s6-react-app    Up 2 seconds   0.0.0.0:18082->80/tcp, [::]:18082->80/tcp
+aditya-s6-apache-app   aditya-s6-apache-app   Up 3 seconds   0.0.0.0:18081->80/tcp, [::]:18081->80/tcp
+aditya-s6-java-app     aditya-s6-java-app     Up 5 seconds   0.0.0.0:18880->8080/tcp, [::]:18880->8080/tcp
+aditya-s6-python-app   aditya-s6-python-app   Up 7 seconds   0.0.0.0:18000->8000/tcp, [::]:18000->8000/tcp
+aditya-s6-nodejs-app   aditya-s6-nodejs-app   Up 8 seconds   0.0.0.0:13000->3000/tcp, [::]:13000->3000/tcp

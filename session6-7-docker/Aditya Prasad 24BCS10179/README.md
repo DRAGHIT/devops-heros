@@ -11,9 +11,23 @@ The Google Doc requires six separate Hello World web applications with code and 
 
 [verification.txt](verification.txt) records local tests. Node and Python returned the correct Hello World HTTP body. Java initially failed because port 8080 was in use; a configurable `PORT` fixed the conflict and port 18880 returned the correct Java response. React's initial Vite build exhausted memory. Replaced the build tool with esbuild, then installed and bundled successfully. No failure output is presented as success.
 
-**Not verified:** Docker is not installed and no daemon socket is available. No Docker image was built or container run. Apache/Nginx server execution and rendered browser display are unverified. Local HTTP/bundle tests are not equivalent to the assignment's required container verification.
+## Codespaces container verification update
 
-## Remaining Docker commands
+All six images were built with Docker in the student Codespace. Each container ran with its documented port and returned the intended Hello World page. React was also rendered in Chromium, not merely checked as a bundle. The six real browser screenshots below were captured and visually inspected. [docker-ps.txt](evidence/docker-ps.txt) is the actual running-container output. The exercise containers were removed after testing. Earlier local-only verification limits are now resolved.
+
+![Hello World nodejs-app](evidence/nodejs-app.png)
+
+![Hello World python-app](evidence/python-app.png)
+
+![Hello World java-app](evidence/java-app.png)
+
+![Hello World Apache-app](evidence/Apache-app.png)
+
+![Hello World React-app](evidence/React-app.png)
+
+![Hello World nginx-app](evidence/nginx-app.png)
+
+## Commands executed in Codespaces
 
 Run on a Docker-enabled machine, from this student folder:
 
@@ -30,7 +44,7 @@ docker run --rm -d --name s6-nginx -p 18083:80 session6-nginx-app
 docker ps
 ```
 
-Open the six localhost ports in a browser and capture the real pages. Remove only these exercise containers afterward. Status: implementation prepared and local tests performed, container task partially verified.
+Open the six localhost ports in a browser and capture the real pages. Remove only these exercise containers afterward. Status: six container applications built, run and browser-verified.
 
 ## Source
 

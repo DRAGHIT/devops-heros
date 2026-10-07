@@ -1,6 +1,5 @@
-Node.js: local HTTP response PASS
-Python: local HTTP response PASS
-Java: local HTTP response PASS at port 18880 (8080 already in use)
-React: npm ci and esbuild bundle PASS
-Apache/Nginx: HTML inspected; server runtime NOT VERIFIED
-Docker: image builds and container runs NOT VERIFIED (CLI/daemon unavailable)
+All six Docker image builds PASS
+All six container HTTP checks PASS
+All six Chromium Hello World pages captured and visually inspected
+Actual docker ps output attached
+Exercise containers removed after verification
