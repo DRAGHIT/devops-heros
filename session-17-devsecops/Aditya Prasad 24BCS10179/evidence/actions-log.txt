@@ -1,0 +1,697 @@
+devsecops	Set up job	﻿2026-10-07T12:43:28.7718462Z Current runner version: '2.337.0'
+devsecops	Set up job	2026-10-07T12:43:28.7742327Z ##[group]Runner Image Provisioner
+devsecops	Set up job	2026-10-07T12:43:28.7743282Z Hosted Compute Agent
+devsecops	Set up job	2026-10-07T12:43:28.7743872Z Version: 20261002.596
+devsecops	Set up job	2026-10-07T12:43:28.7744710Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+devsecops	Set up job	2026-10-07T12:43:28.7745551Z Build Date: 2026-10-02T22:28:27Z
+devsecops	Set up job	2026-10-07T12:43:28.7746264Z Worker ID: {c4ccddf2-73f5-4f9a-9a38-0d6a76f7b1ef}
+devsecops	Set up job	2026-10-07T12:43:28.7747147Z Region: westcentralus
+devsecops	Set up job	2026-10-07T12:43:28.7747770Z Cloud: Azure
+devsecops	Set up job	2026-10-07T12:43:28.7748322Z ##[endgroup]
+devsecops	Set up job	2026-10-07T12:43:28.7749961Z ##[group]Operating System
+devsecops	Set up job	2026-10-07T12:43:28.7750652Z Ubuntu
+devsecops	Set up job	2026-10-07T12:43:28.7751232Z 24.04.5
+devsecops	Set up job	2026-10-07T12:43:28.7752195Z LTS
+devsecops	Set up job	2026-10-07T12:43:28.7752732Z ##[endgroup]
+devsecops	Set up job	2026-10-07T12:43:28.7753698Z ##[group]Runner Image
+devsecops	Set up job	2026-10-07T12:43:28.7754350Z Image: ubuntu-24.04
+devsecops	Set up job	2026-10-07T12:43:28.7755261Z Version: 20261004.327.1
+devsecops	Set up job	2026-10-07T12:43:28.7756347Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+devsecops	Set up job	2026-10-07T12:43:28.7758134Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+devsecops	Set up job	2026-10-07T12:43:28.7759133Z ##[endgroup]
+devsecops	Set up job	2026-10-07T12:43:28.7760238Z ##[group]GITHUB_TOKEN Permissions
+devsecops	Set up job	2026-10-07T12:43:28.7762360Z Contents: read
+devsecops	Set up job	2026-10-07T12:43:28.7763048Z Metadata: read
+devsecops	Set up job	2026-10-07T12:43:28.7763664Z ##[endgroup]
+devsecops	Set up job	2026-10-07T12:43:28.7765945Z Secret source: Actions
+devsecops	Set up job	2026-10-07T12:43:28.7767006Z Cache mode: write
+devsecops	Set up job	2026-10-07T12:43:28.7767921Z Prepare workflow directory
+devsecops	Set up job	2026-10-07T12:43:28.8174032Z Prepare all required actions
+devsecops	Set up job	2026-10-07T12:43:28.8221726Z Getting action download info
+devsecops	Set up job	2026-10-07T12:43:29.2265398Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+devsecops	Set up job	2026-10-07T12:43:29.3487775Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+devsecops	Set up job	2026-10-07T12:43:29.5226946Z Download action repository 'helm/kind-action@v1' (SHA:ef37e7f390d99f746eb8b610417061a60e82a6cc)
+devsecops	Set up job	2026-10-07T12:43:29.7233306Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+devsecops	Set up job	2026-10-07T12:43:29.9369424Z Complete job name: devsecops
+devsecops	Run actions/checkout@v4	﻿2026-10-07T12:43:30.0167276Z ##[group]Run actions/checkout@v4
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0168176Z with:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0168636Z   repository: DRAGHIT/devops-heros
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0172326Z   token: ***
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0172751Z   ssh-strict: true
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0173183Z   ssh-user: git
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0173621Z   persist-credentials: true
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0174096Z   clean: true
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0174778Z   sparse-checkout-cone-mode: true
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0175304Z   fetch-depth: 1
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0175726Z   fetch-tags: false
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0176165Z   show-progress: true
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0176600Z   lfs: false
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0177014Z   submodules: false
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0177461Z   set-safe-directory: true
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0177969Z   allow-unsafe-pr-checkout: false
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.0178775Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1154801Z Syncing repository: DRAGHIT/devops-heros
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1157536Z ##[group]Getting Git version info
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1158747Z Working directory is '/home/runner/work/devops-heros/devops-heros'
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1160653Z [command]/usr/bin/git version
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1219746Z git version 2.55.0
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1242345Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1259234Z Temporarily overriding HOME='/home/runner/work/_temp/0725eae0-b0fa-4343-8339-046386b3eed5' before making global git config changes
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1261698Z Adding repository directory to the temporary git global config as a safe directory
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1265313Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1321334Z Deleting the contents of '/home/runner/work/devops-heros/devops-heros'
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1326721Z ##[group]Initializing the repository
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1332645Z [command]/usr/bin/git init /home/runner/work/devops-heros/devops-heros
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1443364Z hint: Using 'master' as the name for the initial branch. This default branch name
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1445485Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1446540Z hint: to use in all of your new repositories, which will suppress this warning,
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1447292Z hint: call:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1447680Z hint:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1448206Z hint: 	git config --global init.defaultBranch <name>
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1448810Z hint:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1449391Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1450306Z hint: 'development'. The just-created branch can be renamed via this command:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1451077Z hint:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1451482Z hint: 	git branch -m <name>
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1451953Z hint:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1452557Z hint: Disable this message with "git config set advice.defaultBranchName false"
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1458872Z Initialized empty Git repository in /home/runner/work/devops-heros/devops-heros/.git/
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1469822Z [command]/usr/bin/git remote add origin https://github.com/DRAGHIT/devops-heros
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1520120Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1521444Z ##[group]Disabling automatic garbage collection
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1523975Z [command]/usr/bin/git config --local gc.auto 0
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1558138Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1559473Z ##[group]Setting up auth
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1565511Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1600054Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.1990664Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.2032641Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.2255270Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.2290709Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.2512395Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.2554232Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.2555586Z ##[group]Fetching the repository
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:30.2564118Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a07039adcf3bd5a45d541cef777963cf53ae8687:refs/remotes/origin/session-17
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4080446Z From https://github.com/DRAGHIT/devops-heros
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4082155Z  * [new ref]         a07039adcf3bd5a45d541cef777963cf53ae8687 -> origin/session-17
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4085524Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4086596Z ##[group]Determining the checkout info
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4088312Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4095087Z [command]/usr/bin/git sparse-checkout disable
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4151866Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4185841Z ##[group]Checking out the ref
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4190705Z [command]/usr/bin/git checkout --progress --force -B session-17 refs/remotes/origin/session-17
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4855333Z Switched to a new branch 'session-17'
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4860500Z branch 'session-17' set up to track 'origin/session-17'.
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4871088Z ##[endgroup]
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4938352Z [command]/usr/bin/git log -1 --format=%H
+devsecops	Run actions/checkout@v4	2026-10-07T12:43:31.4965428Z a07039adcf3bd5a45d541cef777963cf53ae8687
+devsecops	Run actions/setup-python@v5	﻿2026-10-07T12:43:31.5249631Z ##[group]Run actions/setup-python@v5
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5250193Z with:
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5250776Z   python-version: 3.13
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5251194Z   check-latest: false
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5254038Z   token: ***
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5254621Z   update-environment: true
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5255079Z   allow-prereleases: false
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5255510Z   freethreaded: false
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.5255912Z ##[endgroup]
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.6566652Z ##[group]Installed versions
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.7539774Z (node:2387) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.7541501Z (Use `node --trace-deprecation ...` to show where the warning was created)
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.7542581Z Successfully set up CPython (3.13.16)
+devsecops	Run actions/setup-python@v5	2026-10-07T12:43:31.7543887Z ##[endgroup]
+devsecops	Build environment and unit tests	﻿2026-10-07T12:43:31.7721847Z ##[group]Run pip install -r requirements-dev.txt
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.7722662Z ^[[36;1mpip install -r requirements-dev.txt^[[0m
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.7723340Z ^[[36;1mpython -m pytest --cov=app --cov-report=term-missing^[[0m
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8094840Z shell: /usr/bin/bash -e {0}
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8095467Z env:
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8095979Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8096708Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8097424Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8098089Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8098758Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8099421Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Build environment and unit tests	2026-10-07T12:43:31.8099997Z ##[endgroup]
+devsecops	Build environment and unit tests	2026-10-07T12:43:35.7982929Z Collecting Flask==3.1.3 (from -r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 1))
+devsecops	Build environment and unit tests	2026-10-07T12:43:35.8943859Z   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:35.9419801Z Collecting gunicorn==23.0.0 (from -r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 2))
+devsecops	Build environment and unit tests	2026-10-07T12:43:35.9604416Z   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.0188520Z Collecting pytest==8.4.2 (from -r requirements-dev.txt (line 2))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.0378039Z   Downloading pytest-8.4.2-py3-none-any.whl.metadata (7.7 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.0701238Z Collecting pytest-cov==6.0.0 (from -r requirements-dev.txt (line 3))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.0896789Z   Downloading pytest_cov-6.0.0-py3-none-any.whl.metadata (27 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.1305576Z Collecting bandit==1.8.6 (from -r requirements-dev.txt (line 4))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.1497032Z   Downloading bandit-1.8.6-py3-none-any.whl.metadata (6.9 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.1836002Z Collecting pip-audit==2.9.0 (from -r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.2023710Z   Downloading pip_audit-2.9.0-py3-none-any.whl.metadata (27 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.2343189Z Collecting blinker>=1.9.0 (from Flask==3.1.3->-r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 1))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.2529675Z   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.2854074Z Collecting click>=8.1.3 (from Flask==3.1.3->-r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 1))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.3058382Z   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.3325068Z Collecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 1))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.3508961Z   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.3816064Z Collecting jinja2>=3.1.2 (from Flask==3.1.3->-r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 1))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.4002968Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.4901063Z Collecting markupsafe>=2.1.1 (from Flask==3.1.3->-r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 1))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.5085621Z   Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.5510749Z Collecting werkzeug>=3.1.0 (from Flask==3.1.3->-r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 1))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.5696641Z   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.6144818Z Collecting packaging (from gunicorn==23.0.0->-r /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/requirements.txt (line 2))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.6327648Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.6599676Z Collecting iniconfig>=1 (from pytest==8.4.2->-r requirements-dev.txt (line 2))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.6787845Z   Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.7093542Z Collecting pluggy<2,>=1.5 (from pytest==8.4.2->-r requirements-dev.txt (line 2))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.7278988Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.7615563Z Collecting pygments>=2.7.2 (from pytest==8.4.2->-r requirements-dev.txt (line 2))
+devsecops	Build environment and unit tests	2026-10-07T12:43:36.7801601Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.2148516Z Collecting coverage>=7.5 (from coverage[toml]>=7.5->pytest-cov==6.0.0->-r requirements-dev.txt (line 3))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.2335979Z   Downloading coverage-7.16.2-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.2 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.2842171Z Collecting PyYAML>=5.3.1 (from bandit==1.8.6->-r requirements-dev.txt (line 4))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.3028800Z   Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.3369046Z Collecting stevedore>=1.20.0 (from bandit==1.8.6->-r requirements-dev.txt (line 4))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.3552052Z   Downloading stevedore-5.9.1-py3-none-any.whl.metadata (2.3 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.4063364Z Collecting rich (from bandit==1.8.6->-r requirements-dev.txt (line 4))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.4249090Z   Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.4584150Z Collecting CacheControl>=0.13.0 (from CacheControl[filecache]>=0.13.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.4769654Z   Downloading cachecontrol-0.14.4-py3-none-any.whl.metadata (3.1 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.5190586Z Collecting cyclonedx-python-lib<10,>=5 (from pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.5377435Z   Downloading cyclonedx_python_lib-9.1.0-py3-none-any.whl.metadata (6.5 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.5702622Z Collecting pip-api>=0.0.28 (from pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.5892274Z   Downloading pip_api-0.0.35-py3-none-any.whl.metadata (17 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.6235148Z Collecting pip-requirements-parser>=32.0.0 (from pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.6422733Z   Downloading pip_requirements_parser-32.0.1-py3-none-any.whl.metadata (9.3 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.7011379Z Collecting requests>=2.31.0 (from pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.7197355Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.8009207Z Collecting toml>=0.10 (from pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:37.8198971Z   Downloading toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:38.8762818Z Collecting platformdirs>=4.2.0 (from pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:38.8949974Z   Downloading platformdirs-4.12.3-py3-none-any.whl.metadata (5.5 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:38.9258416Z Collecting license-expression<31,>=30 (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:38.9444591Z   Downloading license_expression-30.4.4-py3-none-any.whl.metadata (11 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:38.9768884Z Collecting packageurl-python<2,>=0.11 (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:38.9956741Z   Downloading packageurl_python-0.17.6-py3-none-any.whl.metadata (5.1 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.0313820Z Collecting py-serializable<3.0.0,>=2.0.0 (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.0499284Z   Downloading py_serializable-2.1.0-py3-none-any.whl.metadata (4.3 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.0777221Z Collecting sortedcontainers<3.0.0,>=2.4.0 (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.0968371Z   Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl.metadata (10 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.1266772Z Collecting boolean.py>=4.0 (from license-expression<31,>=30->cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.1454836Z   Downloading boolean_py-5.0-py3-none-any.whl.metadata (2.3 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.1747902Z Collecting defusedxml<0.8.0,>=0.7.1 (from py-serializable<3.0.0,>=2.0.0->cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.1933038Z   Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.2942942Z Collecting msgpack<2.0.0,>=0.5.2 (from CacheControl>=0.13.0->CacheControl[filecache]>=0.13.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.3129218Z   Downloading msgpack-1.2.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.3529982Z Collecting filelock>=3.8.0 (from CacheControl[filecache]>=0.13.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.3714605Z   Downloading filelock-4.0.12-py3-none-any.whl.metadata (2.0 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.3796026Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.16/x64/lib/python3.13/site-packages (from pip-api>=0.0.28->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (26.2.1)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.4150450Z Collecting pyparsing (from pip-requirements-parser>=32.0.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.4336838Z   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.5642568Z Collecting charset_normalizer<4,>=2 (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.5832890Z   Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.6220836Z Collecting idna<4,>=2.5 (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.6407986Z   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.6808401Z Collecting urllib3<3,>=1.26 (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.6994813Z   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.7328658Z Collecting certifi>=2023.5.7 (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.7518288Z   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.7834587Z Collecting markdown-it-py>=2.2.0 (from rich->bandit==1.8.6->-r requirements-dev.txt (line 4))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.8019977Z   Downloading markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.8357174Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->bandit==1.8.6->-r requirements-dev.txt (line 4))
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.8540371Z   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.8869601Z Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.9251355Z Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.9490442Z Downloading pytest-8.4.2-py3-none-any.whl (365 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:39.9941570Z Downloading pytest_cov-6.0.0-py3-none-any.whl (22 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.0154430Z Downloading bandit-1.8.6-py3-none-any.whl (133 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.0374381Z Downloading pip_audit-2.9.0-py3-none-any.whl (58 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.0589474Z Downloading cyclonedx_python_lib-9.1.0-py3-none-any.whl (374 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.0963842Z Downloading license_expression-30.4.4-py3-none-any.whl (120 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.1173727Z Downloading packageurl_python-0.17.6-py3-none-any.whl (36 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.1404979Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.1608780Z Downloading py_serializable-2.1.0-py3-none-any.whl (23 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.1813205Z Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.2029110Z Downloading sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.2238829Z Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.2444181Z Downloading boolean_py-5.0-py3-none-any.whl (26 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.2653660Z Downloading cachecontrol-0.14.4-py3-none-any.whl (22 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.2864770Z Downloading msgpack-1.2.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (466 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.3128074Z Downloading click-8.5.0-py3-none-any.whl (125 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.3341514Z Downloading coverage-7.16.2-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (257 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.3563557Z Downloading filelock-4.0.12-py3-none-any.whl (111 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.3771430Z Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.3985375Z Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.4189625Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.4402112Z Downloading markupsafe-3.0.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.4609363Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.4818758Z Downloading pip_api-0.0.35-py3-none-any.whl (123 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.5039667Z Downloading pip_requirements_parser-32.0.1-py3-none-any.whl (35 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.5242781Z Downloading platformdirs-4.12.3-py3-none-any.whl (32 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.5447819Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.5684763Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 48.5 MB/s  0:00:00
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.5877616Z Downloading pyyaml-6.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.5963729Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 801.6/801.6 kB 88.5 MB/s  0:00:00
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.6150733Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.6363112Z Downloading charset_normalizer-3.5.2-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (254 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.6576106Z Downloading idna-3.20-py3-none-any.whl (69 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.6785207Z Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.6995062Z Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.7208744Z Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.7419446Z Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.7625226Z Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.7836830Z Downloading stevedore-5.9.1-py3-none-any.whl (54 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.8045144Z Downloading toml-0.10.2-py2.py3-none-any.whl (16 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.8253486Z Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:40.8464947Z Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+devsecops	Build environment and unit tests	2026-10-07T12:43:41.1673430Z Installing collected packages: sortedcontainers, boolean.py, urllib3, toml, stevedore, PyYAML, pyparsing, pygments, pluggy, platformdirs, pip-api, packaging, packageurl-python, msgpack, mdurl, markupsafe, license-expression, itsdangerous, iniconfig, idna, filelock, defusedxml, coverage, click, charset_normalizer, certifi, blinker, werkzeug, requests, pytest, py-serializable, pip-requirements-parser, markdown-it-py, jinja2, gunicorn, rich, pytest-cov, Flask, cyclonedx-python-lib, CacheControl, bandit, pip-audit
+devsecops	Build environment and unit tests	2026-10-07T12:43:44.0959244Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:44.1006933Z Successfully installed CacheControl-0.14.4 Flask-3.1.3 PyYAML-6.0.3 bandit-1.8.6 blinker-1.9.0 boolean.py-5.0 certifi-2026.7.22 charset_normalizer-3.5.2 click-8.5.0 coverage-7.16.2 cyclonedx-python-lib-9.1.0 defusedxml-0.7.1 filelock-4.0.12 gunicorn-23.0.0 idna-3.20 iniconfig-2.3.1 itsdangerous-2.2.0 jinja2-3.1.6 license-expression-30.4.4 markdown-it-py-4.2.0 markupsafe-3.0.4 mdurl-0.1.2 msgpack-1.2.3 packageurl-python-0.17.6 packaging-26.3 pip-api-0.0.35 pip-audit-2.9.0 pip-requirements-parser-32.0.1 platformdirs-4.12.3 pluggy-1.6.0 py-serializable-2.1.0 pygments-2.21.0 pyparsing-3.3.3 pytest-8.4.2 pytest-cov-6.0.0 requests-2.34.2 rich-15.0.0 sortedcontainers-2.4.0 stevedore-5.9.1 toml-0.10.2 urllib3-2.8.0 werkzeug-3.1.9
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.3670652Z ============================= test session starts ==============================
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.3671232Z platform linux -- Python 3.13.16, pytest-8.4.2, pluggy-1.6.0
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.3671876Z rootdir: /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.3672465Z plugins: platformdirs-4.12.3, cov-6.0.0
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.3672777Z collected 8 items
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.3672915Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4483747Z tests/test_app.py ........                                               [100%]
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4484757Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4485105Z =============================== warnings summary ===============================
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4485733Z app/app.py:13
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4488473Z   /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/app/app.py:13: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4490197Z     _start_time = datetime.datetime.utcnow()
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4490447Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4490683Z tests/test_app.py::test_health
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4492366Z   /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/app/app.py:38: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4494110Z     uptime_seconds = (datetime.datetime.utcnow() - _start_time).total_seconds()
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4494760Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4494897Z tests/test_app.py::test_health
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4496438Z   /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/app/app.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4498068Z     "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4498385Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4498507Z tests/test_app.py::test_greet
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4499924Z   /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/app/app.py:81: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4501210Z     "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4501477Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4501583Z tests/test_app.py::test_status
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4503086Z   /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/app/app.py:49: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4504367Z     uptime = datetime.datetime.utcnow() - _start_time
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4504931Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4505047Z tests/test_app.py::test_status
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4506241Z   /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179/app/app.py:60: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4507679Z     "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4507935Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4508165Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4508470Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4508662Z ---------- coverage: platform linux, python 3.13.16-final-0 ----------
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4509055Z Name              Stmts   Miss  Cover   Missing
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4509351Z -----------------------------------------------
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4509633Z app/__init__.py       0      0   100%
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4510003Z app/app.py          102     32    69%   94, 104-105, 121, 128, 132-133, 145, 179-209, 225, 230, 234
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4510408Z -----------------------------------------------
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4510687Z TOTAL               102     32    69%
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4510846Z 
+devsecops	Build environment and unit tests	2026-10-07T12:43:45.4511004Z ======================== 8 passed, 6 warnings in 0.30s =========================
+devsecops	SAST with scan-error gate	﻿2026-10-07T12:43:45.4906718Z ##[group]Run bandit -r app -c bandit.yaml -f json -o bandit-report.json
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4907285Z ^[[36;1mbandit -r app -c bandit.yaml -f json -o bandit-report.json^[[0m
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4907925Z ^[[36;1mpython -c 'import json; d=json.load(open("bandit-report.json")); assert not d["errors"] and not d["results"]'^[[0m
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4973717Z shell: /usr/bin/bash -e {0}
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4973974Z env:
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4974251Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4974880Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4975324Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4975719Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4976107Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4976496Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.4976822Z ##[endgroup]
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.6478651Z [main]	INFO	profile include tests: None
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.6479321Z [main]	INFO	profile exclude tests: B311
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.6479728Z [main]	INFO	cli include tests: None
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.6485451Z [main]	INFO	cli exclude tests: None
+devsecops	SAST with scan-error gate	2026-10-07T12:43:45.6712638Z [json]	INFO	JSON output written to file: bandit-report.json
+devsecops	SCA	﻿2026-10-07T12:43:45.7151552Z ##[group]Run pip-audit -r requirements.txt
+devsecops	SCA	2026-10-07T12:43:45.7151925Z ^[[36;1mpip-audit -r requirements.txt^[[0m
+devsecops	SCA	2026-10-07T12:43:45.7217451Z shell: /usr/bin/bash -e {0}
+devsecops	SCA	2026-10-07T12:43:45.7217705Z env:
+devsecops	SCA	2026-10-07T12:43:45.7217978Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SCA	2026-10-07T12:43:45.7218429Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	SCA	2026-10-07T12:43:45.7218864Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SCA	2026-10-07T12:43:45.7219277Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SCA	2026-10-07T12:43:45.7219678Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	SCA	2026-10-07T12:43:45.7220060Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	SCA	2026-10-07T12:43:45.7220378Z ##[endgroup]
+devsecops	SCA	2026-10-07T12:43:51.5486564Z No known vulnerabilities found
+devsecops	Secret scan	﻿2026-10-07T12:43:51.5944920Z ##[group]Run mkdir -p /tmp/scanners
+devsecops	Secret scan	2026-10-07T12:43:51.5945305Z ^[[36;1mmkdir -p /tmp/scanners^[[0m
+devsecops	Secret scan	2026-10-07T12:43:51.5945974Z ^[[36;1mcurl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz | tar -xz -C /tmp/scanners gitleaks^[[0m
+devsecops	Secret scan	2026-10-07T12:43:51.5946683Z ^[[36;1m/tmp/scanners/gitleaks dir app --no-banner^[[0m
+devsecops	Secret scan	2026-10-07T12:43:51.5947031Z ^[[36;1m/tmp/scanners/gitleaks dir tests --no-banner^[[0m
+devsecops	Secret scan	2026-10-07T12:43:51.6009862Z shell: /usr/bin/bash -e {0}
+devsecops	Secret scan	2026-10-07T12:43:51.6010113Z env:
+devsecops	Secret scan	2026-10-07T12:43:51.6010379Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Secret scan	2026-10-07T12:43:51.6010827Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Secret scan	2026-10-07T12:43:51.6011265Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Secret scan	2026-10-07T12:43:51.6011654Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Secret scan	2026-10-07T12:43:51.6012033Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Secret scan	2026-10-07T12:43:51.6012460Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Secret scan	2026-10-07T12:43:51.6012786Z ##[endgroup]
+devsecops	Secret scan	2026-10-07T12:43:52.5334034Z ^[[90m12:43PM^[[0m ^[[32mINF^[[0m ^[[1mscanned ~48156 bytes (48.16 KB) in 10.8ms^[[0m
+devsecops	Secret scan	2026-10-07T12:43:52.5335167Z ^[[90m12:43PM^[[0m ^[[32mINF^[[0m ^[[1mno leaks found^[[0m
+devsecops	Secret scan	2026-10-07T12:43:52.9541511Z ^[[90m12:43PM^[[0m ^[[32mINF^[[0m ^[[1mscanned ~13547 bytes (13.55 KB) in 6.03ms^[[0m
+devsecops	Secret scan	2026-10-07T12:43:52.9542162Z ^[[90m12:43PM^[[0m ^[[32mINF^[[0m ^[[1mno leaks found^[[0m
+devsecops	Docker build	﻿2026-10-07T12:43:52.9595829Z ##[group]Run docker build -t aditya-session17:verified .
+devsecops	Docker build	2026-10-07T12:43:52.9596280Z ^[[36;1mdocker build -t aditya-session17:verified .^[[0m
+devsecops	Docker build	2026-10-07T12:43:52.9659711Z shell: /usr/bin/bash -e {0}
+devsecops	Docker build	2026-10-07T12:43:52.9659972Z env:
+devsecops	Docker build	2026-10-07T12:43:52.9660240Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Docker build	2026-10-07T12:43:52.9660694Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Docker build	2026-10-07T12:43:52.9661126Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Docker build	2026-10-07T12:43:52.9661533Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Docker build	2026-10-07T12:43:52.9661919Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Docker build	2026-10-07T12:43:52.9662296Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Docker build	2026-10-07T12:43:52.9662616Z ##[endgroup]
+devsecops	Docker build	2026-10-07T12:43:53.5797237Z #0 building with "default" instance using docker driver
+devsecops	Docker build	2026-10-07T12:43:53.5797620Z 
+devsecops	Docker build	2026-10-07T12:43:53.5797801Z #1 [internal] load build definition from Dockerfile
+devsecops	Docker build	2026-10-07T12:43:53.5798319Z #1 transferring dockerfile: 245B done
+devsecops	Docker build	2026-10-07T12:43:53.5798667Z #1 DONE 0.0s
+devsecops	Docker build	2026-10-07T12:43:53.5798823Z 
+devsecops	Docker build	2026-10-07T12:43:53.5799057Z #2 [internal] load metadata for docker.io/library/python:3.12-alpine
+devsecops	Docker build	2026-10-07T12:43:53.7407930Z #2 ...
+devsecops	Docker build	2026-10-07T12:43:53.7408216Z 
+devsecops	Docker build	2026-10-07T12:43:53.7408503Z #3 [auth] library/python:pull token for registry-1.docker.io
+devsecops	Docker build	2026-10-07T12:43:53.7409034Z #3 DONE 0.0s
+devsecops	Docker build	2026-10-07T12:43:53.8908548Z 
+devsecops	Docker build	2026-10-07T12:43:53.8908945Z #2 [internal] load metadata for docker.io/library/python:3.12-alpine
+devsecops	Docker build	2026-10-07T12:43:54.3651570Z #2 DONE 0.9s
+devsecops	Docker build	2026-10-07T12:43:54.4826742Z 
+devsecops	Docker build	2026-10-07T12:43:54.4827335Z #4 [internal] load .dockerignore
+devsecops	Docker build	2026-10-07T12:43:54.4827956Z #4 transferring context: 72B done
+devsecops	Docker build	2026-10-07T12:43:54.4828572Z #4 DONE 0.0s
+devsecops	Docker build	2026-10-07T12:43:54.4828906Z 
+devsecops	Docker build	2026-10-07T12:43:54.4829254Z #5 [internal] load build context
+devsecops	Docker build	2026-10-07T12:43:54.4829783Z #5 transferring context: 48.80kB done
+devsecops	Docker build	2026-10-07T12:43:54.4830100Z #5 DONE 0.0s
+devsecops	Docker build	2026-10-07T12:43:54.4830264Z 
+devsecops	Docker build	2026-10-07T12:43:54.4830877Z #6 [1/5] FROM docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+devsecops	Docker build	2026-10-07T12:43:54.4832112Z #6 resolve docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 done
+devsecops	Docker build	2026-10-07T12:43:54.4833036Z #6 sha256:2055081c860db8c842b663415b795b026e7e5cc63b59c5193fcc9997713ea5b8 1.74kB / 1.74kB done
+devsecops	Docker build	2026-10-07T12:43:54.4833817Z #6 sha256:979e5a8a56846771598d47ebf1f8a75b46155104e168a0b237c0783c1dedff8a 5.43kB / 5.43kB done
+devsecops	Docker build	2026-10-07T12:43:54.4835217Z #6 sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 0B / 416.28kB 0.1s
+devsecops	Docker build	2026-10-07T12:43:54.4836009Z #6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 0B / 16.36MB 0.1s
+devsecops	Docker build	2026-10-07T12:43:54.4836777Z #6 sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa 0B / 248B 0.1s
+devsecops	Docker build	2026-10-07T12:43:54.4837566Z #6 sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 10.30kB / 10.30kB done
+devsecops	Docker build	2026-10-07T12:43:54.5828411Z #6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 1.05MB / 16.36MB 0.2s
+devsecops	Docker build	2026-10-07T12:43:54.7375212Z #6 sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 416.28kB / 416.28kB 0.2s done
+devsecops	Docker build	2026-10-07T12:43:54.7376622Z #6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 8.39MB / 16.36MB 0.3s
+devsecops	Docker build	2026-10-07T12:43:54.7377884Z #6 sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa 248B / 248B 0.2s done
+devsecops	Docker build	2026-10-07T12:43:54.7379135Z #6 extracting sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 0.1s
+devsecops	Docker build	2026-10-07T12:43:54.9392918Z #6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 16.36MB / 16.36MB 0.3s done
+devsecops	Docker build	2026-10-07T12:43:54.9393823Z #6 extracting sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 0.2s done
+devsecops	Docker build	2026-10-07T12:43:54.9802772Z #6 extracting sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935
+devsecops	Docker build	2026-10-07T12:43:55.6351933Z #6 extracting sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 0.6s done
+devsecops	Docker build	2026-10-07T12:43:55.6352970Z #6 extracting sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa
+devsecops	Docker build	2026-10-07T12:43:55.8311896Z #6 extracting sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa done
+devsecops	Docker build	2026-10-07T12:43:55.8312563Z #6 DONE 1.3s
+devsecops	Docker build	2026-10-07T12:43:55.8312701Z 
+devsecops	Docker build	2026-10-07T12:43:55.8313017Z #7 [2/5] WORKDIR /app
+devsecops	Docker build	2026-10-07T12:43:55.8313484Z #7 DONE 0.0s
+devsecops	Docker build	2026-10-07T12:43:55.8313703Z 
+devsecops	Docker build	2026-10-07T12:43:55.8313861Z #8 [3/5] COPY requirements.txt .
+devsecops	Docker build	2026-10-07T12:43:55.8314170Z #8 DONE 0.0s
+devsecops	Docker build	2026-10-07T12:43:55.8314306Z 
+devsecops	Docker build	2026-10-07T12:43:55.8314819Z #9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+devsecops	Docker build	2026-10-07T12:43:58.1095584Z #9 2.429 Collecting Flask==3.1.3 (from -r requirements.txt (line 1))
+devsecops	Docker build	2026-10-07T12:43:58.2182799Z #9 2.499   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+devsecops	Docker build	2026-10-07T12:43:58.2184226Z #9 2.538 Collecting gunicorn==23.0.0 (from -r requirements.txt (line 2))
+devsecops	Docker build	2026-10-07T12:43:58.3242338Z #9 2.560   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+devsecops	Docker build	2026-10-07T12:43:58.3243610Z #9 2.588 Collecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+devsecops	Docker build	2026-10-07T12:43:58.3244966Z #9 2.608   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+devsecops	Docker build	2026-10-07T12:43:58.3246058Z #9 2.644 Collecting click>=8.1.3 (from Flask==3.1.3->-r requirements.txt (line 1))
+devsecops	Docker build	2026-10-07T12:43:58.4412248Z #9 2.664   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+devsecops	Docker build	2026-10-07T12:43:58.4413465Z #9 2.689 Collecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+devsecops	Docker build	2026-10-07T12:43:58.4414785Z #9 2.708   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+devsecops	Docker build	2026-10-07T12:43:58.4415792Z #9 2.742 Collecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements.txt (line 1))
+devsecops	Docker build	2026-10-07T12:43:58.4416754Z #9 2.761   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+devsecops	Docker build	2026-10-07T12:43:58.5566990Z #9 2.856 Collecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements.txt (line 1))
+devsecops	Docker build	2026-10-07T12:43:58.5568094Z #9 2.876   Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (2.7 kB)
+devsecops	Docker build	2026-10-07T12:43:58.6664246Z #9 2.915 Collecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+devsecops	Docker build	2026-10-07T12:43:58.6666044Z #9 2.934   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+devsecops	Docker build	2026-10-07T12:43:58.6667426Z #9 2.967 Collecting packaging (from gunicorn==23.0.0->-r requirements.txt (line 2))
+devsecops	Docker build	2026-10-07T12:43:58.6669048Z #9 2.986   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+devsecops	Docker build	2026-10-07T12:43:58.7839728Z #9 3.015 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+devsecops	Docker build	2026-10-07T12:43:58.7840290Z #9 3.061 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+devsecops	Docker build	2026-10-07T12:43:58.7840761Z #9 3.083 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+devsecops	Docker build	2026-10-07T12:43:58.7841199Z #9 3.104 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+devsecops	Docker build	2026-10-07T12:43:58.9045936Z #9 3.128 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+devsecops	Docker build	2026-10-07T12:43:58.9046838Z #9 3.149 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+devsecops	Docker build	2026-10-07T12:43:58.9047460Z #9 3.179 Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_x86_64.whl (23 kB)
+devsecops	Docker build	2026-10-07T12:43:58.9048088Z #9 3.199 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+devsecops	Docker build	2026-10-07T12:43:58.9048596Z #9 3.224 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+devsecops	Docker build	2026-10-07T12:43:59.0895971Z #9 3.259 Installing collected packages: packaging, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, gunicorn, Flask
+devsecops	Docker build	2026-10-07T12:43:59.6717074Z #9 3.991 Successfully installed Flask-3.1.3 blinker-1.9.0 click-8.5.0 gunicorn-23.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 packaging-26.3 werkzeug-3.1.9
+devsecops	Docker build	2026-10-07T12:43:59.7888654Z #9 3.992 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+devsecops	Docker build	2026-10-07T12:43:59.7890769Z #9 4.108 
+devsecops	Docker build	2026-10-07T12:43:59.7891094Z #9 4.108 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+devsecops	Docker build	2026-10-07T12:43:59.7891575Z #9 4.108 [notice] To update, run: pip install --upgrade pip
+devsecops	Docker build	2026-10-07T12:43:59.8892854Z #9 DONE 4.2s
+devsecops	Docker build	2026-10-07T12:44:00.0595293Z 
+devsecops	Docker build	2026-10-07T12:44:00.0595835Z #10 [5/5] COPY app app
+devsecops	Docker build	2026-10-07T12:44:00.0596295Z #10 DONE 0.0s
+devsecops	Docker build	2026-10-07T12:44:00.0596520Z 
+devsecops	Docker build	2026-10-07T12:44:00.0596687Z #11 exporting to image
+devsecops	Docker build	2026-10-07T12:44:00.0597090Z #11 exporting layers
+devsecops	Docker build	2026-10-07T12:44:00.3301552Z #11 exporting layers 0.4s done
+devsecops	Docker build	2026-10-07T12:44:00.3458402Z #11 writing image sha256:9da25a8cf317a849f5be619f29063d14cbfa387f6a0d52c1b764247f3f61187a done
+devsecops	Docker build	2026-10-07T12:44:00.3460120Z #11 naming to docker.io/library/aditya-session17:verified done
+devsecops	Docker build	2026-10-07T12:44:00.3509512Z #11 DONE 0.4s
+devsecops	Image scan and security gate	﻿2026-10-07T12:44:00.3541598Z ##[group]Run curl -fsSL https://github.com/aquasecurity/trivy/releases/download/v0.75.0/trivy_0.75.0_Linux-64bit.tar.gz | tar -xz -C /tmp/scanners trivy
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3542697Z ^[[36;1mcurl -fsSL https://github.com/aquasecurity/trivy/releases/download/v0.75.0/trivy_0.75.0_Linux-64bit.tar.gz | tar -xz -C /tmp/scanners trivy^[[0m
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3543677Z ^[[36;1m/tmp/scanners/trivy image --exit-code 1 --severity HIGH,CRITICAL --format json --output trivy-report.json aditya-session17:verified^[[0m
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3605673Z shell: /usr/bin/bash -e {0}
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3605933Z env:
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3606203Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3606649Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3607092Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3607490Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3607866Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3608290Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Image scan and security gate	2026-10-07T12:44:00.3608610Z ##[endgroup]
+devsecops	Image scan and security gate	2026-10-07T12:44:01.8875244Z 2026-10-07T12:44:01Z	INFO	[vulndb] Need to update DB
+devsecops	Image scan and security gate	2026-10-07T12:44:01.8876074Z 2026-10-07T12:44:01Z	INFO	[vulndb] Downloading vulnerability DB...
+devsecops	Image scan and security gate	2026-10-07T12:44:01.8876854Z 2026-10-07T12:44:01Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+devsecops	Image scan and security gate	2026-10-07T12:44:07.6643817Z 1.99 MiB / 119.53 MiB [->____________________________________________________________] 1.67% ? p/s ?21.98 MiB / 119.53 MiB [----------->________________________________________________] 18.39% ? p/s ?51.03 MiB / 119.53 MiB [------------------------->__________________________________] 42.69% ? p/s ?74.45 MiB / 119.53 MiB [---------------------------->_________________] 62.29% 120.81 MiB p/s ETA 0s99.30 MiB / 119.53 MiB [-------------------------------------->_______] 83.07% 120.81 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 120.81 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 117.86 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 117.86 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 117.86 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 110.26 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 110.26 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 110.26 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 103.15 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 103.15 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [------------------------------------------->] 100.00% 103.15 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-------------------------------------------->] 100.00% 96.49 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-------------------------------------------->] 100.00% 96.49 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-------------------------------------------->] 100.00% 96.49 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-------------------------------------------->] 100.00% 90.27 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-------------------------------------------->] 100.00% 90.27 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-------------------------------------------->] 100.00% 90.27 MiB p/s ETA 0s119.53 MiB / 119.53 MiB [-----------------------------------------------] 100.00% 29.30 MiB p/s 4.3s2026-10-07T12:44:07Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+devsecops	Image scan and security gate	2026-10-07T12:44:07.6652457Z 2026-10-07T12:44:07Z	INFO	[vuln] Vulnerability scanning is enabled
+devsecops	Image scan and security gate	2026-10-07T12:44:07.6653030Z 2026-10-07T12:44:07Z	INFO	[secret] Secret scanning is enabled
+devsecops	Image scan and security gate	2026-10-07T12:44:07.6653853Z 2026-10-07T12:44:07Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+devsecops	Image scan and security gate	2026-10-07T12:44:07.6669711Z 2026-10-07T12:44:07Z	INFO	[secret] Please see https://trivy.dev/docs/v0.75/guide/scanner/secret#recommendation for faster secret detection
+devsecops	Image scan and security gate	2026-10-07T12:44:11.9448939Z 2026-10-07T12:44:11Z	INFO	[python] Licenses acquired from one or more METADATA files may be subject to additional terms. Use `--debug` flag to see all affected packages.
+devsecops	Image scan and security gate	2026-10-07T12:44:11.9629408Z 2026-10-07T12:44:11Z	INFO	Detected OS	family="alpine" version="3.24.2"
+devsecops	Image scan and security gate	2026-10-07T12:44:11.9630769Z 2026-10-07T12:44:11Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+devsecops	Image scan and security gate	2026-10-07T12:44:11.9646947Z 2026-10-07T12:44:11Z	INFO	Number of language-specific files	num=1
+devsecops	Image scan and security gate	2026-10-07T12:44:11.9647869Z 2026-10-07T12:44:11Z	INFO	[python-pkg] Detecting vulnerabilities...
+devsecops	Image scan and security gate	2026-10-07T12:44:11.9659793Z 2026-10-07T12:44:11Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.75/guide/scanner/vulnerability#severity-selection for details.
+devsecops	Push to ephemeral registry	﻿2026-10-07T12:44:11.9839064Z ##[group]Run docker run -d --name registry -p 127.0.0.1:5002:5000 registry:2
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9839625Z ^[[36;1mdocker run -d --name registry -p 127.0.0.1:5002:5000 registry:2^[[0m
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9840157Z ^[[36;1mdocker tag aditya-session17:verified localhost:5002/aditya-session17:verified^[[0m
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9840667Z ^[[36;1mdocker push localhost:5002/aditya-session17:verified^[[0m
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9841260Z ^[[36;1mdocker pull localhost:5002/aditya-session17:verified^[[0m
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9904010Z shell: /usr/bin/bash -e {0}
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9904271Z env:
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9904759Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9905221Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9905657Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9906058Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9906444Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9906869Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Push to ephemeral registry	2026-10-07T12:44:11.9907199Z ##[endgroup]
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.0126821Z Unable to find image 'registry:2' locally
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.7669098Z 2: Pulling from library/registry
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.9530881Z 44cf07d57ee4: Pulling fs layer
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.9532789Z bbbdd6c6894b: Pulling fs layer
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.9533519Z 8e82f80af0de: Pulling fs layer
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.9533845Z 3493bf46cdec: Pulling fs layer
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.9534325Z 6d464ea18732: Pulling fs layer
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.9534823Z 3493bf46cdec: Waiting
+devsecops	Push to ephemeral registry	2026-10-07T12:44:12.9535050Z 6d464ea18732: Waiting
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.1887430Z bbbdd6c6894b: Verifying Checksum
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.1888004Z bbbdd6c6894b: Download complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.3090520Z 44cf07d57ee4: Verifying Checksum
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.3091350Z 44cf07d57ee4: Download complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.3332688Z 8e82f80af0de: Verifying Checksum
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.3333287Z 8e82f80af0de: Download complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.3812159Z 3493bf46cdec: Verifying Checksum
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.3812762Z 3493bf46cdec: Download complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.4144645Z 44cf07d57ee4: Pull complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.5112714Z 6d464ea18732: Verifying Checksum
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.5113105Z 6d464ea18732: Download complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.5179226Z bbbdd6c6894b: Pull complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.6101473Z 8e82f80af0de: Pull complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.6194123Z 3493bf46cdec: Pull complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.6264699Z 6d464ea18732: Pull complete
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.6301029Z Digest: sha256:a3d8aaa63ed8681a604f1dea0aa03f100d5895b6a58ace528858a7b332415373
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.6320754Z Status: Downloaded newer image for registry:2
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.6446421Z 688ca6c37f9b952483c8692023ee7f4b06a3f756bed1840de9e49a7aa00e7f54
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8522200Z The push refers to repository [localhost:5002/aditya-session17]
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8579661Z 7ccd928b3e23: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8580403Z 99c2213127bc: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8580881Z 1a403538b248: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8581319Z 0af3f1756180: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8581726Z 4d211c3f1c45: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8581969Z 7e9021171c27: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8582202Z 41366f7f4879: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8582591Z 74d97c428c51: Preparing
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8588553Z 7e9021171c27: Waiting
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8589208Z 74d97c428c51: Waiting
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8589754Z 41366f7f4879: Waiting
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8962061Z 7ccd928b3e23: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.8988154Z 4d211c3f1c45: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.9003774Z 1a403538b248: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:13.9079568Z 0af3f1756180: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:14.0128584Z 41366f7f4879: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:14.3719040Z 74d97c428c51: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:14.6583463Z 99c2213127bc: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:15.8066139Z 7e9021171c27: Pushed
+devsecops	Push to ephemeral registry	2026-10-07T12:44:15.8244792Z verified: digest: sha256:98327224c781ff925c65e49fef4ee6ec73641142da043f9b1cff3305ed995029 size: 1990
+devsecops	Push to ephemeral registry	2026-10-07T12:44:15.8509478Z verified: Pulling from aditya-session17
+devsecops	Push to ephemeral registry	2026-10-07T12:44:15.8520067Z Digest: sha256:98327224c781ff925c65e49fef4ee6ec73641142da043f9b1cff3305ed995029
+devsecops	Push to ephemeral registry	2026-10-07T12:44:15.8520995Z Status: Image is up to date for localhost:5002/aditya-session17:verified
+devsecops	Push to ephemeral registry	2026-10-07T12:44:15.8528439Z localhost:5002/aditya-session17:verified
+devsecops	Run helm/kind-action@v1	﻿2026-10-07T12:44:15.8629041Z ##[group]Run helm/kind-action@v1
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8629349Z with:
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8629559Z   cluster_name: session17
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8629796Z   version: v0.31.0
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8630003Z   wait: 60s
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8630203Z   verbosity: 0
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8630410Z   kubectl_version: v1.35.0
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8630642Z   registry: false
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8630858Z   registry_image: registry:2
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8631114Z   registry_name: kind-registry
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8631358Z   registry_port: 5000
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8631585Z   registry_enable_delete: false
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8631827Z   install_only: false
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8632046Z   ignore_failed_clean: false
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8632285Z   cloud_provider: false
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8632501Z env:
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8632766Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8633211Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8633652Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8634096Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8634737Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8635132Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.8635469Z ##[endgroup]
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.9048782Z Installing kind...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:15.9063764Z /opt/hostedtoolcache/kind/v0.31.0/amd64/kind/bin ~/work/devops-heros/devops-heros
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:16.6508023Z kind-linux-amd64: OK
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:16.6546781Z ~/work/devops-heros/devops-heros
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:16.6547300Z Adding kind directory to PATH...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:16.6547766Z Installing kubectl...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:16.6562140Z /opt/hostedtoolcache/kind/v0.31.0/amd64/kubectl/bin ~/work/devops-heros/devops-heros
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:17.2221629Z kubectl: OK
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:17.2235678Z ~/work/devops-heros/devops-heros
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:17.2236230Z Adding kubectl directory to PATH...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:17.2259578Z kind v0.31.0 go1.25.5 linux/amd64
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:17.2605039Z Client Version: v1.35.0
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:17.2605568Z Kustomize Version: v5.7.1
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:17.2619015Z Creating kind cluster...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:21.2142975Z Creating cluster "session17" ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:21.2143833Z  • Ensuring node image (kindest/node:v1.35.0) 🖼  ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:30.3318566Z  ✓ Ensuring node image (kindest/node:v1.35.0) 🖼
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:30.3319105Z  • Preparing nodes 📦   ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:32.0036486Z  ✓ Preparing nodes 📦 
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:32.0319877Z  • Writing configuration 📜  ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:32.2148040Z  ✓ Writing configuration 📜
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:32.2148647Z  • Starting control-plane 🕹️  ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:40.2589529Z  ✓ Starting control-plane 🕹️
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:40.2590659Z  • Installing CNI 🔌  ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:40.5620056Z  ✓ Installing CNI 🔌
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:40.5620553Z  • Installing StorageClass 💾  ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:40.8903972Z  ✓ Installing StorageClass 💾
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:40.9271979Z  • Waiting ≤ 1m0s for control-plane = Ready ⏳  ...
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.7787152Z  ✓ Waiting ≤ 1m0s for control-plane = Ready ⏳
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.7790122Z  • Ready after 19s 💚
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.9169474Z Set kubectl context to "kind-session17"
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.9170048Z You can now use your cluster with:
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.9170509Z 
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.9170749Z kubectl cluster-info --context kind-session17
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.9171127Z 
+devsecops	Run helm/kind-action@v1	2026-10-07T12:44:59.9171959Z Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+devsecops	Deploy and verify Kubernetes	﻿2026-10-07T12:44:59.9263214Z ##[group]Run kind load docker-image localhost:5002/aditya-session17:verified --name session17
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9264778Z ^[[36;1mkind load docker-image localhost:5002/aditya-session17:verified --name session17^[[0m
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9265672Z ^[[36;1mkubectl create ns aditya-s17^[[0m
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9266897Z ^[[36;1msed 's#image: aditya-session17:verified#image: localhost:5002/aditya-session17:verified#' k8s/deployment.yaml | kubectl -n aditya-s17 apply -f -^[[0m
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9268533Z ^[[36;1mkubectl -n aditya-s17 apply -f k8s/service.yaml^[[0m
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9269373Z ^[[36;1mkubectl -n aditya-s17 rollout status deploy/session17-app --timeout=180s^[[0m
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9270179Z ^[[36;1mkubectl -n aditya-s17 get pods -o wide^[[0m
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9271564Z ^[[36;1mkubectl -n aditya-s17 exec deploy/session17-app -- python -c 'import urllib.request; print(urllib.request.urlopen("http://session17-app/health").read().decode())'^[[0m
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9349949Z shell: /usr/bin/bash -e {0}
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9350457Z env:
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9350942Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9351772Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9352603Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9353323Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9354088Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9354967Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:44:59.9355319Z ##[endgroup]
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:00.1214755Z Image: "localhost:5002/aditya-session17:verified" with ID "sha256:9da25a8cf317a849f5be619f29063d14cbfa387f6a0d52c1b764247f3f61187a" not yet present on node "session17-control-plane", loading...
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:03.3695634Z namespace/aditya-s17 created
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:03.4473393Z deployment.apps/session17-app created
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:03.5747376Z service/session17-app created
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:03.6387661Z Waiting for deployment "session17-app" rollout to finish: 0 of 2 updated replicas are available...
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:05.0685689Z Waiting for deployment "session17-app" rollout to finish: 1 of 2 updated replicas are available...
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:14.5607921Z deployment "session17-app" successfully rolled out
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:14.6084220Z NAME                             READY   STATUS    RESTARTS   AGE   IP           NODE                      NOMINATED NODE   READINESS GATES
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:14.6085619Z session17-app-784884fd9f-q4gp5   1/1     Running   0          11s   10.244.0.6   session17-control-plane   <none>           <none>
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:14.6086443Z session17-app-784884fd9f-ql59r   1/1     Running   0          11s   10.244.0.5   session17-control-plane   <none>           <none>
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:14.9083489Z {"status":"healthy","timestamp":"2026-10-07T12:45:14.907174Z","uptime_seconds":9.87}
+devsecops	Deploy and verify Kubernetes	2026-10-07T12:45:14.9084164Z 
+devsecops	Upload security reports	﻿2026-10-07T12:45:14.9290715Z ##[group]Run actions/upload-artifact@v4
+devsecops	Upload security reports	2026-10-07T12:45:14.9291046Z with:
+devsecops	Upload security reports	2026-10-07T12:45:14.9291261Z   name: session17-security
+devsecops	Upload security reports	2026-10-07T12:45:14.9291859Z   path: session-17-devsecops/Aditya Prasad 24BCS10179/bandit-report.json
+devsecops	Upload security reports	session-17-devsecops/Aditya Prasad 24BCS10179/trivy-report.json
+devsecops	Upload security reports	
+devsecops	Upload security reports	2026-10-07T12:45:14.9292503Z   retention-days: 1
+devsecops	Upload security reports	2026-10-07T12:45:14.9292733Z   if-no-files-found: warn
+devsecops	Upload security reports	2026-10-07T12:45:14.9292989Z   compression-level: 6
+devsecops	Upload security reports	2026-10-07T12:45:14.9293216Z   overwrite: false
+devsecops	Upload security reports	2026-10-07T12:45:14.9293441Z   include-hidden-files: false
+devsecops	Upload security reports	2026-10-07T12:45:14.9293686Z env:
+devsecops	Upload security reports	2026-10-07T12:45:14.9293946Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Upload security reports	2026-10-07T12:45:14.9294389Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib/pkgconfig
+devsecops	Upload security reports	2026-10-07T12:45:14.9295143Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Upload security reports	2026-10-07T12:45:14.9295536Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Upload security reports	2026-10-07T12:45:14.9295930Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.16/x64
+devsecops	Upload security reports	2026-10-07T12:45:14.9296362Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.16/x64/lib
+devsecops	Upload security reports	2026-10-07T12:45:14.9296696Z ##[endgroup]
+devsecops	Upload security reports	2026-10-07T12:45:15.0978214Z (node:13117) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+devsecops	Upload security reports	2026-10-07T12:45:15.0979001Z (Use `node --trace-deprecation ...` to show where the warning was created)
+devsecops	Upload security reports	2026-10-07T12:45:15.1037316Z Multiple search paths detected. Calculating the least common ancestor of all paths
+devsecops	Upload security reports	2026-10-07T12:45:15.1040448Z The least common ancestor is /home/runner/work/devops-heros/devops-heros/session-17-devsecops/Aditya Prasad 24BCS10179. This will be the root directory of the artifact
+devsecops	Upload security reports	2026-10-07T12:45:15.1041963Z With the provided path, there will be 2 files uploaded
+devsecops	Upload security reports	2026-10-07T12:45:15.1045867Z Artifact name is valid!
+devsecops	Upload security reports	2026-10-07T12:45:15.1052759Z Root directory input is valid!
+devsecops	Upload security reports	2026-10-07T12:45:15.4229747Z Beginning upload of artifact content to blob storage
+devsecops	Upload security reports	2026-10-07T12:45:15.4464051Z (node:13117) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+devsecops	Upload security reports	2026-10-07T12:45:15.6972618Z Uploaded bytes 15282
+devsecops	Upload security reports	2026-10-07T12:45:15.7585641Z Finished uploading artifact content to blob storage!
+devsecops	Upload security reports	2026-10-07T12:45:15.7587770Z SHA256 digest of uploaded artifact zip is 3f42c564c936105bcfef75a3ce3a5eb1f7cffb29be273950265109963c6aa1cf
+devsecops	Upload security reports	2026-10-07T12:45:15.7589613Z Finalizing artifact upload
+devsecops	Upload security reports	2026-10-07T12:45:16.0123605Z Artifact session17-security.zip successfully finalized. Artifact ID 11482887631
+devsecops	Upload security reports	2026-10-07T12:45:16.0125462Z Artifact session17-security has been successfully uploaded! Final size is 15282 bytes. Artifact ID is 11482887631
+devsecops	Upload security reports	2026-10-07T12:45:16.0131234Z Artifact download URL: https://github.com/DRAGHIT/devops-heros/actions/runs/37623057685/artifacts/11482887631
+devsecops	Post Run helm/kind-action@v1	﻿2026-10-07T12:45:16.0306164Z Post job cleanup.
+devsecops	Post Run helm/kind-action@v1	2026-10-07T12:45:16.0707284Z Error response from daemon: No such container: kind-registry
+devsecops	Post Run helm/kind-action@v1	2026-10-07T12:45:16.0852890Z Deleting cluster "session17" ...
+devsecops	Post Run helm/kind-action@v1	2026-10-07T12:45:17.4418087Z Deleted nodes: ["session17-control-plane"]
+devsecops	Post Run actions/setup-python@v5	﻿2026-10-07T12:45:17.4520477Z Post job cleanup.
+devsecops	Post Run actions/setup-python@v5	2026-10-07T12:45:17.5806749Z (node:13226) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+devsecops	Post Run actions/setup-python@v5	2026-10-07T12:45:17.5807523Z (Use `node --trace-deprecation ...` to show where the warning was created)
+devsecops	Post Run actions/checkout@v4	﻿2026-10-07T12:45:17.6046580Z Post job cleanup.
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.6977222Z [command]/usr/bin/git version
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7022546Z git version 2.55.0
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7067188Z Temporarily overriding HOME='/home/runner/work/_temp/a5db1e00-851e-4916-b3ac-77bf812d7878' before making global git config changes
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7068454Z Adding repository directory to the temporary git global config as a safe directory
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7073030Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-heros/devops-heros
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7112967Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7150216Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7397698Z fatal: No url found for submodule path 'session-16-github-actions/mini-project 10-33-34-265' in .gitmodules
+devsecops	Post Run actions/checkout@v4	2026-10-07T12:45:17.7444137Z ##[warning]The process '/usr/bin/git' failed with exit code 128
+devsecops	Complete job	﻿2026-10-07T12:45:17.7584171Z Cleaning up orphan processes
+devsecops	Complete job	2026-10-07T12:45:17.7992998Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

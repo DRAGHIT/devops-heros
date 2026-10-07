@@ -1,0 +1,410 @@
++ cd /tmp/s17-lab
++ /opt/python/3.13.8/bin/python3.13 -m venv .venv313
++ . .venv313/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ unset VIRTUAL_ENV_PROMPT
+++ '[' '!' nondestructive = nondestructive ']'
+++ case "$(uname)" in
++++ uname
+++ export VIRTUAL_ENV=/tmp/s17-lab/.venv313
+++ VIRTUAL_ENV=/tmp/s17-lab/.venv313
+++ _OLD_VIRTUAL_PATH=/home/codespace/.dotnet:/home/codespace/nvm/current/bin:/home/codespace/.php/current/bin:/home/codespace/.python/current/bin:/home/codespace/java/current/bin:/home/codespace/.ruby/current/bin:/home/codespace/.local/bin:/usr/local/python/current/bin:/usr/local/py-utils/bin:/usr/local/jupyter:/usr/local/oryx:/usr/local/go/bin:/go/bin:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/java/current/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/maven/current/bin:/usr/local/sdkman/candidates/ant/current/bin:/usr/local/share/rbenv/shims:/usr/local/share/rbenv/bin:/usr/local/rubies/current/bin:/usr/local/php/current/bin:/opt/conda/bin:/usr/local/share/nvm/current/bin:/usr/local/hugo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/dotnet
+++ PATH=/tmp/s17-lab/.venv313/bin:/home/codespace/.dotnet:/home/codespace/nvm/current/bin:/home/codespace/.php/current/bin:/home/codespace/.python/current/bin:/home/codespace/java/current/bin:/home/codespace/.ruby/current/bin:/home/codespace/.local/bin:/usr/local/python/current/bin:/usr/local/py-utils/bin:/usr/local/jupyter:/usr/local/oryx:/usr/local/go/bin:/go/bin:/usr/local/sdkman/bin:/usr/local/sdkman/candidates/java/current/bin:/usr/local/sdkman/candidates/gradle/current/bin:/usr/local/sdkman/candidates/maven/current/bin:/usr/local/sdkman/candidates/ant/current/bin:/usr/local/share/rbenv/shims:/usr/local/share/rbenv/bin:/usr/local/rubies/current/bin:/usr/local/php/current/bin:/opt/conda/bin:/usr/local/share/nvm/current/bin:/usr/local/hugo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/share/dotnet
+++ export PATH
+++ VIRTUAL_ENV_PROMPT=.venv313
+++ export VIRTUAL_ENV_PROMPT
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ PS1='(.venv313) '
+++ export PS1
+++ hash -r
++ pip install -r requirements-dev.txt
+Requirement already satisfied: Flask==3.1.3 in ./.venv313/lib/python3.13/site-packages (from -r /tmp/s17-lab/requirements.txt (line 1)) (3.1.3)
+Requirement already satisfied: gunicorn==23.0.0 in ./.venv313/lib/python3.13/site-packages (from -r /tmp/s17-lab/requirements.txt (line 2)) (23.0.0)
+Requirement already satisfied: pytest==8.4.2 in ./.venv313/lib/python3.13/site-packages (from -r requirements-dev.txt (line 2)) (8.4.2)
+Requirement already satisfied: pytest-cov==6.0.0 in ./.venv313/lib/python3.13/site-packages (from -r requirements-dev.txt (line 3)) (6.0.0)
+Requirement already satisfied: bandit==1.8.6 in ./.venv313/lib/python3.13/site-packages (from -r requirements-dev.txt (line 4)) (1.8.6)
+Requirement already satisfied: pip-audit==2.9.0 in ./.venv313/lib/python3.13/site-packages (from -r requirements-dev.txt (line 5)) (2.9.0)
+Requirement already satisfied: blinker>=1.9.0 in ./.venv313/lib/python3.13/site-packages (from Flask==3.1.3->-r /tmp/s17-lab/requirements.txt (line 1)) (1.9.0)
+Requirement already satisfied: click>=8.1.3 in ./.venv313/lib/python3.13/site-packages (from Flask==3.1.3->-r /tmp/s17-lab/requirements.txt (line 1)) (8.5.0)
+Requirement already satisfied: itsdangerous>=2.2.0 in ./.venv313/lib/python3.13/site-packages (from Flask==3.1.3->-r /tmp/s17-lab/requirements.txt (line 1)) (2.2.0)
+Requirement already satisfied: jinja2>=3.1.2 in ./.venv313/lib/python3.13/site-packages (from Flask==3.1.3->-r /tmp/s17-lab/requirements.txt (line 1)) (3.1.6)
+Requirement already satisfied: markupsafe>=2.1.1 in ./.venv313/lib/python3.13/site-packages (from Flask==3.1.3->-r /tmp/s17-lab/requirements.txt (line 1)) (3.0.4)
+Requirement already satisfied: werkzeug>=3.1.0 in ./.venv313/lib/python3.13/site-packages (from Flask==3.1.3->-r /tmp/s17-lab/requirements.txt (line 1)) (3.1.9)
+Requirement already satisfied: packaging in ./.venv313/lib/python3.13/site-packages (from gunicorn==23.0.0->-r /tmp/s17-lab/requirements.txt (line 2)) (26.3)
+Requirement already satisfied: iniconfig>=1 in ./.venv313/lib/python3.13/site-packages (from pytest==8.4.2->-r requirements-dev.txt (line 2)) (2.3.1)
+Requirement already satisfied: pluggy<2,>=1.5 in ./.venv313/lib/python3.13/site-packages (from pytest==8.4.2->-r requirements-dev.txt (line 2)) (1.6.0)
+Requirement already satisfied: pygments>=2.7.2 in ./.venv313/lib/python3.13/site-packages (from pytest==8.4.2->-r requirements-dev.txt (line 2)) (2.21.0)
+Requirement already satisfied: coverage>=7.5 in ./.venv313/lib/python3.13/site-packages (from coverage[toml]>=7.5->pytest-cov==6.0.0->-r requirements-dev.txt (line 3)) (7.16.2)
+Requirement already satisfied: PyYAML>=5.3.1 in ./.venv313/lib/python3.13/site-packages (from bandit==1.8.6->-r requirements-dev.txt (line 4)) (6.0.3)
+Requirement already satisfied: stevedore>=1.20.0 in ./.venv313/lib/python3.13/site-packages (from bandit==1.8.6->-r requirements-dev.txt (line 4)) (5.9.1)
+Requirement already satisfied: rich in ./.venv313/lib/python3.13/site-packages (from bandit==1.8.6->-r requirements-dev.txt (line 4)) (15.0.0)
+Requirement already satisfied: CacheControl>=0.13.0 in ./.venv313/lib/python3.13/site-packages (from CacheControl[filecache]>=0.13.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (0.14.4)
+Requirement already satisfied: cyclonedx-python-lib<10,>=5 in ./.venv313/lib/python3.13/site-packages (from pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (9.1.0)
+Requirement already satisfied: pip-api>=0.0.28 in ./.venv313/lib/python3.13/site-packages (from pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (0.0.35)
+Requirement already satisfied: pip-requirements-parser>=32.0.0 in ./.venv313/lib/python3.13/site-packages (from pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (32.0.1)
+Requirement already satisfied: requests>=2.31.0 in ./.venv313/lib/python3.13/site-packages (from pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (2.34.2)
+Requirement already satisfied: toml>=0.10 in ./.venv313/lib/python3.13/site-packages (from pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (0.10.2)
+Requirement already satisfied: platformdirs>=4.2.0 in ./.venv313/lib/python3.13/site-packages (from pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (4.12.3)
+Requirement already satisfied: license-expression<31,>=30 in ./.venv313/lib/python3.13/site-packages (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (30.4.4)
+Requirement already satisfied: packageurl-python<2,>=0.11 in ./.venv313/lib/python3.13/site-packages (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (0.17.6)
+Requirement already satisfied: py-serializable<3.0.0,>=2.0.0 in ./.venv313/lib/python3.13/site-packages (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (2.1.0)
+Requirement already satisfied: sortedcontainers<3.0.0,>=2.4.0 in ./.venv313/lib/python3.13/site-packages (from cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (2.4.0)
+Requirement already satisfied: boolean.py>=4.0 in ./.venv313/lib/python3.13/site-packages (from license-expression<31,>=30->cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (5.0)
+Requirement already satisfied: defusedxml<0.8.0,>=0.7.1 in ./.venv313/lib/python3.13/site-packages (from py-serializable<3.0.0,>=2.0.0->cyclonedx-python-lib<10,>=5->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (0.7.1)
+Requirement already satisfied: msgpack<2.0.0,>=0.5.2 in ./.venv313/lib/python3.13/site-packages (from CacheControl>=0.13.0->CacheControl[filecache]>=0.13.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (1.2.3)
+Requirement already satisfied: filelock>=3.8.0 in ./.venv313/lib/python3.13/site-packages (from CacheControl[filecache]>=0.13.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (4.0.12)
+Requirement already satisfied: pip in ./.venv313/lib/python3.13/site-packages (from pip-api>=0.0.28->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (25.2)
+Requirement already satisfied: pyparsing in ./.venv313/lib/python3.13/site-packages (from pip-requirements-parser>=32.0.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (3.3.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in ./.venv313/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (3.5.2)
+Requirement already satisfied: idna<4,>=2.5 in ./.venv313/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (3.20)
+Requirement already satisfied: urllib3<3,>=1.26 in ./.venv313/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (2.8.0)
+Requirement already satisfied: certifi>=2023.5.7 in ./.venv313/lib/python3.13/site-packages (from requests>=2.31.0->pip-audit==2.9.0->-r requirements-dev.txt (line 5)) (2026.7.22)
+Requirement already satisfied: markdown-it-py>=2.2.0 in ./.venv313/lib/python3.13/site-packages (from rich->bandit==1.8.6->-r requirements-dev.txt (line 4)) (4.2.0)
+Requirement already satisfied: mdurl~=0.1 in ./.venv313/lib/python3.13/site-packages (from markdown-it-py>=2.2.0->rich->bandit==1.8.6->-r requirements-dev.txt (line 4)) (0.1.2)
+
+[notice] A new release of pip is available: 25.2 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
++ printf '\nSECTION TESTS\n'
+
+SECTION TESTS
++ python -m pytest --cov=app --cov-report=term-missing
+============================= test session starts ==============================
+platform linux -- Python 3.13.8, pytest-8.4.2, pluggy-1.6.0
+rootdir: /tmp/s17-lab
+plugins: platformdirs-4.12.3, cov-6.0.0
+collected 8 items
+
+tests/test_app.py ........                                               [100%]
+
+=============================== warnings summary ===============================
+app/app.py:13
+  /tmp/s17-lab/app/app.py:13: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    _start_time = datetime.datetime.utcnow()
+
+tests/test_app.py::test_health
+  /tmp/s17-lab/app/app.py:38: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    uptime_seconds = (datetime.datetime.utcnow() - _start_time).total_seconds()
+
+tests/test_app.py::test_health
+  /tmp/s17-lab/app/app.py:42: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+
+tests/test_app.py::test_greet
+  /tmp/s17-lab/app/app.py:81: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+
+tests/test_app.py::test_status
+  /tmp/s17-lab/app/app.py:49: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    uptime = datetime.datetime.utcnow() - _start_time
+
+tests/test_app.py::test_status
+  /tmp/s17-lab/app/app.py:60: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+
+---------- coverage: platform linux, python 3.13.8-final-0 -----------
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+app/__init__.py       0      0   100%
+app/app.py          102     32    69%   94, 104-105, 121, 128, 132-133, 145, 179-209, 225, 230, 234
+-----------------------------------------------
+TOTAL               102     32    69%
+
+======================== 8 passed, 6 warnings in 0.25s =========================
++ printf '\nSECTION SAST\n'
+
+SECTION SAST
++ bandit -r app -c bandit.yaml -f json -o /tmp/devops-evidence/s17-bandit.json
+[main]	INFO	profile include tests: None
+[main]	INFO	profile exclude tests: B311
+[main]	INFO	cli include tests: None
+[main]	INFO	cli exclude tests: None
+[json]	INFO	JSON output written to file: /tmp/devops-evidence/s17-bandit.json
++ python -c 'import json; d=json.load(open("/tmp/devops-evidence/s17-bandit.json")); assert not d["errors"] and not d["results"]'
++ cat /tmp/devops-evidence/s17-bandit.json
+{
+  "errors": [],
+  "generated_at": "2026-10-07T12:43:44Z",
+  "metrics": {
+    "_totals": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 168,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "app/__init__.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 0,
+      "nosec": 0,
+      "skipped_tests": 0
+    },
+    "app/app.py": {
+      "CONFIDENCE.HIGH": 0,
+      "CONFIDENCE.LOW": 0,
+      "CONFIDENCE.MEDIUM": 0,
+      "CONFIDENCE.UNDEFINED": 0,
+      "SEVERITY.HIGH": 0,
+      "SEVERITY.LOW": 0,
+      "SEVERITY.MEDIUM": 0,
+      "SEVERITY.UNDEFINED": 0,
+      "loc": 168,
+      "nosec": 0,
+      "skipped_tests": 0
+    }
+  },
+  "results": []
+}+ printf '\nSECTION SCA\n'
+
+SECTION SCA
++ pip-audit -r requirements.txt --format json -o /tmp/devops-evidence/s17-sca.json
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+WARNING:cachecontrol.controller:Cache entry deserialization failed, entry ignored
+No known vulnerabilities found
++ cat /tmp/devops-evidence/s17-sca.json
+{"dependencies": [{"name": "flask", "version": "3.1.3", "vulns": []}, {"name": "gunicorn", "version": "23.0.0", "vulns": []}, {"name": "blinker", "version": "1.9.0", "vulns": []}, {"name": "click", "version": "8.5.0", "vulns": []}, {"name": "itsdangerous", "version": "2.2.0", "vulns": []}, {"name": "jinja2", "version": "3.1.6", "vulns": []}, {"name": "markupsafe", "version": "3.0.4", "vulns": []}, {"name": "werkzeug", "version": "3.1.9", "vulns": []}], "fixes": []}
++ printf '\nSECTION SECRETS\n'
+
+SECTION SECRETS
++ mkdir -p /tmp/scanners
++ curl -fsSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz
++ tar -xz -C /tmp/scanners gitleaks
++ /tmp/scanners/gitleaks dir app --no-banner
+[90m12:43PM[0m [32mINF[0m [1mscanned ~57557 bytes (57.56 KB) in 15.8ms[0m
+[90m12:43PM[0m [32mINF[0m [1mno leaks found[0m
++ /tmp/scanners/gitleaks dir tests --no-banner
+[90m12:43PM[0m [32mINF[0m [1mscanned ~24760 bytes (24.76 KB) in 11ms[0m
+[90m12:43PM[0m [32mINF[0m [1mno leaks found[0m
++ printf '\nSECTION BUILD AND IMAGE SCAN\n'
+
+SECTION BUILD AND IMAGE SCAN
++ docker build -t aditya-session17:verified .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 245B done
+#1 DONE 0.0s
+
+#2 [auth] library/python:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-alpine
+#3 DONE 0.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 72B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 18.34kB done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#6 resolve docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 0.0s done
+#6 DONE 0.1s
+
+#6 [1/5] FROM docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#6 sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa 248B / 248B 0.2s
+#6 sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa 248B / 248B 0.2s done
+#6 sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 416.28kB / 416.28kB 0.2s done
+#6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 9.22MB / 16.36MB 0.3s
+#6 extracting sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa
+#6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 16.36MB / 16.36MB 0.5s
+#6 extracting sha256:bce3d672089f7ccc5125c3f8f95542fa3971138f323fb7f77e338a14396c85aa 0.5s done
+#6 sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 16.36MB / 16.36MB 0.7s done
+#6 extracting sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935
+#6 extracting sha256:283ac05c32e67060aa59f8a841b02df4cc0bd7fbf8d880f67d9b622e1cbd1935 0.6s done
+#6 DONE 1.5s
+
+#6 [1/5] FROM docker.io/library/python:3.12-alpine@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#6 extracting sha256:e203d50c86bd38d307585d33fd69e7e7fd91e7535b65af46aa1d663cfb80c0fa 0.0s done
+#6 DONE 1.5s
+
+#7 [2/5] WORKDIR /app
+#7 DONE 1.1s
+
+#8 [3/5] COPY requirements.txt .
+#8 DONE 0.0s
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#9 2.942 Collecting Flask==3.1.3 (from -r requirements.txt (line 1))
+#9 2.975   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#9 3.011 Collecting gunicorn==23.0.0 (from -r requirements.txt (line 2))
+#9 3.019   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+#9 3.034 Collecting blinker>=1.9.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 3.041   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#9 3.063 Collecting click>=8.1.3 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 3.071   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 3.084 Collecting itsdangerous>=2.2.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 3.092   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#9 3.111 Collecting jinja2>=3.1.2 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 3.119   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#9 3.192 Collecting markupsafe>=2.1.1 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 3.200   Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_x86_64.whl.metadata (2.7 kB)
+#9 3.226 Collecting werkzeug>=3.1.0 (from Flask==3.1.3->-r requirements.txt (line 1))
+#9 3.234   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#9 3.262 Collecting packaging (from gunicorn==23.0.0->-r requirements.txt (line 2))
+#9 3.271   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#9 3.287 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#9 3.302 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+#9 3.310 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#9 3.317 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#9 3.325 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#9 3.333 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#9 3.341 Downloading markupsafe-3.0.4-cp312-cp312-musllinux_1_2_x86_64.whl (23 kB)
+#9 3.348 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#9 3.362 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#9 3.398 Installing collected packages: packaging, markupsafe, itsdangerous, click, blinker, werkzeug, jinja2, gunicorn, Flask
+#9 4.305 Successfully installed Flask-3.1.3 blinker-1.9.0 click-8.5.0 gunicorn-23.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 packaging-26.3 werkzeug-3.1.9
+#9 4.306 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 4.388 
+#9 4.388 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+#9 4.388 [notice] To update, run: pip install --upgrade pip
+#9 DONE 4.9s
+
+#10 [5/5] COPY app app
+#10 DONE 0.1s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.7s done
+#11 exporting manifest sha256:406bef3a04c254e823cf832ad6d4a25192ac687e5cfc369f96d4195ca6459e4e 0.0s done
+#11 exporting config sha256:e2ac7e059c6722d71f8e326096a387f6a7df9069dc915e288680473bfbcfa587 0.0s done
+#11 exporting attestation manifest sha256:4188a9d2f077b2d6fd85201e0bd97ec5339e6dd800875711a5551350722ff58c 0.0s done
+#11 exporting manifest list sha256:e4bca6cefdedd7e035d5b641048bbc6e65ecb07fdd9c0fba800071571f9c5f92 0.0s done
+#11 naming to docker.io/library/aditya-session17:verified done
+#11 unpacking to docker.io/library/aditya-session17:verified
+#11 unpacking to docker.io/library/aditya-session17:verified 0.4s done
+#11 DONE 1.2s
++ tar -xz -C /tmp/scanners trivy
++ curl -fsSL https://github.com/aquasecurity/trivy/releases/download/v0.75.0/trivy_0.75.0_Linux-64bit.tar.gz
++ /tmp/scanners/trivy image --exit-code 1 --severity HIGH,CRITICAL --format json --output /tmp/devops-evidence/s17-trivy.json aditya-session17:verified
+2026-10-07T12:44:06Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-10-07T12:44:06Z	INFO	[secret] Secret scanning is enabled
+2026-10-07T12:44:06Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2026-10-07T12:44:06Z	INFO	[secret] Please see https://trivy.dev/docs/v0.75/guide/scanner/secret#recommendation for faster secret detection
+2026-10-07T12:44:07Z	INFO	[python] Licenses acquired from one or more METADATA files may be subject to additional terms. Use `--debug` flag to see all affected packages.
+2026-10-07T12:44:08Z	INFO	Detected OS	family="alpine" version="3.24.2"
+2026-10-07T12:44:08Z	INFO	[alpine] Detecting vulnerabilities...	os_version="3.24" repository="3.24" pkg_num=38
+2026-10-07T12:44:08Z	INFO	Number of language-specific files	num=1
+2026-10-07T12:44:08Z	INFO	[python-pkg] Detecting vulnerabilities...
+2026-10-07T12:44:08Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.75/guide/scanner/vulnerability#severity-selection for details.
++ printf '\nSECTION GATE PASSED REGISTRY\n'
+
+SECTION GATE PASSED REGISTRY
++ docker run -d --name aditya-s17-registry -p 127.0.0.1:5002:5000 registry:2
+Unable to find image 'registry:2' locally
+2: Pulling from library/registry
+6d464ea18732: Pulling fs layer
+44cf07d57ee4: Pulling fs layer
+bbbdd6c6894b: Pulling fs layer
+3493bf46cdec: Pulling fs layer
+8e82f80af0de: Pulling fs layer
+44cf07d57ee4: Download complete
+bbbdd6c6894b: Download complete
+3493bf46cdec: Download complete
+6d464ea18732: Download complete
+8e82f80af0de: Download complete
+32a76c78501f: Download complete
+b537bf6d1146: Download complete
+44cf07d57ee4: Pull complete
+bbbdd6c6894b: Pull complete
+3493bf46cdec: Pull complete
+6d464ea18732: Pull complete
+8e82f80af0de: Pull complete
+Digest: sha256:a3d8aaa63ed8681a604f1dea0aa03f100d5895b6a58ace528858a7b332415373
+Status: Downloaded newer image for registry:2
+172494b37e434f4c6097da2246c226fe0b776abee8e04a9fafa00fd936834e4d
++ docker tag aditya-session17:verified localhost:5002/aditya-session17:verified
++ docker push localhost:5002/aditya-session17:verified
+The push refers to repository [localhost:5002/aditya-session17]
+04ca5f1a3c03: Waiting
+73aaabc6f2e3: Pushed
+44136fa355b3: Pushed
+283ac05c32e6: Waiting
+e203d50c86bd: Waiting
+283ac05c32e6: Waiting
+e203d50c86bd: Waiting
+04ca5f1a3c03: Waiting
+04ca5f1a3c03: Pushed
+a95f3e30db8b: Waiting
+bce3d672089f: Pushed
+e2de96513ba9: Pushed
+e203d50c86bd: Pushed
+a95f3e30db8b: Pushed
+62be662a2732: Pushed
+283ac05c32e6: Pushed
+a594b79e4920: Pushed
+verified: digest: sha256:e4bca6cefdedd7e035d5b641048bbc6e65ecb07fdd9c0fba800071571f9c5f92 size: 856
++ docker pull localhost:5002/aditya-session17:verified
+verified: Pulling from aditya-session17
+Digest: sha256:e4bca6cefdedd7e035d5b641048bbc6e65ecb07fdd9c0fba800071571f9c5f92
+Status: Image is up to date for localhost:5002/aditya-session17:verified
+localhost:5002/aditya-session17:verified
++ printf '\nSECTION DEPLOY\n'
+
+SECTION DEPLOY
++ minikube image load localhost:5002/aditya-session17:verified
++ kubectl create ns aditya-s17
+namespace/aditya-s17 created
++ sed 's#image: aditya-session17:verified#image: localhost:5002/aditya-session17:verified#' k8s/deployment.yaml
++ kubectl -n aditya-s17 apply -f -
+deployment.apps/session17-app created
++ kubectl -n aditya-s17 apply -f k8s/service.yaml
+service/session17-app created
++ kubectl -n aditya-s17 rollout status deploy/session17-app --timeout=180s
+Waiting for deployment "session17-app" rollout to finish: 0 of 2 updated replicas are available...
+Waiting for deployment "session17-app" rollout to finish: 1 of 2 updated replicas are available...
+deployment "session17-app" successfully rolled out
++ kubectl -n aditya-s17 get pods -o wide
+NAME                             READY   STATUS    RESTARTS   AGE   IP            NODE       NOMINATED NODE   READINESS GATES
+session17-app-6f6b496487-944c9   1/1     Running   0          2s    10.244.0.35   minikube   <none>           <none>
+session17-app-6f6b496487-frsjt   1/1     Running   0          2s    10.244.0.34   minikube   <none>           <none>
++ kubectl -n aditya-s17 logs deploy/session17-app
+Found 2 pods, using pod/session17-app-6f6b496487-944c9
+[2026-10-07 12:44:20 +0000] [1] [INFO] Starting gunicorn 23.0.0
+[2026-10-07 12:44:20 +0000] [1] [INFO] Listening at: http://0.0.0.0:5001 (1)
+[2026-10-07 12:44:20 +0000] [1] [INFO] Using worker: sync
+[2026-10-07 12:44:20 +0000] [6] [INFO] Booting worker with pid: 6
++ kubectl -n aditya-s17 exec deploy/session17-app -- python -c 'import urllib.request; print(urllib.request.urlopen("http://session17-app/health").read().decode())'
+{"status":"healthy","timestamp":"2026-10-07T12:44:22.284702Z","uptime_seconds":0.83}
+
++ kubectl delete ns aditya-s17 --wait=true --timeout=180s
+namespace "aditya-s17" deleted
++ docker rm -f aditya-s17-registry
+aditya-s17-registry
