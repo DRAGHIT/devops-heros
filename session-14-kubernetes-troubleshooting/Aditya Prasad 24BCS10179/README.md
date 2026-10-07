@@ -6,7 +6,7 @@ Roll Number: 24BCS10179
 Executed in the user's 2-core GitHub Codespace with Minikube, Kubernetes v1.37.0. Each fault was observed and investigated before fixing it. Namespaces isolate the lab; teacher manifests are untouched. Terminal screenshots are rendered from the actual saved execution log, not example output.
 
 ## Commands
-`kubectl get`, `get -o wide`, `describe`, `logs`, `exec`, `events`, `explain`, and `top` were executed. Initial `top` calls failed because Metrics API was not ready after the cluster resumed. Supplemental output records restart and another check; see its exact result.
+`kubectl get`, `get -o wide`, `describe`, `logs`, `exec`, `events`, `explain`, and `top` were executed. Initial `top` calls failed because Metrics API was not ready after the cluster resumed. Supplemental output records restart and another check; `top pods` and `top nodes` then returned actual CPU/memory usage. The initial failures remain in the log.
 
 ## Fault, investigation, root cause, fix and verification
 | Problem | Observed diagnosis | Root cause | Fix and verification |
