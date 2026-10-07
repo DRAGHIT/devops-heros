@@ -1,0 +1,14 @@
+GET /health: HTTP 200
+GET /ready: HTTP 200
+GET /docs: HTTP 200
+GET /openapi.json: HTTP 200
+GET /metrics: HTTP 200
+POST /api/tasks: HTTP 201
+GET /api/tasks/1: HTTP 200
+PUT /api/tasks/1: HTTP 200
+GET /api/tasks: HTTP 200
+GET /api/tasks/stats: HTTP 200
+POST /api/tasks: HTTP 201
+DELETE /api/tasks/2: HTTP 204
+CRUD and PostgreSQL readiness checks PASS. Kept one proof task for UI/database evidence.
+GET http://localhost:3000: HTTP 200

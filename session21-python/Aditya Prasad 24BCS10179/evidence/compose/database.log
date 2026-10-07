@@ -1,0 +1,10 @@
+                                         version                                          | current_database 
+------------------------------------------------------------------------------------------+------------------
+ PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit | taskboard
+(1 row)
+
+ id |          title           |   status    |   assignee    
+----+--------------------------+-------------+---------------
+  1 | compose PostgreSQL proof | IN_PROGRESS | Aditya Prasad
+(1 row)
+

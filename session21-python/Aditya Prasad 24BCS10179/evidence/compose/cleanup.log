@@ -1,0 +1,23 @@
+Wed Oct  7 14:05:58 UTC 2026
+ Container aditya-s21-frontend-1 Stopping 
+ Container aditya-s21-frontend-1 Stopped 
+ Container aditya-s21-frontend-1 Removing 
+ Container aditya-s21-frontend-1 Removed 
+ Container aditya-s21-backend-1 Stopping 
+ Container aditya-s21-backend-1 Stopped 
+ Container aditya-s21-backend-1 Removing 
+ Container aditya-s21-backend-1 Removed 
+ Container aditya-s21-postgres-1 Stopping 
+ Container aditya-s21-postgres-1 Stopped 
+ Container aditya-s21-postgres-1 Removing 
+ Container aditya-s21-postgres-1 Removed 
+ Volume aditya-s21_postgres-data Removing 
+ Network aditya-s21_default Removing 
+ Volume aditya-s21_postgres-data Removed 
+ Network aditya-s21_default Removed 
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+DRIVER    VOLUME NAME
+NETWORK ID   NAME      DRIVER    SCOPE
+Port 3000 closed
+Port 8000 closed
+Manual PostgreSQL already stopped. Exercise bridge rule removed.

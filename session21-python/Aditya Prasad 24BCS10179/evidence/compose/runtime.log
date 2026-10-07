@@ -1,0 +1,7 @@
+NAME                    IMAGE                 COMMAND                  SERVICE    CREATED              STATUS                        PORTS
+aditya-s21-backend-1    aditya-s21-backend    "sh -c 'alembic upgr…"   backend    About a minute ago   Up 3 seconds                  127.0.0.1:8000->8000/tcp
+aditya-s21-frontend-1   aditya-s21-frontend   "/docker-entrypoint.…"   frontend   About a minute ago   Up About a minute             127.0.0.1:3000->80/tcp
+aditya-s21-postgres-1   postgres:16-alpine    "docker-entrypoint.s…"   postgres   About a minute ago   Up About a minute (healthy)   127.0.0.1:5432->5432/tcp
+IMAGE                        ID             DISK USAGE   CONTENT SIZE   EXTRA
+aditya-s21-backend:latest    701ad1710756        298MB         70.9MB   U    
+aditya-s21-frontend:latest   efe341f45066       73.9MB         21.1MB   U    

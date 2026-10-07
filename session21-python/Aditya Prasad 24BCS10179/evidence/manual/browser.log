@@ -1,0 +1,4 @@
+frontend: browser screenshot captured from http://localhost:3000
+docs: browser screenshot captured from http://localhost:8000/docs
+health: browser screenshot captured from http://localhost:8000/health
+metrics: browser screenshot captured from http://localhost:8000/metrics
